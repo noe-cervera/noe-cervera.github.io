@@ -4,85 +4,150 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact — Noé Cervera</title>
-  <meta name="description" content="Contacter Noé Cervera pour une alternance ou un stage en informatique. Étudiant BUT Informatique 2e année, spécialisé en infrastructure et sécurité IAM.">
+  <meta name="description" content="Contacter Noé Cervera pour une alternance ou un stage en informatique. Développeur Full-Stack spécialisé en infrastructure, IAM et IA.">
   <meta name="author" content="Noé Cervera">
   <meta name="robots" content="index, follow">
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://noe-cervera.github.io/contact.html">
   <meta property="og:title" content="Contact — Noé Cervera">
-  <meta property="og:description" content="Disponible pour une alternance en informatique. Contactez Noé Cervera par email, GitHub ou LinkedIn.">
-
+  <meta property="og:description" content="Disponible pour une alternance en informatique. Contactez Noé Cervera.">
   <link rel="canonical" href="https://noe-cervera.github.io/contact.html">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<header class="header">
+
+<header class="header" id="header">
   <nav class="nav container">
-    <a class="brand" href="index.html"><img src="assets/logo.svg" alt="Logo Noé Cervera"><span>Noé Cervera</span></a>
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="Logo Noé Cervera">
+      <span>Noé Cervera</span>
+    </a>
     <div class="menu">
       <a href="index.html">Accueil</a>
-      <a href="sae.html">SAE</a>
-      <a href="stage.html">Stage</a>
-      <a href="contact.html" style="color:#fff;border-color:#30364a;background:#0f1118">Contact</a>
-      <a class="btn" href="docs/CV_NOE_CERVERA.pdf" download>Télécharger — CV</a>
+      <a href="alternance.html">Alternance</a>
+      <a href="projets.html">Projets</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a class="btn" href="docs/CV_NOE_CERVERA.pdf" download>
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0-4-4m4 4 4-4M4 20h16"/></svg>
+        CV
+      </a>
     </div>
   </nav>
 </header>
-<main class="container">
-  <section class="section">
+
+<div class="page-header">
+  <div class="container fade-up">
     <h1>Me contacter</h1>
-    <p class="lead">Disponible pour une alternance ou un stage ? Laisse-moi un message ci-dessous ou écris-moi directement.</p>
-    <div class="card" style="max-width:680px">
+    <p>Disponible pour une alternance ou un stage ? Écris-moi directement.</p>
+  </div>
+</div>
+
+<main class="container">
+
+  <div style="display:grid;grid-template-columns:1fr 340px;gap:32px;margin-bottom:60px" class="fade-up">
+
+    <!-- Form -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:32px;box-shadow:var(--s2)">
+      <h2 style="font-size:18px;margin-bottom:20px">Envoyer un message</h2>
       <form action="https://formspree.io/f/cervera.noe@gmail.com" method="POST">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
           <div>
-            <label for="name">Prénom & Nom</label>
-            <input id="name" name="name" required placeholder="Votre nom" style="width:100%;margin-top:6px;padding:10px 12px;border-radius:10px;border:1px solid #2a3042;background:#0f1118;color:#e6e9ef">
+            <label for="name" style="display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px">Prénom & Nom</label>
+            <input id="name" name="name" required placeholder="Votre nom"
+              style="width:100%;padding:10px 14px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;font-family:inherit;outline:none;transition:border-color .15s"
+              onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
           </div>
           <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="votre@email.fr" style="width:100%;margin-top:6px;padding:10px 12px;border-radius:10px;border:1px solid #2a3042;background:#0f1118;color:#e6e9ef">
+            <label for="email" style="display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px">Email</label>
+            <input id="email" name="email" type="email" required placeholder="votre@email.fr"
+              style="width:100%;padding:10px 14px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;font-family:inherit;outline:none;transition:border-color .15s"
+              onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
           </div>
         </div>
-        <div style="margin-top:12px">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="6" placeholder="Votre message..." style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid #2a3042;background:#0f1118;color:#e6e9ef"></textarea>
+        <div style="margin-bottom:20px">
+          <label for="message" style="display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Bonjour Noé, je vous contacte pour..."
+            style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;font-family:inherit;resize:vertical;outline:none;transition:border-color .15s"
+            onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
         </div>
-        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn" type="submit">Envoyer</button>
-          <a class="btn" style="background:var(--accent-2)" href="mailto:cervera.noe@gmail.com">Écrire par mail</a>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn" type="submit">Envoyer le message</button>
+          <a class="btn btn-ghost" href="mailto:cervera.noe@gmail.com">Écrire par mail</a>
         </div>
       </form>
     </div>
-  </section>
-  <section class="section">
-    <h2>Réseaux</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>GitHub</h3>
-        <p><a href="https://github.com/noe-cervera" target="_blank" rel="noopener">github.com/noe-cervera</a></p>
+
+    <!-- Info -->
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:var(--s1)">
+        <h3 style="font-size:14px;font-weight:700;color:var(--muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:.4px">Contact direct</h3>
+        <a href="mailto:cervera.noe@gmail.com" style="display:flex;align-items:center;gap:10px;color:var(--text);font-weight:600;font-size:14px;text-decoration:none;margin-bottom:10px">
+          <span style="width:32px;height:32px;background:rgba(79,70,229,.1);border-radius:8px;display:flex;align-items:center;justify-content:center">📧</span>
+          cervera.noe@gmail.com
+        </a>
+        <a href="tel:0651476504" style="display:flex;align-items:center;gap:10px;color:var(--text);font-weight:600;font-size:14px;text-decoration:none">
+          <span style="width:32px;height:32px;background:rgba(22,163,74,.1);border-radius:8px;display:flex;align-items:center;justify-content:center">📞</span>
+          06 51 47 65 04
+        </a>
       </div>
-      <div class="card">
-        <h3>LinkedIn</h3>
-        <p><a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">linkedin.com/in/noé-cervera</a></p>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:var(--s1)">
+        <h3 style="font-size:14px;font-weight:700;color:var(--muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:.4px">Réseaux</h3>
+        <a href="https://github.com/noe-cervera" target="_blank" rel="noopener"
+          style="display:flex;align-items:center;gap:10px;color:var(--text);font-weight:600;font-size:14px;text-decoration:none;margin-bottom:10px">
+          <span style="width:32px;height:32px;background:#0f1118;border-radius:8px;display:flex;align-items:center;justify-content:center">
+            <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </span>
+          github.com/noe-cervera
+        </a>
+        <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener"
+          style="display:flex;align-items:center;gap:10px;color:var(--text);font-weight:600;font-size:14px;text-decoration:none">
+          <span style="width:32px;height:32px;background:#0077b5;border-radius:8px;display:flex;align-items:center;justify-content:center">
+            <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zm2-3a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+          </span>
+          linkedin.com/in/noé-cervera
+        </a>
       </div>
-      <div class="card">
-        <h3>Email</h3>
-        <p><a href="mailto:cervera.noe@gmail.com">cervera.noe@gmail.com</a></p>
+
+      <div style="background:rgba(79,70,229,.05);border:1px solid rgba(79,70,229,.15);border-radius:16px;padding:20px">
+        <p style="margin:0;font-size:13.5px;color:var(--muted);line-height:1.6">
+          <strong style="color:var(--accent)">Disponible en alternance</strong> — ouvert à toute proposition dans les domaines de l'infrastructure, de la sécurité, du développement back-end ou de l'IA.
+        </p>
       </div>
     </div>
-  </section>
 
-  <footer class="footer">
-    <p>© 2026 Noé Cervera — <a href="mailto:cervera.noe@gmail.com" style="color:var(--accent)">cervera.noe@gmail.com</a></p>
-  </footer>
+  </div>
+
 </main>
+
+<footer class="footer container">
+  <span>© 2026 Noé Cervera</span>
+  <div style="display:flex;gap:16px;align-items:center">
+    <a href="mailto:cervera.noe@gmail.com">cervera.noe@gmail.com</a>
+    <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+const hdr = document.getElementById('header');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 10));
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// responsive contact grid
+function fixGrid() {
+  const g = document.querySelector('main > div');
+  if (g) g.style.gridTemplateColumns = window.innerWidth < 700 ? '1fr' : '1fr 340px';
+}
+window.addEventListener('resize', fixGrid);
+fixGrid();
+</script>
 </body>
 </html>

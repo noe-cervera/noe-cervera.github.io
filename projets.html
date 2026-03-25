@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projets Académiques | Noé Cervera</title>
+  <meta name="description" content="Projets académiques de Noé Cervera : SmartFace Insight (deep learning visage, TensorFlow, Android), analyse brevets 6G THALES, site F1 PHP/MySQL.">
+  <meta name="author" content="Noé Cervera">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noe-cervera.github.io/projets.html">
+  <meta property="og:title" content="Projets Académiques | Noé Cervera">
+  <meta property="og:description" content="SmartFace Insight (Deep Learning MoE), Analyse Brevets 6G THALES, Site F1 PHP/SQL.">
+  <link rel="canonical" href="https://noe-cervera.github.io/projets.html">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <nav class="nav container">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="Logo Noé Cervera">
+      <span>Noé Cervera</span>
+    </a>
+    <div class="menu">
+      <a href="index.html">Accueil</a>
+      <a href="alternance.html">Alternance</a>
+      <a href="projets.html" class="active">Projets</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn" href="docs/CV_NOE_CERVERA.pdf" download>
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0-4-4m4 4 4-4M4 20h16"/></svg>
+        CV
+      </a>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container fade-up">
+    <h1>Projets académiques</h1>
+    <p>SAE, brevets et projets universitaires — preuves concrètes de compétences techniques.</p>
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- ── SMARTFACE INSIGHT ───────────────────────── -->
+  <section class="section fade-up" id="smartface">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <div style="width:4px;height:40px;background:var(--p);border-radius:2px"></div>
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <span class="badge" style="background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.2);color:var(--p)">SAE BUT Informatique · 2026</span>
+        </div>
+        <h2 style="font-size:24px;font-weight:800;margin:0">SmartFace Insight — Vision par ordinateur & Deep Learning</h2>
+      </div>
+    </div>
+    <p class="lead" style="color:var(--muted);font-size:15px;margin:12px 0 28px;max-width:760px">
+      Conception d'un modèle de deep learning multitâche intégrant une approche <strong>Mixture of Experts (MoE)</strong> pour la prédiction d'attributs faciaux, avec déploiement en temps réel sur Android via TensorFlow Lite.
+    </p>
+
+    <div class="grid-2" style="gap:20px;margin-bottom:28px">
+      <div class="card" style="border-top:3px solid var(--p)">
+        <h3 style="margin-bottom:10px">🧠 Modèle IA</h3>
+        <ul style="font-size:14px;color:var(--muted);margin:0">
+          <li>Architecture <strong>Mixture of Experts (MoE)</strong> multitâche</li>
+          <li>Backbone <strong>EfficientNetB0</strong> en transfer learning</li>
+          <li>Dataset <strong>UTKFace</strong> (âge, genre, ethnie)</li>
+          <li>Preprocessing, normalisation, data augmentation</li>
+          <li>Entraînement TensorFlow puis optimisation TFLite</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:3px solid var(--p)">
+        <h3 style="margin-bottom:10px">📱 Application Android</h3>
+        <ul style="font-size:14px;color:var(--muted);margin:0">
+          <li>Application native <strong>Kotlin</strong> avec <strong>Jetpack Compose</strong></li>
+          <li>Inférence en temps réel via <strong>TensorFlow Lite</strong></li>
+          <li>Caméra live + prédiction instantanée des attributs</li>
+          <li>Interface moderne avec affichage des probabilités</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="badges">
+      <span class="badge">Python</span>
+      <span class="badge">TensorFlow</span>
+      <span class="badge">TensorFlow Lite</span>
+      <span class="badge">Keras</span>
+      <span class="badge">EfficientNetB0</span>
+      <span class="badge">Mixture of Experts</span>
+      <span class="badge">Transfer Learning</span>
+      <span class="badge">UTKFace</span>
+      <span class="badge">Kotlin</span>
+      <span class="badge">Jetpack Compose</span>
+      <span class="badge">Android</span>
+    </div>
+
+    <div style="margin-top:24px">
+      <h3 style="font-size:16px;margin-bottom:12px">Auto-évaluation</h3>
+      <table class="table">
+        <tr><th>Objectif</th><td>Prédiction multitâche d'attributs faciaux (âge, genre, ethnie) en temps réel sur mobile</td></tr>
+        <tr><th>Architecture</th><td>MoE multitâche — chaque "expert" se spécialise sur une tâche de prédiction</td></tr>
+        <tr><th>Pipeline</th><td>Preprocessing → Augmentation → Entraînement TF → Conversion TFLite → App Android</td></tr>
+        <tr><th>Points forts</th><td>Architecture MoE innovante, déploiement mobile complet, pipeline end-to-end</td></tr>
+        <tr><th>À améliorer</th><td>Précision sur l'ethnie (biais dataset), tests sur plus de devices, CI/CD mobile</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- ── BREVET THALES ───────────────────────────── -->
+  <section class="section fade-up" id="thales">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <div style="width:4px;height:40px;background:var(--b);border-radius:2px"></div>
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <span class="badge" style="background:rgba(14,165,233,.08);border-color:rgba(14,165,233,.2);color:var(--b)">Brevet · THALES GROUP · 2025</span>
+          <span class="badge">Distribution Limitée</span>
+        </div>
+        <h2 style="font-size:24px;font-weight:800;margin:0">Acquisition Automatique de Données — Brevets 6G</h2>
+      </div>
+    </div>
+    <p class="lead" style="color:var(--muted);font-size:15px;margin:12px 0 28px;max-width:760px">
+      Application d'analyse automatique de brevets technologiques 6G pour <strong>THALES Group</strong>. Pipeline complet de collecte, traitement NLP et visualisation interactive.
+    </p>
+
+    <div class="grid-2" style="gap:20px;margin-bottom:28px">
+      <div class="card" style="border-top:3px solid var(--b)">
+        <h3 style="margin-bottom:10px">🔍 Collecte & Stockage</h3>
+        <ul style="font-size:14px;color:var(--muted);margin:0">
+          <li>Collecte automatisée de brevets depuis bases publiques</li>
+          <li>Stockage structuré et indexation des documents</li>
+          <li>Pipeline ETL entièrement automatisé</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:3px solid var(--b)">
+        <h3 style="margin-bottom:10px">🤖 Traitement NLP</h3>
+        <ul style="font-size:14px;color:var(--muted);margin:0">
+          <li>Résumé automatique des brevets</li>
+          <li>Classification thématique des innovations 6G</li>
+          <li>Extraction d'entités et relations clés</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="badges" style="margin-bottom:24px">
+      <span class="badge">Python</span>
+      <span class="badge">NLP</span>
+      <span class="badge">Streamlit</span>
+      <span class="badge">Analyse de données</span>
+      <span class="badge">Visualisation</span>
+      <span class="badge">Automatisation</span>
+    </div>
+
+    <div style="background:rgba(14,165,233,.05);border:1px solid rgba(14,165,233,.2);border-radius:12px;padding:16px 20px">
+      <p style="margin:0;font-size:14px;color:var(--muted)">
+        <strong style="color:var(--b)">Contexte :</strong> Projet réalisé dans le cadre d'une collaboration avec THALES Group Limited. Résultats soumis à distribution limitée. Dashboard Streamlit interactif permettant la navigation et l'analyse des brevets 6G collectés.
+      </p>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- ── SAE F1 ───────────────────────────────────── -->
+  <section class="section fade-up" id="sae-f1">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <div style="width:4px;height:40px;background:var(--g);border-radius:2px"></div>
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <span class="badge" style="background:rgba(22,163,74,.08);border-color:rgba(22,163,74,.2);color:var(--g)">SAE BUT Informatique · Semestre 2</span>
+        </div>
+        <h2 style="font-size:24px;font-weight:800;margin:0">Site F1 Dynamique — PHP/SQL</h2>
+      </div>
+    </div>
+    <p class="lead" style="color:var(--muted);font-size:15px;margin:12px 0 28px;max-width:760px">
+      Application web locale centralisant pilotes, écuries et résultats F1, avec authentification utilisateurs et import CSV. Réalisée en binôme avec <strong>Abou Lacine</strong>.
+    </p>
+
+    <div class="grid-3" style="gap:16px;margin-bottom:24px">
+      <div class="card"><h3>Pilotes & Écuries</h3><p>Vignettes, fiches détaillées, tableaux filtrables, points de classement.</p></div>
+      <div class="card"><h3>Authentification</h3><p>Inscription/connexion par sessions PHP. Abonnements dynamiques aux pilotes.</p></div>
+      <div class="card"><h3>Import CSV</h3><p>Alimentation rapide des tables MySQL via scripts d'import. Images dynamiques.</p></div>
+    </div>
+
+    <div class="badges" style="margin-bottom:24px">
+      <span class="badge">PHP 8</span>
+      <span class="badge">MySQL</span>
+      <span class="badge">HTML/CSS</span>
+      <span class="badge">WAMP</span>
+      <span class="badge">Sessions PHP</span>
+      <span class="badge">Import CSV</span>
+    </div>
+
+    <table class="table">
+      <tr><th>Équipe</th><td>Noé Cervera & Abou Lacine</td></tr>
+      <tr><th>Durée</th><td>Semestre 2 (BUT 1)</td></tr>
+      <tr><th>Points forts</th><td>Architecture claire, séparation des pages, logique d'abonnement, import de données.</td></tr>
+      <tr><th>À améliorer</th><td>Sécurisation sessions/inputs, tests unitaires, design responsive avancé, classes DAO.</td></tr>
+      <tr><th>Si c'était à refaire</th><td>Classes DAO, authentification améliorée, rôles admin/user distincts.</td></tr>
+    </table>
+  </section>
+
+</main>
+
+<footer class="footer container">
+  <span>© 2026 Noé Cervera</span>
+  <div style="display:flex;gap:16px;align-items:center">
+    <a href="mailto:cervera.noe@gmail.com">cervera.noe@gmail.com</a>
+    <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+const hdr = document.getElementById('header');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 10));
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
