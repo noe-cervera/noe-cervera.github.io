@@ -19,20 +19,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* ── Hero centré ───────────────────────── */
+    /* ── Hero ───────────────────────── */
     .hero-section {
       background: linear-gradient(180deg, rgba(79,70,229,.05) 0%, transparent 100%);
       border-bottom: 1px solid var(--border);
-      text-align: center;
-      padding: 80px 0 72px;
+      padding: 52px 0 46px;
+    }
+    .hero-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      column-gap: 34px;
+      align-items: center;
+    }
+    .hero-layout > :not(.hero-photo) {
+      grid-column: 2;
     }
     .hero-photo {
-      width: 160px; height: 160px;
+      width: 140px; height: 140px;
       border-radius: 50%; object-fit: cover; object-position: top;
       border: 5px solid #fff;
       box-shadow: 0 8px 40px rgba(79,70,229,.18), 0 2px 8px rgba(0,0,0,.08);
-      margin-bottom: 28px;
-      display: block; margin-left: auto; margin-right: auto;
+      display: block;
+      margin: 0;
+      grid-column: 1;
+      grid-row: 1 / span 4;
     }
     .hero-available {
       display: inline-flex; align-items: center; gap: 7px;
@@ -42,16 +54,16 @@
       margin-bottom: 24px;
     }
     .hero-name {
-      font-size: clamp(52px, 8vw, 88px);
+      font-size: clamp(42px, 5.4vw, 70px);
       font-weight: 900; letter-spacing: -3px; line-height: 1;
-      margin: 0 0 16px;
+      margin: 0 0 12px;
       color: var(--text);
     }
     .hero-name span { color: var(--accent); }
     .hero-role {
       font-size: clamp(17px, 2.5vw, 22px);
       color: var(--muted); font-weight: 500;
-      margin: 0 0 32px; line-height: 1.5;
+      margin: 0 0 22px; line-height: 1.45;
     }
     .hero-meta-row {
       display: flex; flex-wrap: wrap;
@@ -60,33 +72,22 @@
       margin-bottom: 36px;
     }
     .hero-actions {
-      display: flex; justify-content: center; gap: 12px;
-      flex-wrap: wrap; margin-bottom: 32px;
+      display: flex; justify-content: flex-start; gap: 12px;
+      flex-wrap: wrap; margin-bottom: 18px;
     }
     .hero-actions .btn { padding: 13px 26px; font-size: 15px; }
     .hero-links {
-      display: flex; justify-content: center; gap: 24px;
+      display: flex; justify-content: flex-start; gap: 24px;
       font-size: 14px; font-weight: 600;
     }
     .hero-links a { color: var(--muted); }
     .hero-links a:hover { color: var(--accent); }
 
-    /* ── Stats row sous hero ────────────────── */
-    .hero-stats-row {
-      display: flex; justify-content: center; flex-wrap: wrap;
-      gap: 0; max-width: 760px; margin: 48px auto 0;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 18px; overflow: hidden;
-      box-shadow: var(--s2);
+    /* ── Largeur globale ────────────────────── */
+    .container {
+      max-width: 1480px;
+      padding: 0 28px;
     }
-    .hsr-item {
-      flex: 1; min-width: 140px;
-      padding: 20px 16px; text-align: center;
-      border-right: 1px solid var(--border);
-    }
-    .hsr-item:last-child { border-right: none; }
-    .hsr-label { font-size: 11px; font-weight: 700; color: var(--subtle); text-transform: uppercase; letter-spacing: .6px; margin-bottom: 5px; }
-    .hsr-val { font-size: 14px; font-weight: 700; color: var(--text); }
 
     /* ── Sections centrées ──────────────────── */
     .section-wrap {
@@ -94,6 +95,53 @@
     }
     .section-wrap-wide {
       max-width: 1060px; margin: 0 auto;
+    }
+    .home-section .sec-heading {
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .home-section .section-wrap,
+    .home-section .section-wrap-wide {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .home-sections-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+      align-items: start;
+      margin: 44px auto 82px;
+    }
+    .home-sections-grid .home-section {
+      margin: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--s1);
+      padding: 36px 30px;
+      height: 100%;
+    }
+    .home-sections-grid .home-section .sec-heading {
+      text-align: left;
+      margin-bottom: 28px;
+    }
+    .home-sections-grid .home-section .sec-sub {
+      max-width: none;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .home-sections-grid .home-section .section-wrap,
+    .home-sections-grid .home-section .section-wrap-wide {
+      max-width: none;
+    }
+    .home-sections-grid .home-section .projects-grid,
+    .home-sections-grid .home-section .form-grid {
+      grid-template-columns: 1fr;
+    }
+    .home-sections-grid .home-section .tl-card {
+      padding: 26px;
     }
 
     /* ── Titres de section ──────────────────── */
@@ -127,6 +175,11 @@
       transition: box-shadow .2s;
     }
     .tl-card:hover { box-shadow: var(--s2); }
+    .tl-card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
     .tl-card-head {
       display: flex; align-items: flex-start;
       justify-content: space-between; gap: 16px;
@@ -149,7 +202,6 @@
       font-size: 15.5px; color: var(--muted); line-height: 1.7;
       margin: 0 0 16px;
     }
-
     /* ── Projets ────────────────────────────── */
     .projects-grid {
       display: grid;
@@ -190,6 +242,22 @@
       font-size: 14px; font-weight: 700;
       display: flex; align-items: center; gap: 4px;
     }
+    .home-sections-grid .sd.open .sd-body { max-height: 1200px; }
+    .sd-explain {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      background: var(--bg);
+    }
+    .sd-explain p {
+      margin: 0 0 8px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .sd-explain p:last-child { margin-bottom: 0; }
+    .sd-explain strong { color: var(--text); }
 
     /* Formation cards */
     .form-grid {
@@ -209,14 +277,81 @@
     }
     .form-card p { font-size: 14px; color: var(--muted); margin: 0; }
 
+    /* Soft skills */
+    .soft-skill-section {
+      margin: 0 auto 84px;
+      padding-top: 6px;
+    }
+    .soft-heading {
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .soft-heading .sec-sub {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 860px;
+    }
+    .soft-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .soft-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      box-shadow: var(--s1);
+    }
+    .soft-card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .soft-card p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .hero-layout {
+        max-width: none;
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+        justify-items: center;
+      }
+      .hero-layout > :not(.hero-photo) {
+        grid-column: auto;
+      }
+      .hero-photo {
+        grid-column: auto;
+        grid-row: auto;
+        margin-bottom: 10px;
+      }
+      .hero-section {
+        text-align: center;
+      }
+      .hero-actions,
+      .hero-links {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 1100px) {
+      .home-sections-grid { grid-template-columns: 1fr; }
+      .soft-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     @media (max-width: 800px) {
       .projects-grid { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
-      .hsr-item { min-width: 100px; }
+      .soft-grid { grid-template-columns: 1fr; }
       .hero-name { letter-spacing: -2px; }
+      .container { padding: 0 20px; }
     }
     @media (max-width: 500px) {
-      .hsr-item:nth-child(n+4) { display: none; }
+      .container { padding: 0 16px; }
     }
   </style>
 </head>
@@ -226,17 +361,14 @@
   <nav class="nav container">
     <a class="brand" href="index.html">
       <img src="assets/logo.svg" alt="Logo Noé Cervera">
-      <span>Noé Cervera</span>
+      <span>Portfolios</span>
     </a>
     <div class="menu">
       <a href="index.html" class="active">Accueil</a>
       <a href="alternance.html">Alternance</a>
       <a href="projets.html">Projets</a>
       <a href="contact.html">Contact</a>
-      <a class="btn" href="docs/CV_NOE_CERVERA.pdf" download>
-        <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0-4-4m4 4 4-4M4 20h16"/></svg>
-        CV
-      </a>
+      <a class="btn" href="apropos.html">À propos</a>
     </div>
   </nav>
 </header>
@@ -245,76 +377,46 @@
 
   <!-- ── HERO centré ──────────────────────────────── -->
   <section class="hero-section fade-up">
-    <div class="container">
-      <div class="hero-available">🟢 Disponible en alternance</div>
+    <div class="container hero-layout">
       <img class="hero-photo" src="assets/photo-profil.png" alt="Photo Noé Cervera">
       <h1 class="hero-name">Noé <span>Cervera</span></h1>
       <p class="hero-role">
         Développeur Full-Stack · Infrastructure & Sécurité IAM · IA
       </p>
-      <div class="hero-meta-row">
-        <span>📍 Épinay-sur-Seine</span>
-        <span>📧 cervera.noe@gmail.com</span>
-        <span>📞 06 51 47 65 04</span>
-        <span>🚗 Permis B · véhiculé</span>
-      </div>
       <div class="hero-actions">
         <a class="btn" href="alternance.html">Voir l'alternance ATLAS →</a>
         <a class="btn btn-ghost" href="contact.html">Me contacter</a>
-        <a class="btn btn-ghost" href="docs/CV_NOE_CERVERA.pdf" download>Télécharger le CV</a>
       </div>
       <div class="hero-links">
         <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">⟶ GitHub</a>
         <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">⟶ LinkedIn</a>
       </div>
 
-      <!-- Stats row -->
-      <div class="hero-stats-row">
-        <div class="hsr-item">
-          <div class="hsr-label">Université</div>
-          <div class="hsr-val">Sorbonne Paris Nord</div>
-        </div>
-        <div class="hsr-item">
-          <div class="hsr-label">Alternance</div>
-          <div class="hsr-val">AP-HP Henri Mondor</div>
-        </div>
-        <div class="hsr-item">
-          <div class="hsr-label">Anglais</div>
-          <div class="hsr-val">B1 · Irlande</div>
-        </div>
-        <div class="hsr-item">
-          <div class="hsr-label">Espagnol</div>
-          <div class="hsr-val">B2</div>
-        </div>
-        <div class="hsr-item">
-          <div class="hsr-label">Sports</div>
-          <div class="hsr-val">Basket N2 · Karaté 🥋</div>
-        </div>
-      </div>
     </div>
   </section>
 
 
-  <!-- ── EXPÉRIENCES ──────────────────────────────── -->
-  <section class="container section fade-up">
-    <div class="sec-heading">
+  <!-- ── GRILLE 2×2 ───────────────────────────────── -->
+  <div class="container home-sections-grid fade-up">
+
+    <!-- EXPÉRIENCES -->
+    <section class="home-section">
       <div class="sec-label">Parcours</div>
-      <h2 class="sec-title">Expériences professionnelles</h2>
-      <p class="sec-sub">Développement full-stack en environnement hospitalier, de la preuve de concept à la plateforme complète.</p>
-    </div>
-    <div class="section-wrap">
+      <h2 class="sec-title">Expériences</h2>
 
       <div class="tl-card">
         <div class="tl-card-head">
           <h3>Développeur Full-Stack — Alternance</h3>
           <span class="tl-card-date">2025 – 2026</span>
         </div>
-        <div class="tl-card-where">AP-HP Henri Mondor · Plateforme GenoBioMICS / ATLAS</div>
-        <p>Conception d'un middleware hospitalier microservices pour la gestion des données génomiques et des workflows bioinformatiques. Backend Go (BFF) avec OIDC/IAM, permissions ReBAC/ABAC, frontend React/TypeScript, DataHouse Iceberg et observabilité Redis.</p>
+        <div class="tl-card-where">AP-HP Henri Mondor · GenoBioMICS / ATLAS</div>
+        <p>Middleware hospitalier microservices : backend Go (BFF), OIDC/IAM, permissions ReBAC/ABAC, frontend React/TypeScript, DataHouse Iceberg et observabilité Redis.</p>
         <div class="badges">
           <span class="badge">Go</span><span class="badge">React/TS</span><span class="badge">Docker</span>
-          <span class="badge">Zitadel</span><span class="badge">SpiceDB</span><span class="badge">Dgraph</span>
-          <span class="badge">Apache Iceberg</span><span class="badge">Redis</span>
+          <span class="badge">Zitadel</span><span class="badge">SpiceDB</span>
+        </div>
+        <div style="margin-top:12px">
+          <a class="pcard-voir" href="alternance.html" style="color:var(--accent)">Voir →</a>
         </div>
       </div>
 
@@ -323,16 +425,16 @@
           <h3>Développeur Full-Stack — Stage</h3>
           <span class="tl-card-date">Juil. – Août 2025</span>
         </div>
-        <div class="tl-card-where">AP-HP Henri Mondor · Plateforme GenoBioMICS</div>
-        <p>Prototype de plateforme microservices hospitalière pour la gestion des identités et des données génomiques. Architecture IAM complète (OIDC, REBAC, ABAC), base graphe Dgraph et monitoring Prometheus/Grafana.</p>
+        <div class="tl-card-where">AP-HP Henri Mondor · GenoBioMICS</div>
+        <p>Prototype microservices hospitalier : architecture IAM complète (OIDC, REBAC, ABAC), base graphe Dgraph et monitoring Prometheus/Grafana.</p>
         <div class="badges">
           <span class="badge">Go</span><span class="badge">Docker Compose</span>
-          <span class="badge">Zitadel</span><span class="badge">SpiceDB</span><span class="badge">OPA</span>
-          <span class="badge">Dgraph</span><span class="badge">Prometheus</span>
+          <span class="badge">Zitadel</span><span class="badge">SpiceDB</span>
+          <span class="badge">OPA</span><span class="badge">Dgraph</span>
         </div>
       </div>
 
-      <div class="tl-card" style="opacity:.7">
+      <div class="tl-card" style="opacity:.65">
         <div class="tl-card-head">
           <h3>Employé polyvalent</h3>
           <span class="tl-card-date">2020 – 2025</span>
@@ -340,99 +442,63 @@
         <div class="tl-card-where">Linoedesign-Paris</div>
         <p style="margin:0">Main-d'œuvre, menuiserie, pose de stores, plomberie et électricité.</p>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-
-  <!-- ── PROJETS ──────────────────────────────────── -->
-  <section class="container section fade-up">
-    <div class="sec-heading">
+    <!-- PROJETS -->
+    <section class="home-section">
       <div class="sec-label">Réalisations</div>
       <h2 class="sec-title">Projets</h2>
-      <p class="sec-sub">Du deep learning au middleware hospitalier, des preuves concrètes de compétences techniques.</p>
-    </div>
-    <div class="section-wrap-wide">
-      <div class="projects-grid">
 
-        <a class="pcard" href="alternance.html">
-          <div class="pcard-top">
-            <div class="pcard-icon" style="background:rgba(79,70,229,.1)">🏥</div>
-            <h3>ATLAS — Plateforme GenoBioMICS</h3>
-            <p>Middleware hospitalier microservices complet : OIDC, permissions PBAC (ReBAC+ABAC), base graphe, DataHouse analytique (Iceberg/Nessie/Trino) et observabilité temps réel.</p>
-          </div>
-          <div class="pcard-footer">
-            <div class="badges">
-              <span class="badge">Go</span><span class="badge">React</span><span class="badge">Docker</span><span class="badge">IAM</span>
-            </div>
-            <span class="pcard-voir" style="color:var(--accent)">Voir le projet →</span>
-          </div>
-        </a>
+      <a class="pcard" href="projets.html#smartface">
+        <div class="pcard-top">
+          <div class="pcard-icon" style="background:rgba(124,58,237,.1)">🧠</div>
+          <h3>SmartFace Insight — IA Visage</h3>
+          <p>Deep Learning multitâche (MoE), EfficientNetB0 + TFLite + app Android Kotlin/Jetpack Compose.</p>
+        </div>
+        <div class="pcard-footer">
+          <div class="badges"><span class="badge">TensorFlow</span><span class="badge">Python</span><span class="badge">Kotlin</span></div>
+          <span class="pcard-voir" style="color:var(--p)">Voir →</span>
+        </div>
+      </a>
 
-        <a class="pcard" href="projets.html#smartface">
-          <div class="pcard-top">
-            <div class="pcard-icon" style="background:rgba(124,58,237,.1)">🧠</div>
-            <h3>SmartFace Insight — IA Visage</h3>
-            <p>Deep Learning multitâche avec Mixture of Experts pour prédire âge, genre et ethnie. EfficientNetB0 + TFLite + application Android Kotlin/Jetpack Compose pour inférence en temps réel.</p>
-          </div>
-          <div class="pcard-footer">
-            <div class="badges">
-              <span class="badge">TensorFlow</span><span class="badge">Python</span><span class="badge">Kotlin</span><span class="badge">Android</span>
-            </div>
-            <span class="pcard-voir" style="color:var(--p)">Voir le projet →</span>
-          </div>
-        </a>
+      <a class="pcard" href="projets.html#thales">
+        <div class="pcard-top">
+          <div class="pcard-icon" style="background:rgba(14,165,233,.1)">📡</div>
+          <h3>Brevets 6G — THALES</h3>
+          <p>Pipeline NLP de collecte et classification de brevets 6G avec dashboard Streamlit.</p>
+        </div>
+        <div class="pcard-footer">
+          <div class="badges"><span class="badge">Python</span><span class="badge">NLP</span><span class="badge">Streamlit</span></div>
+          <span class="pcard-voir" style="color:var(--b)">Voir →</span>
+        </div>
+      </a>
 
-        <a class="pcard" href="projets.html#thales">
-          <div class="pcard-top">
-            <div class="pcard-icon" style="background:rgba(14,165,233,.1)">📡</div>
-            <h3>Analyse Brevets 6G — THALES</h3>
-            <p>Application d'analyse automatique de brevets 6G pour THALES Group. Pipeline de collecte, traitement NLP (résumé + classification) et dashboard interactif Streamlit.</p>
-          </div>
-          <div class="pcard-footer">
-            <div class="badges">
-              <span class="badge">Python</span><span class="badge">NLP</span><span class="badge">Streamlit</span>
-            </div>
-            <span class="pcard-voir" style="color:var(--b)">Voir le projet →</span>
-          </div>
-        </a>
+      <a class="pcard" href="projets.html#sae-f1">
+        <div class="pcard-top">
+          <div class="pcard-icon" style="background:rgba(22,163,74,.1)">🏎️</div>
+          <h3>Site F1 Dynamique — SAE</h3>
+          <p>Application web F1 avec authentification, résultats et import CSV (PHP 8 + MySQL).</p>
+        </div>
+        <div class="pcard-footer">
+          <div class="badges"><span class="badge">PHP 8</span><span class="badge">MySQL</span><span class="badge">HTML/CSS</span></div>
+          <span class="pcard-voir" style="color:var(--g)">Voir →</span>
+        </div>
+      </a>
+    </section>
 
-        <a class="pcard" href="projets.html#sae-f1">
-          <div class="pcard-top">
-            <div class="pcard-icon" style="background:rgba(22,163,74,.1)">🏎️</div>
-            <h3>Site F1 Dynamique — SAE</h3>
-            <p>Application web locale centralisant pilotes, écuries et résultats F1 avec authentification utilisateurs et import CSV. Réalisée en binôme avec PHP 8 et MySQL sous WAMP.</p>
-          </div>
-          <div class="pcard-footer">
-            <div class="badges">
-              <span class="badge">PHP 8</span><span class="badge">MySQL</span><span class="badge">HTML/CSS</span>
-            </div>
-            <span class="pcard-voir" style="color:var(--g)">Voir le projet →</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ── COMPÉTENCES ──────────────────────────────── -->
-  <section class="container section fade-up">
-    <div class="sec-heading">
+    <!-- COMPÉTENCES -->
+    <section class="home-section">
       <div class="sec-label">Savoir-faire</div>
-      <h2 class="sec-title">Compétences techniques</h2>
-      <p class="sec-sub">Cliquer sur un domaine pour dérouler les technologies associées.</p>
-    </div>
-    <div class="section-wrap-wide">
-      <div class="skill-domains">
+      <h2 class="sec-title">Compétences</h2>
 
+      <div class="skill-domains">
         <div class="sd open">
-          <div class="sd-header" onclick="toggleSD(this)">
-            <div class="sd-dot"></div>
-            <span class="sd-label">Langages de programmation</span>
-            <span class="sd-chevron">▼</span>
-          </div>
+          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot"></div><span class="sd-label">Langages</span><span class="sd-chevron">▼</span></div>
           <div class="sd-body">
+            <div class="sd-explain">
+              <p><strong>Ce que c'est :</strong> les langages sont la base pour construire le frontend, le backend, les scripts et les requêtes.</p>
+              <p><strong>Pourquoi je les utilise :</strong> je choisis chaque langage selon le besoin du projet : Go pour la performance backend, TypeScript/JS pour l'interface, Python pour l'IA et l'ETL.</p>
+            </div>
             <div class="skill-tags">
               <span class="sk"><img src="assets/go.svg" alt="">Go</span>
               <span class="sk"><img src="assets/python.svg" alt="">Python</span>
@@ -441,161 +507,196 @@
               <span class="sk"><img src="assets/typescript.svg" alt="">TypeScript</span>
               <span class="sk"><img src="assets/c.svg" alt="">C</span>
               <span class="sk"><img src="assets/php.svg" alt="">PHP</span>
-              <span class="sk"><img src="assets/html.svg" alt="">HTML</span>
-              <span class="sk"><img src="assets/css.svg" alt="">CSS</span>
               <span class="sk"><img src="assets/mysql.svg" alt="">SQL</span>
             </div>
           </div>
         </div>
-
         <div class="sd purple">
-          <div class="sd-header" onclick="toggleSD(this)">
-            <div class="sd-dot"></div>
-            <span class="sd-label">IA & Deep Learning</span>
-            <span class="sd-chevron">▼</span>
-          </div>
+          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot"></div><span class="sd-label">IA & Deep Learning</span><span class="sd-chevron">▼</span></div>
           <div class="sd-body">
+            <div class="sd-explain">
+              <p><strong>Ce que c'est :</strong> un ensemble de modèles et pipelines pour prédire, classifier et extraire de la valeur à partir des données.</p>
+              <p><strong>Pourquoi je les utilise :</strong> pour analyser des données complexes (visage, textes, signaux biologiques) et intégrer des briques IA utiles dans des applications concrètes.</p>
+            </div>
             <div class="skill-tags">
-              <span class="sk"><img src="assets/tensorflow.svg" alt="">TensorFlow</span>
-              <span class="sk"><img src="assets/tensorflow.svg" alt="">TensorFlow Lite</span>
-              <span class="sk"><img src="assets/python.svg" alt="">Keras / EfficientNetB0</span>
-              <span class="sk"><img src="assets/kotlin.svg" alt="">Kotlin</span>
-              <span class="sk"><img src="assets/kotlin.svg" alt="">Jetpack Compose</span>
+              <span class="sk"><img src="assets/tensorflow.svg" alt="">TensorFlow / TFLite</span>
+              <span class="sk"><img src="assets/python.svg" alt="">Keras · EfficientNetB0</span>
+              <span class="sk"><img src="assets/kotlin.svg" alt="">Kotlin · Jetpack Compose</span>
               <span class="sk"><img src="assets/python.svg" alt="">Mixture of Experts</span>
-              <span class="sk"><img src="assets/python.svg" alt="">Transfer Learning</span>
               <span class="sk"><img src="assets/python.svg" alt="">NLP · Classification</span>
             </div>
           </div>
         </div>
-
         <div class="sd blue">
-          <div class="sd-header" onclick="toggleSD(this)">
-            <div class="sd-dot"></div>
-            <span class="sd-label">Backend & API</span>
-            <span class="sd-chevron">▼</span>
-          </div>
+          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot"></div><span class="sd-label">Backend & API</span><span class="sd-chevron">▼</span></div>
           <div class="sd-body">
+            <div class="sd-explain">
+              <p><strong>Ce que c'est :</strong> la couche qui expose les services, applique les règles métier et centralise les accès aux données.</p>
+              <p><strong>Pourquoi je les utilise :</strong> pour sécuriser les échanges, éviter les appels directs côté frontend et garder une architecture propre et maintenable.</p>
+            </div>
             <div class="skill-tags">
-              <span class="sk"><img src="assets/go.svg" alt="">Go · net/http</span>
-              <span class="sk"><img src="assets/go.svg" alt="">Pattern BFF</span>
+              <span class="sk"><img src="assets/go.svg" alt="">Go · Pattern BFF</span>
               <span class="sk"><img src="assets/nodejs.svg" alt="">Node.js</span>
               <span class="sk"><img src="assets/php.svg" alt="">PHP</span>
-              <span class="sk">GraphQL</span>
-              <span class="sk">REST</span>
+              <span class="sk">GraphQL · REST</span>
               <span class="sk">OIDC · PKCE</span>
-              <span class="sk">Sessions HTTPOnly</span>
             </div>
           </div>
         </div>
-
         <div class="sd green">
-          <div class="sd-header" onclick="toggleSD(this)">
-            <div class="sd-dot"></div>
-            <span class="sd-label">Frontend</span>
-            <span class="sd-chevron">▼</span>
-          </div>
+          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot"></div><span class="sd-label">Frontend</span><span class="sd-chevron">▼</span></div>
           <div class="sd-body">
+            <div class="sd-explain">
+              <p><strong>Ce que c'est :</strong> la partie visible pour l'utilisateur, où l'on gère l'interface, l'expérience et les workflows métier.</p>
+              <p><strong>Pourquoi je les utilise :</strong> pour proposer des écrans clairs aux équipes (admin, labo, RH), avec des actions rapides et une navigation fiable.</p>
+            </div>
             <div class="skill-tags">
               <span class="sk"><img src="assets/react.svg" alt="">React 19</span>
               <span class="sk"><img src="assets/typescript.svg" alt="">TypeScript</span>
-              <span class="sk">Vite</span>
               <span class="sk"><img src="assets/html.svg" alt="">HTML5</span>
               <span class="sk"><img src="assets/css.svg" alt="">CSS3</span>
-              <span class="sk"><img src="assets/js.svg" alt="">JavaScript</span>
               <span class="sk"><img src="assets/python.svg" alt="">Streamlit</span>
             </div>
           </div>
         </div>
-
         <div class="sd orange">
-          <div class="sd-header" onclick="toggleSD(this)">
-            <div class="sd-dot"></div>
-            <span class="sd-label">Infrastructure & DevOps</span>
-            <span class="sd-chevron">▼</span>
-          </div>
+          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot"></div><span class="sd-label">Infrastructure & DevOps</span><span class="sd-chevron">▼</span></div>
           <div class="sd-body">
+            <div class="sd-explain">
+              <p><strong>Ce que c'est :</strong> l'ensemble des outils qui permettent de déployer, superviser et faire évoluer la plateforme.</p>
+              <p><strong>Pourquoi je les utilise :</strong> pour avoir des environnements stables, reproductibles et observables, du poste local jusqu'à la production.</p>
+            </div>
             <div class="skill-tags">
-              <span class="sk"><img src="assets/docker.svg" alt="">Docker</span>
-              <span class="sk"><img src="assets/docker.svg" alt="">Docker Compose</span>
+              <span class="sk"><img src="assets/docker.svg" alt="">Docker / Compose</span>
               <span class="sk"><img src="assets/nginx.svg" alt="">Nginx</span>
               <span class="sk"><img src="assets/prometheus.svg" alt="">Prometheus</span>
               <span class="sk"><img src="assets/grafana.svg" alt="">Grafana</span>
               <span class="sk"><img src="assets/linux.svg" alt="">Linux</span>
-              <span class="sk"><img src="assets/git.svg" alt="">Git</span>
-              <span class="sk">Agile · Scrum</span>
+              <span class="sk"><img src="assets/git.svg" alt="">Git · Agile</span>
             </div>
           </div>
         </div>
-
         <div class="sd">
-          <div class="sd-header" onclick="toggleSD(this)">
-            <div class="sd-dot" style="background:var(--b)"></div>
-            <span class="sd-label">Sécurité & IAM</span>
-            <span class="sd-chevron">▼</span>
-          </div>
+          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot" style="background:var(--b)"></div><span class="sd-label">Sécurité & IAM</span><span class="sd-chevron">▼</span></div>
           <div class="sd-body">
+            <div class="sd-explain">
+              <p><strong>Ce que c'est :</strong> la gestion des identités et des droits d'accès, avec contrôle fin des permissions.</p>
+              <p><strong>Pourquoi je les utilise :</strong> dans un contexte hospitalier, la sécurité est critique: il faut tracer qui accède à quoi et appliquer des règles strictes.</p>
+            </div>
             <div class="skill-tags">
-              <span class="sk"><img src="assets/zitadel.svg" alt="">Zitadel (OIDC/OAuth2)</span>
+              <span class="sk"><img src="assets/zitadel.svg" alt="">Zitadel (OIDC)</span>
               <span class="sk"><img src="assets/spicedb.svg" alt="">SpiceDB (ReBAC)</span>
               <span class="sk"><img src="assets/opa.svg" alt="">OPA (ABAC)</span>
-              <span class="sk">JWT · MFA</span>
-              <span class="sk">PKCE · HTTPOnly Cookie</span>
-              <span class="sk">IAM · PBAC</span>
+              <span class="sk">JWT · MFA · PKCE</span>
             </div>
           </div>
         </div>
-
         <div class="sd">
-          <div class="sd-header" onclick="toggleSD(this)">
-            <div class="sd-dot" style="background:var(--g)"></div>
-            <span class="sd-label">Bases de données & Data</span>
-            <span class="sd-chevron">▼</span>
-          </div>
+          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot" style="background:var(--g)"></div><span class="sd-label">Bases de données & Data</span><span class="sd-chevron">▼</span></div>
           <div class="sd-body">
+            <div class="sd-explain">
+              <p><strong>Ce que c'est :</strong> les moteurs de stockage et de requête qui portent les données transactionnelles, graphe et analytiques.</p>
+              <p><strong>Pourquoi je les utilise :</strong> pour gérer à la fois les données opérationnelles (utilisateurs, formulaires, droits) et les données NGS pour l'analyse IA.</p>
+            </div>
             <div class="skill-tags">
               <span class="sk"><img src="assets/postgresql.svg" alt="">PostgreSQL</span>
               <span class="sk"><img src="assets/mysql.svg" alt="">MySQL</span>
               <span class="sk"><img src="assets/redis.svg" alt="">Redis</span>
-              <span class="sk"><img src="assets/dgraph.svg" alt="">Dgraph (graphe)</span>
-              <span class="sk">Apache Iceberg</span>
-              <span class="sk">Nessie</span>
-              <span class="sk">Trino</span>
-              <span class="sk">DuckDB</span>
-              <span class="sk">OpenSearch</span>
-              <span class="sk">SeaweedFS (S3)</span>
+              <span class="sk"><img src="assets/dgraph.svg" alt="">Dgraph</span>
+              <span class="sk">Iceberg · Nessie · Trino</span>
+              <span class="sk">DuckDB · SeaweedFS</span>
             </div>
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- ── FORMATIONS ───────────────────────────────── -->
-  <section class="container section fade-up">
-    <div class="sec-heading">
+    <!-- FORMATIONS -->
+    <section class="home-section">
       <div class="sec-label">Parcours académique</div>
       <h2 class="sec-title">Formations</h2>
-    </div>
-    <div class="section-wrap-wide">
-      <div class="form-grid">
-        <div class="form-card">
-          <div class="fc-year">2023 – 2026</div>
+
+      <a class="tl-card tl-card-link" href="but3-informatique.html">
+        <div class="tl-card-head">
           <h3>BUT Informatique 3e année — alternance</h3>
-          <p>Université Sorbonne Paris Nord · Formation professionnalisante et pluridisciplinaire.</p>
+          <span class="tl-card-date">2023 – 2026</span>
         </div>
-        <div class="form-card">
-          <div class="fc-year">2019 – 2022</div>
+        <div class="tl-card-where">Université Sorbonne Paris Nord</div>
+        <p style="margin:0">Formation professionnalisante et pluridisciplinaire en informatique.</p>
+        <div style="margin-top:10px;font-size:13px;font-weight:700;color:var(--accent)">Voir la page dédiée →</div>
+      </a>
+
+      <div class="tl-card">
+        <div class="tl-card-head">
           <h3>Licence 2 Informatique</h3>
-          <p>Université Sorbonne Paris Nord · Culture scientifique et habitude de travail intense.</p>
+          <span class="tl-card-date">2019 – 2022</span>
         </div>
-        <div class="form-card">
-          <div class="fc-year">2017 – 2018</div>
-          <h3>Baccalauréat Scientifique</h3>
-          <p>Lycée Jacques Feyder · Option Sciences de l'Ingénieur.</p>
+        <div class="tl-card-where">Université Sorbonne Paris Nord</div>
+        <p style="margin:0">Culture scientifique et habitude de travail intense.</p>
+      </div>
+
+      <div class="tl-card">
+        <div class="tl-card-head">
+          <h3>Baccalauréat Scientifique — SI</h3>
+          <span class="tl-card-date">2017 – 2018</span>
+        </div>
+        <div class="tl-card-where">Lycée Jacques Feyder</div>
+        <p style="margin:0">Option Sciences de l'Ingénieur.</p>
+      </div>
+
+      <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border)">
+        <div class="sec-label" style="margin-bottom:12px">🌍 Langues & Divers</div>
+        <div class="badges">
+          <span class="badge">🇬🇧 Anglais B1 · Irlande 1 mois</span>
+          <span class="badge">🇪🇸 Espagnol B2</span>
+          <span class="badge">🏀 Basket N2</span>
+          <span class="badge">🥋 Karaté ceinture noire</span>
+          <span class="badge">🚗 Permis B</span>
         </div>
       </div>
+    </section>
+
+  </div>
+
+  <section class="container soft-skill-section fade-up">
+    <div class="sec-heading soft-heading">
+      <div class="sec-label">Soft skills</div>
+      <h2 class="sec-title">Compétences humaines</h2>
+      <p class="sec-sub">Compétences comportementales mobilisées en projet, en alternance et dans mes activités annexes.</p>
+    </div>
+    <div class="soft-grid">
+      <article class="soft-card">
+        <h3>Communication claire</h3>
+        <p>Je sais expliquer des sujets techniques à des profils non techniques (lycéens, équipes métier, interlocuteurs RH).</p>
+      </article>
+      <article class="soft-card">
+        <h3>Pédagogie</h3>
+        <p>Je vulgarise les notions complexes pour rendre les choix d'orientation ou les décisions techniques plus accessibles.</p>
+      </article>
+      <article class="soft-card">
+        <h3>Travail en équipe</h3>
+        <p>Je collabore facilement avec des profils variés: développeurs, bioinformaticiens, responsables fonctionnels et utilisateurs.</p>
+      </article>
+      <article class="soft-card">
+        <h3>Leadership terrain</h3>
+        <p>Le coaching sportif m'a appris à encadrer un groupe, poser un cadre et faire progresser chacun sur la durée.</p>
+      </article>
+      <article class="soft-card">
+        <h3>Rigueur</h3>
+        <p>J'accorde de l'importance à la qualité, à la traçabilité et au respect des bonnes pratiques, surtout en contexte sensible.</p>
+      </article>
+      <article class="soft-card">
+        <h3>Adaptabilité</h3>
+        <p>Je m'adapte rapidement à de nouveaux environnements, outils et contraintes projet, sans perdre l'objectif métier.</p>
+      </article>
+      <article class="soft-card">
+        <h3>Organisation</h3>
+        <p>Je gère mes priorités entre alternance, études et engagements externes avec une logique de planification réaliste.</p>
+      </article>
+      <article class="soft-card">
+        <h3>Esprit de résolution</h3>
+        <p>Face à un blocage, j'analyse, je teste, puis je propose une solution concrète plutôt que de rester sur le problème.</p>
+      </article>
     </div>
   </section>
 
