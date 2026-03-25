@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noé Cervera — Portfolio Informatique</title>
+  <meta name="description" content="Portfolio de Noé Cervera, étudiant en BUT Informatique 2e année à Sorbonne Paris Nord. Spécialisé en infrastructure, sécurité IAM, bases de données et développement back-end. Disponible en alternance.">
+  <meta name="author" content="Noé Cervera">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noe-cervera.github.io/">
+  <meta property="og:title" content="Noé Cervera — Portfolio Informatique">
+  <meta property="og:description" content="Étudiant BUT Informatique 2e année — Infrastructure, sécurité IAM, bases de données. Disponible en alternance.">
+  <meta property="og:image" content="https://noe-cervera.github.io/assets/photo-profil.png">
+
+  <link rel="canonical" href="https://noe-cervera.github.io/">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    :root{
+      --item-w: 116px;
+      --item-gap: 18px;
+      --scale-max: 1.16;
+      --scale-min: 0.74;
+    }
+    .carousel{
+      position:relative;
+      margin:12px 0 8px;
+      background:linear-gradient(180deg,#11131d,#0f1118);
+      border:1px solid #283046;
+      border-radius:22px;
+      padding:28px 72px;
+    }
+    .carousel-viewport{overflow:hidden}
+    .carousel-track{
+      display:flex;align-items:center;gap:var(--item-gap);
+      will-change:transform;transition:transform .35s ease;
+      padding:12px 0;
+    }
+    .c-nav{
+      position:absolute;top:50%;transform:translateY(-50%);
+      width:42px;height:42px;border-radius:50%;
+      background:#171a24;border:1px solid #2c344a;color:#e9edf7;
+      display:grid;place-items:center;cursor:pointer;
+      box-shadow:0 10px 24px -12px rgba(0,0,0,.5);
+    }
+    .c-nav:hover{background:#1b2030;border-color:#3a4563}
+    .c-prev{left:12px}
+    .c-next{right:12px}
+    .c-nav svg{width:20px;height:20px}
+
+    .c-item{
+      width:var(--item-w);flex:0 0 var(--item-w);
+      display:flex;flex-direction:column;align-items:center;gap:10px;
+      transform-origin:center center;transition:transform .25s ease, opacity .25s ease, filter .25s ease;
+      opacity:.85;filter:saturate(.9);
+    }
+    .c-item.active{opacity:1;filter:saturate(1.05)}
+    .c-icon{
+      width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;
+      background:#0f121b;border:1px solid #2b3144;border-radius:22px;
+      box-shadow:0 10px 24px -12px rgba(79,70,229,.28), inset 0 0 0 1px rgba(255,255,255,.03);
+    }
+    .c-icon img{width:68%;height:68%;object-fit:contain;border-radius:14px}
+    .c-label{font-size:14px;color:#dce2ee;font-weight:600;text-align:center}
+    .c-item.active .c-icon{border-color:#4f46e5;box-shadow:0 12px 26px -10px rgba(79,70,229,.38), inset 0 0 0 1px rgba(255,255,255,.05)}
+
+    .tech-desc{
+      margin-top:14px;background:linear-gradient(180deg,#11131d,#0f1118);
+      border:1px solid #283046;border-radius:16px;padding:16px
+    }
+    .tech-desc h3{margin:0 0 6px;font-size:18px}
+    .tech-desc p{margin:0;color:#c2c9d6}
+
+    .skills-track{ gap:22px; }
+    .skill-card{
+      width:300px;
+      flex:0 0 300px;
+      background:#0f121b;
+      border:1px solid #2b3144;
+      border-radius:18px;
+      padding:16px 16px 18px;
+      box-shadow:0 10px 24px -12px rgba(79,70,229,.18), inset 0 0 0 1px rgba(255,255,255,.02);
+    }
+    .skill-card h3{
+      margin:0 0 8px;font-size:18px;color:#e6e9ef
+    }
+    .skill-card p{
+      margin:0;color:#c2c9d6;font-size:14px;line-height:1.55
+    }
+
+    @media (max-width:1000px){
+      .skill-card{width:260px;flex-basis:260px}
+    }
+    @media (max-width:700px){
+      :root{--item-w: 100px; --item-gap: 14px}
+      .carousel{padding:24px 56px}
+      .skill-card{width:220px;flex-basis:220px}
+    }
+  </style>
+</head>
+<body>
+<header class="header">
+  <nav class="nav container">
+    <a class="brand" href="index.html"><img src="assets/logo.svg" alt="Logo Noé Cervera"><span>Noé Cervera</span></a>
+    <div class="menu">
+      <a href="index.html" style="color:#fff;border-color:#30364a;background:#0f1118">Accueil</a>
+      <a href="sae.html">SAE</a>
+      <a href="stage.html">Stage</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn" href="docs/CV_NOE_CERVERA.pdf" download>Télécharger — CV</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="card" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+      <img src="assets/photo-profil.png" alt="Photo de profil Noé Cervera"
+           style="width:150px;height:150px;object-fit:cover;border-radius:50%;border:3px solid #4f46e5;margin-bottom:16px">
+
+      <h1>Étudiant BUT Informatique — 2<sup>e</sup> année</h1>
+
+      <p class="lead">
+        Portfolio de mes compétences et projets. Mes sujets de prédilection : infrastructure, sécurité (IAM, OIDC, PBAC), bases de données et développement back-end.
+        Mon objectif : trouver une alternance — projets concrets, démonstrations et auto-évaluations.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Profil rapide</h2>
+      <div class="grid">
+        <div class="card"><h3>BUT Info (2<sup>e</sup> année)</h3><p>Sorbonne Paris Nord</p></div>
+        <div class="card"><h3>Recherche alternance</h3><p>Ouvert à toute proposition</p></div>
+        <div class="card"><h3>Stage (8 semaines)</h3><p>AP-HP — GenoBioMICS</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h2>Compétences BUT</h2>
+    <div class="carousel" id="carouselSkills">
+      <button class="c-nav c-prev" id="prevSkill" aria-label="Précédent">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track skills-track" id="trackSkills">
+          <div class="skill-card">
+            <h3>Réaliser</h3>
+            <p>Développer des applications et des sites web dynamiques avec une base de données SQL et une architecture système. Produire des preuves de concept propres et reproductibles.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Optimiser</h3>
+            <p>Améliorer la performance et la sécurité. Concevoir des architectures claires et évolutives, identifier les technologies adaptées et proposer l'architecture la plus agile possible pour le long terme.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Administrer</h3>
+            <p>Gérer les serveurs, bases de données, conteneurs et réseaux. Mettre en place la supervision et la journalisation grâce à des outils tels que Grafana et Prometheus.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Gérer</h3>
+            <p>Faire une veille technologique, définir un cahier des charges et les possibilités de rendu. Organiser des points hebdomadaires afin de confronter la théorie à la pratique.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Conduire</h3>
+            <p>Versionner le code, documenter et organiser les livrables. Structurer un dépôt avec un fichier README clair et des commentaires dans le code pour expliquer la démarche.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Collaborer</h3>
+            <p>Travailler en équipe pluridisciplinaire (bio-informaticiens, techniciens) et, pour la SAE, collaborer en binôme afin de définir les tâches et s'entraider en cas de problème.</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="c-nav c-next" id="nextSkill" aria-label="Suivant">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h2>Technologies maîtrisées</h2>
+    <div class="carousel" id="carouselLang">
+      <button class="c-nav c-prev" id="prevLang" aria-label="Précédent">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="trackLang">
+          <div class="c-item" data-key="php"><div class="c-icon"><img src="assets/php.svg" alt="PHP"></div><div class="c-label">PHP</div></div>
+          <div class="c-item" data-key="mysql"><div class="c-icon"><img src="assets/mysql.svg" alt="MySQL"></div><div class="c-label">MySQL</div></div>
+          <div class="c-item" data-key="html"><div class="c-icon"><img src="assets/html.svg" alt="HTML"></div><div class="c-label">HTML</div></div>
+          <div class="c-item" data-key="css"><div class="c-icon"><img src="assets/css.svg" alt="CSS"></div><div class="c-label">CSS</div></div>
+          <div class="c-item" data-key="js"><div class="c-icon"><img src="assets/js.svg" alt="JavaScript"></div><div class="c-label">JavaScript</div></div>
+          <div class="c-item" data-key="go"><div class="c-icon"><img src="assets/go.svg" alt="Go"></div><div class="c-label">Go</div></div>
+          <div class="c-item" data-key="react"><div class="c-icon"><img src="assets/react.svg" alt="React"></div><div class="c-label">React</div></div>
+          <div class="c-item" data-key="docker"><div class="c-icon"><img src="assets/docker.svg" alt="Docker"></div><div class="c-label">Docker</div></div>
+          <div class="c-item" data-key="dgraph"><div class="c-icon"><img src="assets/dgraph.svg" alt="Dgraph"></div><div class="c-label">Dgraph</div></div>
+          <div class="c-item" data-key="zitadel"><div class="c-icon"><img src="assets/zitadel.svg" alt="Zitadel"></div><div class="c-label">Zitadel</div></div>
+          <div class="c-item" data-key="spicedb"><div class="c-icon"><img src="assets/spicedb.svg" alt="SpiceDB"></div><div class="c-label">SpiceDB</div></div>
+          <div class="c-item" data-key="opa"><div class="c-icon"><img src="assets/opa.svg" alt="OPA"></div><div class="c-label">OPA</div></div>
+          <div class="c-item" data-key="prometheus"><div class="c-icon"><img src="assets/prometheus.svg" alt="Prometheus"></div><div class="c-label">Prometheus</div></div>
+          <div class="c-item" data-key="grafana"><div class="c-icon"><img src="assets/grafana.svg" alt="Grafana"></div><div class="c-label">Grafana</div></div>
+          <div class="c-item" data-key="Java"><div class="c-icon"><img src="assets/Java.svg" alt="Java"></div><div class="c-label">Java</div></div>
+          <div class="c-item" data-key="python"><div class="c-icon"><img src="assets/python.svg" alt="Python"></div><div class="c-label">Python</div></div>
+        </div>
+      </div>
+
+      <button class="c-nav c-next" id="nextLang" aria-label="Suivant">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div class="tech-desc" id="descLang">
+      <h3>Choisis une technologie</h3>
+      <p>Utilise les flèches pour naviguer. L'élément central est mis en avant, et sa description s'affiche ici.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Noé Cervera — <a href="mailto:cervera.noe@gmail.com" style="color:var(--accent)">cervera.noe@gmail.com</a></p>
+  </footer>
+</main>
+
+
+
+<script>
+  (function(){
+    const track = document.getElementById('trackSkills');
+    const items = Array.from(track.querySelectorAll('.skill-card'));
+    const prev = document.getElementById('prevSkill');
+    const next = document.getElementById('nextSkill');
+
+    function getMetrics(){
+      const style = getComputedStyle(track);
+      const gap = parseFloat(style.gap) || 22;
+      const itemW = items[0].getBoundingClientRect().width;
+      const viewportW = track.parentElement.getBoundingClientRect().width;
+      const visible = Math.max(1, Math.floor((viewportW + gap) / (itemW + gap)));
+      return {gap, itemW, visible};
+    }
+
+    let index = 0;
+    function render(){
+      const {gap, itemW} = getMetrics();
+      const offset = -(index * (itemW + gap));
+      track.style.transform = `translateX(${offset}px)`;
+    }
+
+    function maxIndex(){
+      const {visible} = getMetrics();
+      return Math.max(0, items.length - visible);
+    }
+
+    prev.addEventListener('click', ()=>{ index = Math.max(0, index - 1); render(); });
+    next.addEventListener('click', ()=>{ index = Math.min(maxIndex(), index + 1); render(); });
+    window.addEventListener('resize', render);
+    render();
+  })();
+
+
+  (function(){
+    const descs = {
+      php:       {title:"PHP",       text:"Langage serveur pour sites dynamiques — compétence acquise lors de ma SAE F1."},
+      mysql:     {title:"MySQL",     text:"Base relationnelle pour stocker et requêter des données — acquis en cours et lors de ma SAE."},
+      html:      {title:"HTML",      text:"Structure sémantique des pages web — acquis en cours."},
+      css:       {title:"CSS",       text:"Mise en forme et design responsive — acquis en cours."},
+      js:        {title:"JavaScript",text:"Interactions côté client et logique de carousel — acquis en cours."},
+      go:        {title:"Go",        text:"Backend performant et fiable — acquis lors de mon stage AP-HP (API REST)."},
+      react:     {title:"React",     text:"Interfaces web modernes avec Vite — acquis lors de mon stage."},
+      docker:    {title:"Docker",    text:"Conteneurisation et portabilité — Docker Compose multi-fichiers lors de mon stage."},
+      dgraph:    {title:"Dgraph",    text:"Base de données graphe distribuée avec schéma GraphQL — stage AP-HP."},
+      zitadel:   {title:"Zitadel",   text:"IAM OIDC/OAuth2 pour authentification, MFA et fédération d'identités — stage."},
+      spicedb:   {title:"SpiceDB",   text:"Moteur REBAC : autorisations par relations entre entités — stage AP-HP."},
+      opa:       {title:"OPA",       text:"Moteur ABAC : règles contextuelles plus fines que le REBAC — stage AP-HP."},
+      prometheus:{title:"Prometheus",text:"Collecte de métriques et alerting — supervision de l'infra lors du stage."},
+      grafana:   {title:"Grafana",   text:"Dashboards de visualisation des métriques — stage AP-HP."},
+      python:    {title:"Python",    text:"Scripting et data science — acquis en cours."},
+      Java:      {title:"Java",      text:"Programmation orientée objet — acquis en cours."}
+    };
+
+    const track = document.getElementById('trackLang');
+    const items = Array.from(track.querySelectorAll('.c-item'));
+    const prevBtn = document.getElementById('prevLang');
+    const nextBtn = document.getElementById('nextLang');
+    const descEl = document.getElementById('descLang');
+
+    const gap = parseFloat(getComputedStyle(track).gap) || 18;
+    const itemW = parseFloat(getComputedStyle(items[0]).width) || 116;
+    const scaleMax = 1.16;
+    const scaleMin = 0.74;
+    let index = Math.floor(items.length/2);
+
+    function centerX(){
+      const viewport = track.parentElement.getBoundingClientRect().width;
+      const target = (index * (itemW + gap)) + itemW/2;
+      const offset = viewport/2 - target;
+      track.style.transform = `translateX(${offset}px)`;
+    }
+    function updateScales(){
+      items.forEach((el,i)=>{
+        const d = Math.abs(i - index);
+        const s = Math.max(scaleMin, scaleMax - d * 0.18);
+        el.style.transform = `scale(${s})`;
+        el.classList.toggle('active', i === index);
+        const op = 0.55 + (s - scaleMin) / (scaleMax - scaleMin) * 0.45;
+        el.style.opacity = op.toFixed(2);
+      });
+    }
+    function renderDesc(){
+      const key = items[index].getAttribute('data-key');
+      const d = descs[key];
+      if(d){ descEl.innerHTML = `<h3>${d.title}</h3><p>${d.text}</p>`; }
+    }
+    function goTo(i){
+      index = Math.max(0, Math.min(items.length - 1, i));
+      centerX(); updateScales(); renderDesc();
+    }
+
+    prevBtn.addEventListener('click', ()=> goTo(index - 1));
+    nextBtn.addEventListener('click', ()=> goTo(index + 1));
+    items.forEach((el,i)=> el.addEventListener('click', ()=> goTo(i)));
+    window.addEventListener('resize', centerX);
+    goTo(index);
+  })();
+</script>
+</body>
+</html>

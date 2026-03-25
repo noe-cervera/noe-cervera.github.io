@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Noé Cervera</title>
+  <meta name="description" content="Contacter Noé Cervera pour une alternance ou un stage en informatique. Étudiant BUT Informatique 2e année, spécialisé en infrastructure et sécurité IAM.">
+  <meta name="author" content="Noé Cervera">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noe-cervera.github.io/contact.html">
+  <meta property="og:title" content="Contact — Noé Cervera">
+  <meta property="og:description" content="Disponible pour une alternance en informatique. Contactez Noé Cervera par email, GitHub ou LinkedIn.">
+
+  <link rel="canonical" href="https://noe-cervera.github.io/contact.html">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="header">
+  <nav class="nav container">
+    <a class="brand" href="index.html"><img src="assets/logo.svg" alt="Logo Noé Cervera"><span>Noé Cervera</span></a>
+    <div class="menu">
+      <a href="index.html">Accueil</a>
+      <a href="sae.html">SAE</a>
+      <a href="stage.html">Stage</a>
+      <a href="contact.html" style="color:#fff;border-color:#30364a;background:#0f1118">Contact</a>
+      <a class="btn" href="docs/CV_NOE_CERVERA.pdf" download>Télécharger — CV</a>
+    </div>
+  </nav>
+</header>
+<main class="container">
+  <section class="section">
+    <h1>Me contacter</h1>
+    <p class="lead">Disponible pour une alternance ou un stage ? Laisse-moi un message ci-dessous ou écris-moi directement.</p>
+    <div class="card" style="max-width:680px">
+      <form action="https://formspree.io/f/cervera.noe@gmail.com" method="POST">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div>
+            <label for="name">Prénom & Nom</label>
+            <input id="name" name="name" required placeholder="Votre nom" style="width:100%;margin-top:6px;padding:10px 12px;border-radius:10px;border:1px solid #2a3042;background:#0f1118;color:#e6e9ef">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="votre@email.fr" style="width:100%;margin-top:6px;padding:10px 12px;border-radius:10px;border:1px solid #2a3042;background:#0f1118;color:#e6e9ef">
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Votre message..." style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid #2a3042;background:#0f1118;color:#e6e9ef"></textarea>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn" type="submit">Envoyer</button>
+          <a class="btn" style="background:var(--accent-2)" href="mailto:cervera.noe@gmail.com">Écrire par mail</a>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="section">
+    <h2>Réseaux</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>GitHub</h3>
+        <p><a href="https://github.com/noe-cervera" target="_blank" rel="noopener">github.com/noe-cervera</a></p>
+      </div>
+      <div class="card">
+        <h3>LinkedIn</h3>
+        <p><a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">linkedin.com/in/noé-cervera</a></p>
+      </div>
+      <div class="card">
+        <h3>Email</h3>
+        <p><a href="mailto:cervera.noe@gmail.com">cervera.noe@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Noé Cervera — <a href="mailto:cervera.noe@gmail.com" style="color:var(--accent)">cervera.noe@gmail.com</a></p>
+  </footer>
+</main>
+</body>
+</html>
