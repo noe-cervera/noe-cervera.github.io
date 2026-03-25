@@ -43,46 +43,63 @@
 <main>
 
   <!-- ── HERO ──────────────────────────────────────────── -->
-  <section class="container">
-    <div class="hero">
-      <div class="hero-text fade-up">
-        <h1>Noé <em>Cervera</em></h1>
-        <p class="hero-role">Développeur Full-Stack · Infrastructure & Sécurité</p>
-        <div class="hero-meta">
-          <span>
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
-            Épinay-sur-Seine
-          </span>
-          <span>
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M22 16.92V19a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 4.18 2 2 0 0 1 5 2h2.09a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
-            06 51 47 65 04
-          </span>
-          <span>
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m3 9 9 5 9-5"/></svg>
-            cervera.noe@gmail.com
-          </span>
-          <span>
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M22 12A10 10 0 1 1 12 2a10 10 0 0 1 10 10z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 6v6l4 2"/></svg>
-            Permis B · véhiculé
-          </span>
-        </div>
-        <div class="hero-actions">
-          <a class="btn" href="alternance.html">Voir l'alternance ATLAS</a>
-          <a class="btn btn-ghost" href="contact.html">Me contacter</a>
-        </div>
-      </div>
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-inner fade-up">
 
-      <aside class="hero-aside fade-up" style="animation-delay:.1s">
-        <img class="hero-photo" src="assets/photo-profil.png" alt="Photo Noé Cervera">
-        <h3>Noé Cervera</h3>
-        <p>BUT 3 Informatique · Alternance AP-HP</p>
-        <hr class="hero-divider">
-        <div class="hero-stat"><span>Université</span><strong>Sorbonne Paris Nord</strong></div>
-        <div class="hero-stat"><span>Alternance</span><strong>AP-HP Henri Mondor</strong></div>
-        <div class="hero-stat"><span>Anglais</span><strong>B1 · Irlande 1 mois</strong></div>
-        <div class="hero-stat"><span>Espagnol</span><strong>B2</strong></div>
-        <div class="hero-stat"><span>Sports</span><strong>Basket N2 · Karaté 🥋</strong></div>
-      </aside>
+        <!-- Colonne gauche : texte -->
+        <div class="hero-left">
+          <div class="hero-available">🟢 Disponible en alternance</div>
+          <h1 class="hero-name">Noé<br><span>Cervera</span></h1>
+          <p class="hero-role">Développeur Full-Stack<br><span>Infrastructure · Sécurité IAM · IA</span></p>
+          <div class="hero-meta-row">
+            <span>📍 Épinay-sur-Seine</span>
+            <span>📧 cervera.noe@gmail.com</span>
+            <span>📞 06 51 47 65 04</span>
+            <span>🚗 Permis B</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn" href="alternance.html">Voir l'alternance ATLAS →</a>
+            <a class="btn btn-ghost" href="contact.html">Me contacter</a>
+          </div>
+          <div class="hero-links">
+            <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="docs/CV_NOE_CERVERA.pdf" download>Télécharger le CV</a>
+          </div>
+        </div>
+
+        <!-- Colonne droite : photo + stats -->
+        <div class="hero-right">
+          <div class="hero-photo-wrap">
+            <img class="hero-photo" src="assets/photo-profil.png" alt="Photo Noé Cervera">
+            <div class="hero-badge-role">BUT 3 · AP-HP</div>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat-item">
+              <span class="hsi-label">Université</span>
+              <span class="hsi-val">Sorbonne Paris Nord</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hsi-label">Alternance</span>
+              <span class="hsi-val">AP-HP Henri Mondor</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hsi-label">Anglais</span>
+              <span class="hsi-val">B1 · Irlande 1 mois</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hsi-label">Espagnol</span>
+              <span class="hsi-val">B2</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hsi-label">Sports</span>
+              <span class="hsi-val">Basket N2 · Karaté 🥋</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
