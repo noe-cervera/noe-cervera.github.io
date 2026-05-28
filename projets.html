@@ -441,17 +441,17 @@
         </article>
 
         <!-- ====== 04 — PROJET PERSO 1 (À COMPLÉTER) ====== -->
-        <article class="proj-item" id="perso-1" data-cat="personnel">
+        <article class="proj-item" id="linoedesign" data-cat="personnel">
           <button class="proj-summary" type="button" aria-expanded="false">
             <div class="proj-num">04</div>
             <div class="proj-main">
               <div class="proj-meta">
                 <span class="proj-cat personnel">Personnel</span>
-                <span class="accent">À compléter · année</span>
-                <span>Catégorie</span>
+                <span class="accent">Projet pro · 2024–2025</span>
+                <span>Web · E-commerce · Full-Stack</span>
               </div>
-              <h2 class="proj-title">Titre du <span class="it">projet perso #1.</span></h2>
-              <p class="proj-lead">Donne-moi le titre, la description courte (1–2 lignes), les technos utilisées et un lien GitHub si disponible, et je remplis cette section.</p>
+              <h2 class="proj-title">Linoe<span class="it">design.</span></h2>
+              <p class="proj-lead">Site e-commerce complet pour un atelier de menuiserie parisien sur-mesure — configurateur 3D procédural, panier persistant, tunnel de commande, devis avec upload de fichiers, espace admin et architecture Go + Next.js + PostgreSQL conteneurisée.</p>
             </div>
             <span class="proj-toggle" aria-hidden="true"></span>
           </button>
@@ -459,28 +459,77 @@
 
             <div class="tile-grid cols-2" style="margin-bottom: 28px;">
               <article class="tile">
-                <div class="tile-num">A — Objectif</div>
-                <h3>À <span class="it">compléter</span></h3>
-                <p>Décris ici le besoin / problème que ce projet résoud, et ton intention en le construisant.</p>
+                <div class="tile-num">A — Frontend</div>
+                <h3>Next.js 14 + <span class="it">Three.js</span></h3>
+                <ul>
+                  <li><strong>Next.js 14 Pages Router</strong> — SSR + API routes proxy vers le backend Go</li>
+                  <li>Catalogue dynamique depuis PostgreSQL, filtres par collection et thème</li>
+                  <li><strong>Configurateur 3D procédural</strong> (Three.js) — dimensions, finition, piétement calculés à la volée, aucun fichier .glb externe</li>
+                  <li>Panier <strong>sessionStorage</strong> déconnecté → merge automatique en base à la connexion</li>
+                  <li>Upload photos produit avec compression navigateur : WebP 88 %, max 2 000 px, ~10 MB → ~400 KB</li>
+                </ul>
               </article>
               <article class="tile">
-                <div class="tile-num">B — Approche</div>
-                <h3>À <span class="it">compléter</span></h3>
-                <p>Décris l'architecture, les choix techniques principaux et ce que tu as appris.</p>
+                <div class="tile-num">B — Backend API</div>
+                <h3>Go + <span class="it">chi</span></h3>
+                <ul>
+                  <li>API REST <strong>Go / chi</strong> — routes publiques, authentifiées, admin</li>
+                  <li>Sessions PostgreSQL — cookie <strong>HttpOnly, SameSite=Strict</strong>, 14 jours, révocables</li>
+                  <li>Mots de passe hashés <strong>bcrypt</strong></li>
+                  <li>Body limité à 512 KB (20 MB pour l'upload devis)</li>
+                  <li>Timeouts stricts : ReadHeader 5s, Read 15s, Write 30s</li>
+                  <li><strong>16 migrations</strong> SQL appliquées automatiquement au premier démarrage</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="tile-grid cols-2" style="margin-bottom: 28px;">
+              <article class="tile">
+                <div class="tile-num">C — Infrastructure</div>
+                <h3>Docker Compose + <span class="it">Nginx</span></h3>
+                <ul>
+                  <li>Stack complète conteneurisée : <strong>Next.js · Go · PostgreSQL 15 · Redis 7 · Nginx 1.25</strong></li>
+                  <li><strong>Nginx</strong> — reverse proxy, rate limiting (10 req/min sur auth, 120/min global)</li>
+                  <li>Headers sécurité : <strong>CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy</strong></li>
+                  <li><strong>Redis</strong> — cache sessions, performances</li>
+                  <li>pgAdmin lié à 127.0.0.1 uniquement</li>
+                </ul>
+              </article>
+              <article class="tile">
+                <div class="tile-num">D — Fonctionnalités métier</div>
+                <h3>E-commerce <span class="it">complet</span></h3>
+                <ul>
+                  <li>Tunnel checkout : adresse livraison + mode (domicile / retrait atelier)</li>
+                  <li>Suivi commandes : Confirmée → En fabrication → Expédiée → Livrée</li>
+                  <li>Factures imprimables HT/TTC, TVA 20 %, détail articles</li>
+                  <li>Devis sur-mesure (mobilier, cuisine, escalier, dressing) + upload 5 fichiers max</li>
+                  <li>Interface <strong>admin</strong> : CRUD produits, stats CA, gestion commandes/devis/utilisateurs</li>
+                  <li>Authentification complète : inscription, connexion, profil, adresses livraison/facturation</li>
+                </ul>
               </article>
             </div>
 
             <div class="tags" style="margin-bottom: 28px;">
-              <span class="tag">Techno 1</span>
-              <span class="tag">Techno 2</span>
-              <span class="tag">Techno 3</span>
+              <span class="tag">Go</span>
+              <span class="tag">Next.js 14</span>
+              <span class="tag">React</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Redis</span>
+              <span class="tag">Nginx</span>
+              <span class="tag">Docker Compose</span>
+              <span class="tag">Three.js</span>
+              <span class="tag">chi</span>
+              <span class="tag">bcrypt</span>
+              <span class="tag">REST API</span>
             </div>
 
             <table class="kv">
               <tbody>
-                <tr><th>Objectif</th><td>À compléter</td></tr>
-                <tr><th>Stack</th><td>À compléter</td></tr>
-                <tr><th>Lien</th><td><a class="inline-link" href="#">github.com/noe-cervera/…</a></td></tr>
+                <tr><th>Contexte</th><td>Projet personnel développé pour un atelier de menuiserie parisien sur-mesure (Linoedesign).</td></tr>
+                <tr><th>Architecture</th><td>Frontend Next.js 14 → API Routes (proxy) → Backend Go/chi → PostgreSQL + Redis · Nginx en entrée · Docker Compose.</td></tr>
+                <tr><th>Sécurité</th><td>Sessions PostgreSQL révocables, bcrypt, rate limiting Nginx, CSP, SameSite=Strict, body limit, pas d'erreurs internes exposées au client.</td></tr>
+                <tr><th>3D configurateur</th><td>Géométrie Three.js entièrement procédurale — table générée à la volée selon longueur, finition et piétement. Zéro fichier modèle externe.</td></tr>
+                <tr><th>À venir</th><td>Paiement Stripe, emails transactionnels, déploiement VPS + HTTPS + Let's Encrypt.</td></tr>
               </tbody>
             </table>
 
