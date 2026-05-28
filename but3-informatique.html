@@ -1,157 +1,319 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BUT Informatique 3e année — Détail de la formation | Noé Cervera</title>
-  <meta name="description" content="Page dédiée au BUT Informatique 3e année : objectifs, compétences, parcours, débouchés et lien avec l'alternance ATLAS de Noé Cervera.">
-  <meta name="author" content="Noé Cervera">
-  <meta name="robots" content="index, follow">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://noe-cervera.github.io/but3-informatique.html">
-  <meta property="og:title" content="BUT Informatique 3e année — Détail de la formation">
-  <meta property="og:description" content="Objectifs, contenu et débouchés du BUT Informatique, avec mise en perspective dans l'alternance ATLAS.">
-  <link rel="canonical" href="https://noe-cervera.github.io/but3-informatique.html">
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUT Informatique 3e année — Noé Cervera</title>
+<meta name="description" content="Détail de la formation BUT Informatique 3e année : objectifs, compétences, parcours, débouchés et lien avec l'alternance ATLAS de Noé Cervera.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portfolio.css">
 </head>
 <body>
 
-<header class="header" id="header">
-  <nav class="nav container">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.svg" alt="Logo Noé Cervera">
-      <span>Portfolios</span>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="index.html">
+      <span class="mark">N</span>
+      <span>Noé&nbsp;Cervera</span>
     </a>
-    <div class="menu">
-      <a href="index.html">Accueil</a>
+    <nav class="topbar-nav">
+      <a href="index.html">Home</a>
       <a href="alternance.html">Alternance</a>
       <a href="projets.html">Projets</a>
+      <a href="apropos.html">À propos</a>
       <a href="contact.html">Contact</a>
-      <a class="btn" href="apropos.html">À propos</a>
-    </div>
-  </nav>
+    </nav>
+    <a class="topbar-cta" href="assets/cv.pdf" target="_blank" rel="noopener">CV ↗</a>
+  </div>
 </header>
 
-<div class="page-header">
-  <div class="container fade-up">
-    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
-      <span class="badge" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);color:var(--accent)">Formation</span>
-      <span class="badge">BUT Informatique</span>
-      <span class="badge">BUT3 (3e année)</span>
+<!-- ====== PAGE HEADER ====== -->
+<section class="page-header">
+  <div class="wrap">
+    <div class="page-eyebrow">
+      <span><span class="num">01</span> — Formation</span>
+      <span class="tag">BUT Informatique</span>
+      <span class="tag accent">3e année · 2025 — 2026</span>
+      <span class="tag">Université Sorbonne Paris Nord</span>
     </div>
-    <h1>BUT Informatique 3e année</h1>
-    <p>Cette page explique simplement ce qu'est la formation, ce qu'on y apprend et pourquoi elle est directement utile dans mon alternance sur la plateforme ATLAS.</p>
+    <h1 class="page-title">BUT Informatique <span class="it">— BUT3.</span></h1>
+    <p class="page-lead">Ce qu'est la formation, ce que j'y apprends, et <em>pourquoi elle nourrit directement</em> mon alternance ATLAS.</p>
   </div>
-</div>
+</section>
 
-<main class="container">
+<!-- ====== STAT BAND ====== -->
+<section class="stat-band">
+  <div class="wrap">
+    <div class="stat-band-grid">
+      <div class="stat">
+        <div class="stat-value">3<sup>e</sup>/45</div>
+        <div class="stat-label">Major de promotion · BUT3</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">180<span class="stat-unit">&nbsp;ECTS</span></div>
+        <div class="stat-label">Grade Licence — niveau 6</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">3<span class="stat-unit">&nbsp;ans</span></div>
+        <div class="stat-label">2023 — 2026 · alternance en 3<sup>e</sup> année</div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<style>
+.stat-band {
+  padding: clamp(28px, 4vw, 48px) 0;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-deep);
+  position: relative;
+}
+.stat-band-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: end;
+}
+.stat-band-grid .stat {
+  display: flex; flex-direction: column;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+.stat-band-grid .stat-value {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(44px, 7vw, 96px);
+  line-height: 1;
+  letter-spacing: -.04em;
+  color: var(--accent);
+}
+.stat-band-grid .stat-value sup {
+  font-size: .45em;
+  font-weight: 600;
+  vertical-align: super;
+}
+.stat-band-grid .stat-value .stat-unit {
+  font-size: .42em;
+  font-weight: 500;
+  color: var(--ink);
+  font-family: var(--mono);
+  letter-spacing: -.01em;
+}
+.stat-band-grid .stat-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.45;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-weight: 500;
+}
+@media (max-width: 720px) {
+  .stat-band-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+</style>
+
+<main>
+
+  <!-- ====== 01 — DEFINITION ====== -->
   <section class="section fade-up">
-    <h2 class="s-title">Ce Qu'est Le BUT Info</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3>Diplôme national</h3>
-        <p>Le BUT est un diplôme national en 3 ans, organisé en IUT, qui confère le grade de licence (180 ECTS, niveau 6).</p>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">01</span> — Définition</div>
+        <h2 class="section-title">Ce qu'est le <span class="it">BUT Info.</span></h2>
       </div>
-      <div class="card">
-        <h3>Logique professionnalisante</h3>
-        <p>La formation vise à préparer à la fois l'insertion professionnelle et la poursuite d'études, avec des projets concrets et de l'alternance.</p>
-      </div>
-      <div class="card">
-        <h3>Position en 3e année</h3>
-        <p>En BUT3, l'objectif est de consolider les acquis techniques, de monter en autonomie et d'appliquer les compétences dans un contexte réel d'entreprise.</p>
+
+      <div class="tile-grid cols-3">
+        <article class="tile">
+          <div class="tile-num">01</div>
+          <h3>Diplôme <span class="it">national</span></h3>
+          <p>Le BUT est un diplôme national en 3 ans, organisé en IUT, qui confère le grade de licence (180 ECTS, niveau 6).</p>
+        </article>
+        <article class="tile">
+          <div class="tile-num">02</div>
+          <h3>Logique <span class="it">pro</span></h3>
+          <p>La formation vise à préparer à la fois l'insertion professionnelle et la poursuite d'études, avec des projets concrets et de l'alternance.</p>
+        </article>
+        <article class="tile">
+          <div class="tile-num">03</div>
+          <h3>Position <span class="it">BUT3</span></h3>
+          <p>En 3e année, l'objectif est de consolider les acquis techniques, monter en autonomie et appliquer les compétences dans un contexte réel d'entreprise.</p>
+        </article>
       </div>
     </div>
   </section>
 
+  <!-- ====== 02 — APPRENTISSAGES ====== -->
   <section class="section fade-up">
-    <h2 class="s-title">Ce Que J'apprends</h2>
-    <div class="card" style="margin-bottom:16px">
-      <p style="margin:0 0 10px;color:var(--muted)">Le parcours que je suis est centré sur la <strong>réalisation d'applications</strong> : conception, développement, validation et maintenance d'applications Web, backend et data.</p>
-      <p style="margin:0;color:var(--muted)">La formation couvre aussi les briques essentielles qui rendent un projet exploitable : sécurité, systèmes et réseaux, bases de données, qualité logicielle, conduite de projet et travail en équipe.</p>
-    </div>
-    <div class="badges">
-      <span class="badge">Conception logicielle</span>
-      <span class="badge">Développement d'applications</span>
-      <span class="badge">Tests & validation</span>
-      <span class="badge">Bases de données</span>
-      <span class="badge">Systèmes & réseaux</span>
-      <span class="badge">Sécurité applicative</span>
-      <span class="badge">Gestion de projet</span>
-      <span class="badge">Travail d'équipe</span>
-    </div>
-  </section>
-
-  <section class="section fade-up">
-    <h2 class="s-title">Lien Avec Mon Alternance</h2>
-    <table class="table">
-      <tr>
-        <th>Contexte alternance</th>
-        <td>Plateforme hospitalière ATLAS pour le séquençage ADN, les workflows bioinformatiques et l'exploitation des données pour l'IA.</td>
-      </tr>
-      <tr>
-        <th>Rôle</th>
-        <td>Développeur full-stack sur le middleware : backend Go (BFF), interfaces React, sécurité IAM, intégration données.</td>
-      </tr>
-      <tr>
-        <th>Apport du BUT3</th>
-        <td>Le BUT3 me donne la méthode et le cadre pour relier théorie et production : architecture, qualité, sécurité, documentation et collaboration.</td>
-      </tr>
-      <tr>
-        <th>Impact concret</th>
-        <td>Capacité à livrer des fonctionnalités utilisables par des équipes métiers (RH, technique, bio-informatique) dans un environnement critique.</td>
-      </tr>
-    </table>
-  </section>
-
-  <section class="section fade-up">
-    <h2 class="s-title">Débouchés</h2>
-    <div class="grid-2">
-      <div class="card">
-        <h3>Insertion professionnelle</h3>
-        <p>Le BUT permet d'entrer directement sur des postes de développement (applications, web, tests, DevOps) selon le parcours et l'expérience.</p>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">02</span> — Apprentissages</div>
+        <h2 class="section-title">Ce que <span class="it">j'apprends.</span></h2>
       </div>
-      <div class="card">
-        <h3>Poursuite d'études</h3>
-        <p>Il ouvre aussi vers un master ou une école d'ingénieurs selon le projet, avec une base déjà professionnalisée.</p>
+
+      <div class="intro">
+        <p class="intro-callout">Concevoir, développer, valider et maintenir des applications — avec les <em>briques essentielles</em> qui rendent un projet exploitable.</p>
+        <div class="intro-text">
+          <p>Le parcours que je suis est centré sur la <strong>réalisation d'applications</strong> : conception, développement, validation et maintenance d'applications Web, backend et data.</p>
+          <p>La formation couvre aussi les briques essentielles qui rendent un projet exploitable&nbsp;: sécurité, systèmes et réseaux, bases de données, qualité logicielle, conduite de projet et travail en équipe.</p>
+        </div>
+      </div>
+
+      <div class="tags" style="margin-top: 28px;">
+        <span class="tag">Conception logicielle</span>
+        <span class="tag">Développement d'applications</span>
+        <span class="tag">Tests &amp; validation</span>
+        <span class="tag">Bases de données</span>
+        <span class="tag">Systèmes &amp; réseaux</span>
+        <span class="tag">Sécurité applicative</span>
+        <span class="tag">Gestion de projet</span>
+        <span class="tag">Travail d'équipe</span>
       </div>
     </div>
   </section>
 
+  <!-- ====== 03 — LIEN ALTERNANCE ====== -->
   <section class="section fade-up">
-    <h2 class="s-title">Sources Officielles</h2>
-    <p style="margin-top:0;color:var(--muted);font-size:14px">Informations vérifiées le 25 mars 2026.</p>
-    <ul>
-      <li><a href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/but-informatique-parcours-realisation-d-applications-conception-developpement-validation" target="_blank" rel="noopener">Onisep — BUT informatique (durée, objectifs, accès, poursuites)</a></li>
-      <li><a href="https://www.francecompetences.fr/recherche/rncp/35475/" target="_blank" rel="noopener">France Compétences — RNCP35475 (niveau, objectifs, emplois)</a></li>
-      <li><a href="https://www.francecompetences.fr/recherche/rncp/41588/" target="_blank" rel="noopener">France Compétences — RNCP41588 (fiche remplaçante)</a></li>
-      <li><a href="https://www.enseignementsup-recherche.gouv.fr/fr/licence-professionnelle" target="_blank" rel="noopener">MESR — LP/BUT (BUT en 180 ECTS, grade licence)</a></li>
-      <li><a href="https://cache.media.education.gouv.fr/file/SP4-MESRI-26-5-2022/14/6/spe617_annexe15_1426146.pdf" target="_blank" rel="noopener">Programme national BUT Informatique (référentiel officiel)</a></li>
-    </ul>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">03</span> — Mise en pratique</div>
+        <h2 class="section-title">Lien avec <span class="it">l'alternance.</span></h2>
+      </div>
+      <table class="kv">
+        <tbody>
+          <tr><th>Contexte alternance</th><td>Plateforme hospitalière <strong>ATLAS</strong> pour le séquençage ADN, les workflows bioinformatiques et l'exploitation des données pour l'IA.</td></tr>
+          <tr><th>Rôle</th><td>Développeur full-stack sur le middleware — backend Go (BFF), interfaces React, sécurité IAM, intégration données.</td></tr>
+          <tr><th>Apport du BUT3</th><td>Méthode et cadre pour relier théorie et production — architecture, qualité, sécurité, documentation et collaboration.</td></tr>
+          <tr><th>Impact concret</th><td>Capacité à livrer des fonctionnalités utilisables par des équipes métiers (RH, technique, bio-informatique) dans un environnement critique.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ====== 04 — DÉBOUCHÉS ====== -->
+  <section class="section fade-up">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">04</span> — Après le BUT</div>
+        <h2 class="section-title">Débouchés<span class="it">.</span></h2>
+      </div>
+
+      <div class="tile-grid cols-2">
+        <article class="tile">
+          <div class="tile-num">A — Insertion</div>
+          <h3>Insertion <span class="it">professionnelle</span></h3>
+          <p>Le BUT permet d'entrer directement sur des postes de développement (applications, web, tests, DevOps) selon le parcours et l'expérience.</p>
+        </article>
+        <article class="tile">
+          <div class="tile-num">B — Études</div>
+          <h3>Poursuite <span class="it">d'études</span></h3>
+          <p>Il ouvre aussi vers un master ou une école d'ingénieurs selon le projet, avec une base déjà professionnalisée.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 05 — SOURCES ====== -->
+  <section class="section fade-up">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">05</span> — Références</div>
+        <h2 class="section-title">Sources <span class="it">officielles.</span></h2>
+        <p class="section-sub">Informations vérifiées le 25 mars 2026.</p>
+      </div>
+
+      <div style="border-top: 1px solid var(--rule);">
+        <a class="form-row link" href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/but-informatique-parcours-realisation-d-applications-conception-developpement-validation" target="_blank" rel="noopener">
+          <div>
+            <h3>Onisep <span class="it">— BUT informatique</span></h3>
+            <p class="form-where">Durée, objectifs, accès, poursuites</p>
+          </div>
+          <div class="form-year">onisep.fr ↗</div>
+        </a>
+        <a class="form-row link" href="https://www.francecompetences.fr/recherche/rncp/35475/" target="_blank" rel="noopener">
+          <div>
+            <h3>France Compétences <span class="it">— RNCP 35475</span></h3>
+            <p class="form-where">Niveau, objectifs, emplois</p>
+          </div>
+          <div class="form-year">francecompetences.fr ↗</div>
+        </a>
+        <a class="form-row link" href="https://www.francecompetences.fr/recherche/rncp/41588/" target="_blank" rel="noopener">
+          <div>
+            <h3>France Compétences <span class="it">— RNCP 41588</span></h3>
+            <p class="form-where">Fiche remplaçante</p>
+          </div>
+          <div class="form-year">francecompetences.fr ↗</div>
+        </a>
+        <a class="form-row link" href="https://www.enseignementsup-recherche.gouv.fr/fr/licence-professionnelle" target="_blank" rel="noopener">
+          <div>
+            <h3>MESR <span class="it">— LP / BUT</span></h3>
+            <p class="form-where">BUT en 180 ECTS, grade licence</p>
+          </div>
+          <div class="form-year">gouv.fr ↗</div>
+        </a>
+        <a class="form-row link" href="https://cache.media.education.gouv.fr/file/SP4-MESRI-26-5-2022/14/6/spe617_annexe15_1426146.pdf" target="_blank" rel="noopener">
+          <div>
+            <h3>Programme national <span class="it">BUT Informatique</span></h3>
+            <p class="form-where">Référentiel officiel · PDF</p>
+          </div>
+          <div class="form-year">education.gouv.fr ↗</div>
+        </a>
+      </div>
+    </div>
   </section>
 
 </main>
 
-<footer class="footer container">
-  <span>© 2026 Noé Cervera</span>
-  <div style="display:flex;gap:16px;align-items:center">
-    <a href="mailto:cervera.noe@gmail.com">cervera.noe@gmail.com</a>
-    <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn</a>
+<!-- ====== FOOTER ====== -->
+<footer class="footer fat-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-main">
+        <div class="footer-name">Noé <span class="it">Cervera.</span></div>
+        <p class="footer-tag">Développeur Full-Stack — infrastructure, IAM &amp; IA.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Pages</div>
+        <a href="index.html">Home</a>
+        <a href="alternance.html">Alternance</a>
+        <a href="projets.html">Projets</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Liens</div>
+        <a href="mailto:cervera.noe@gmail.com">Email</a>
+        <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="assets/cv.pdf" target="_blank" rel="noopener">cv.pdf ↗</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Coordonnées</div>
+        <span>Paris, France</span>
+        <span class="footer-avail"><span class="footer-dot"></span>Disponible</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 — Noé Cervera</span>
+      <span>Conçu &amp; codé à la main</span>
+    </div>
   </div>
 </footer>
 
+<script src="assets/portfolio.js"></script>
+
 <script>
-const hdr = document.getElementById('header');
-window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 10));
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-}, { threshold: 0.08 });
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: .06, rootMargin: '0px 0px -40px' });
+  document.querySelectorAll('.section').forEach(el => io.observe(el));
 </script>
+
 </body>
 </html>

@@ -1,728 +1,1260 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Noé Cervera — Développeur Full-Stack & Infrastructure</title>
-  <meta name="description" content="Portfolio de Noé Cervera, développeur Full-Stack en alternance à l'AP-HP. Spécialisé en infrastructure microservices, sécurité IAM, IA/Deep Learning et développement Go/React. BUT Informatique 3e année.">
-  <meta name="author" content="Noé Cervera">
-  <meta name="robots" content="index, follow">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://noe-cervera.github.io/">
-  <meta property="og:title" content="Noé Cervera — Développeur Full-Stack & Infrastructure">
-  <meta property="og:description" content="Développeur Full-Stack en alternance AP-HP. Go, React, IAM, Docker, Deep Learning.">
-  <meta property="og:image" content="https://noe-cervera.github.io/assets/photo-profil.png">
-  <link rel="canonical" href="https://noe-cervera.github.io/">
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
-  <style>
-    /* ── Hero ───────────────────────── */
-    .hero-section {
-      background: linear-gradient(180deg, rgba(79,70,229,.05) 0%, transparent 100%);
-      border-bottom: 1px solid var(--border);
-      padding: 52px 0 46px;
-    }
-    .hero-layout {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 170px minmax(0, 1fr);
-      column-gap: 34px;
-      align-items: center;
-    }
-    .hero-layout > :not(.hero-photo) {
-      grid-column: 2;
-    }
-    .hero-photo {
-      width: 140px; height: 140px;
-      border-radius: 50%; object-fit: cover; object-position: top;
-      border: 5px solid #fff;
-      box-shadow: 0 8px 40px rgba(79,70,229,.18), 0 2px 8px rgba(0,0,0,.08);
-      display: block;
-      margin: 0;
-      grid-column: 1;
-      grid-row: 1 / span 4;
-    }
-    .hero-available {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 13px; font-weight: 700; color: var(--g);
-      background: rgba(22,163,74,.09); border: 1px solid rgba(22,163,74,.22);
-      border-radius: 999px; padding: 6px 16px;
-      margin-bottom: 24px;
-    }
-    .hero-name {
-      font-size: clamp(42px, 5.4vw, 70px);
-      font-weight: 900; letter-spacing: -3px; line-height: 1;
-      margin: 0 0 12px;
-      color: var(--text);
-    }
-    .hero-name span { color: var(--accent); }
-    .hero-role {
-      font-size: clamp(17px, 2.5vw, 22px);
-      color: var(--muted); font-weight: 500;
-      margin: 0 0 22px; line-height: 1.45;
-    }
-    .hero-meta-row {
-      display: flex; flex-wrap: wrap;
-      justify-content: center; gap: 10px 24px;
-      font-size: 14px; color: var(--muted); font-weight: 500;
-      margin-bottom: 36px;
-    }
-    .hero-actions {
-      display: flex; justify-content: flex-start; gap: 12px;
-      flex-wrap: wrap; margin-bottom: 18px;
-    }
-    .hero-actions .btn { padding: 13px 26px; font-size: 15px; }
-    .hero-links {
-      display: flex; justify-content: flex-start; gap: 24px;
-      font-size: 14px; font-weight: 600;
-    }
-    .hero-links a { color: var(--muted); }
-    .hero-links a:hover { color: var(--accent); }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noé Cervera — Développeur Full-Stack &amp; Infrastructure</title>
+<meta name="description" content="Portfolio de Noé Cervera, développeur Full-Stack en alternance à l'AP-HP. Infrastructure microservices, sécurité IAM, IA/Deep Learning. BUT Informatique 3e année.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
-    /* ── Largeur globale ────────────────────── */
-    .container {
-      max-width: 1480px;
-      padding: 0 28px;
-    }
+<style>
+/* ============================================
+   DEV-EDITORIAL — Carnet de développeur
+   palette papier · mono · vermillon
+   ============================================ */
+:root {
+  --paper:      #efece2;
+  --paper-deep: #e6e2d4;
+  --paper-line: #d8d2c1;
+  --ink:        #14110c;
+  --ink-soft:   #2a2620;
+  --muted:      #6c655a;
+  --subtle:     #9a9285;
+  --rule:       #c8c1b1;
+  --accent:     #c5391a;
+  --accent-deep:#9c2c14;
+  --ok:         #2d8a47;
 
-    /* ── Sections centrées ──────────────────── */
-    .section-wrap {
-      max-width: 860px; margin: 0 auto;
-    }
-    .section-wrap-wide {
-      max-width: 1060px; margin: 0 auto;
-    }
-    .home-section .sec-heading {
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .home-section .section-wrap,
-    .home-section .section-wrap-wide {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .home-sections-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 30px;
-      align-items: start;
-      margin: 44px auto 82px;
-    }
-    .home-sections-grid .home-section {
-      margin: 0;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: var(--s1);
-      padding: 36px 30px;
-      height: 100%;
-    }
-    .home-sections-grid .home-section .sec-heading {
-      text-align: left;
-      margin-bottom: 28px;
-    }
-    .home-sections-grid .home-section .sec-sub {
-      max-width: none;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .home-sections-grid .home-section .section-wrap,
-    .home-sections-grid .home-section .section-wrap-wide {
-      max-width: none;
-    }
-    .home-sections-grid .home-section .projects-grid,
-    .home-sections-grid .home-section .form-grid {
-      grid-template-columns: 1fr;
-    }
-    .home-sections-grid .home-section .tl-card {
-      padding: 26px;
-    }
+  --mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --serif:   "Instrument Serif", "Times New Roman", serif;
 
-    /* ── Titres de section ──────────────────── */
-    .sec-heading {
-      text-align: center; margin-bottom: 56px;
-    }
-    .sec-label {
-      display: inline-block;
-      font-size: 12px; font-weight: 800;
-      color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px;
-      margin-bottom: 12px;
-    }
-    .sec-title {
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 800; color: var(--text);
-      letter-spacing: -1px; line-height: 1.1;
-      margin: 0;
-    }
-    .sec-sub {
-      margin: 12px 0 0;
-      font-size: 17px; color: var(--muted);
-      max-width: 560px; margin-left: auto; margin-right: auto;
-    }
+  --gutter:  clamp(18px, 3.5vw, 48px);
+  --maxw:    1320px;
+}
 
-    /* ── Timeline améliorée ─────────────────── */
-    .tl-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 18px; padding: 28px 32px;
-      margin-bottom: 16px;
-      box-shadow: var(--s1);
-      transition: box-shadow .2s;
-    }
-    .tl-card:hover { box-shadow: var(--s2); }
-    .tl-card-link {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-    .tl-card-head {
-      display: flex; align-items: flex-start;
-      justify-content: space-between; gap: 16px;
-      margin-bottom: 8px;
-    }
-    .tl-card h3 {
-      font-size: 19px; font-weight: 700; color: var(--text); margin: 0;
-    }
-    .tl-card-date {
-      font-size: 13px; font-weight: 700; color: var(--subtle);
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: 999px; padding: 4px 12px; white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .tl-card-where {
-      font-size: 14px; color: var(--accent); font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .tl-card p {
-      font-size: 15.5px; color: var(--muted); line-height: 1.7;
-      margin: 0 0 16px;
-    }
-    /* ── Projets ────────────────────────────── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    .pcard {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 20px; overflow: hidden;
-      box-shadow: var(--s1); transition: all .22s;
-      display: flex; flex-direction: column;
-      text-decoration: none; color: inherit;
-    }
-    .pcard:hover { box-shadow: var(--s2); transform: translateY(-3px); opacity: 1; }
-    .pcard-top {
-      padding: 28px 28px 0;
-    }
-    .pcard-icon {
-      width: 48px; height: 48px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px; margin-bottom: 16px;
-    }
-    .pcard h3 {
-      font-size: 19px; font-weight: 800; color: var(--text);
-      margin: 0 0 10px; line-height: 1.3;
-    }
-    .pcard p {
-      font-size: 15px; color: var(--muted); line-height: 1.65;
-      margin: 0;
-    }
-    .pcard-footer {
-      padding: 20px 28px 24px;
-      display: flex; align-items: center;
-      justify-content: space-between; gap: 10px;
-      flex-wrap: wrap; margin-top: auto;
-    }
-    .pcard-voir {
-      font-size: 14px; font-weight: 700;
-      display: flex; align-items: center; gap: 4px;
-    }
-    .home-sections-grid .sd.open .sd-body { max-height: 1200px; }
-    .sd-explain {
-      margin-top: 10px;
-      padding: 10px 12px;
-      border: 1px dashed var(--border);
-      border-radius: 12px;
-      background: var(--bg);
-    }
-    .sd-explain p {
-      margin: 0 0 8px;
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--muted);
-    }
-    .sd-explain p:last-child { margin-bottom: 0; }
-    .sd-explain strong { color: var(--text); }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
-    /* Formation cards */
-    .form-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
-    }
-    .form-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px;
-      box-shadow: var(--s1);
-    }
-    .form-card .fc-year {
-      font-size: 12px; font-weight: 800; color: var(--accent);
-      text-transform: uppercase; letter-spacing: .6px; margin-bottom: 8px;
-    }
-    .form-card h3 {
-      font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px;
-    }
-    .form-card p { font-size: 14px; color: var(--muted); margin: 0; }
+/* paper grain */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .28;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.07  0 0 0 0 0.05  0 0 0 .12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
 
-    /* Soft skills */
-    .soft-skill-section {
-      margin: 0 auto 84px;
-      padding-top: 6px;
-    }
-    .soft-heading {
-      text-align: left;
-      margin-bottom: 24px;
-    }
-    .soft-heading .sec-sub {
-      margin-left: 0;
-      margin-right: 0;
-      max-width: 860px;
-    }
-    .soft-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .soft-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 18px;
-      box-shadow: var(--s1);
-    }
-    .soft-card h3 {
-      margin: 0 0 6px;
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--text);
-    }
-    .soft-card p {
-      margin: 0;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--accent); color: var(--paper); }
 
-    @media (max-width: 900px) {
-      .hero-layout {
-        max-width: none;
-        grid-template-columns: 1fr;
-        row-gap: 10px;
-        justify-items: center;
-      }
-      .hero-layout > :not(.hero-photo) {
-        grid-column: auto;
-      }
-      .hero-photo {
-        grid-column: auto;
-        grid-row: auto;
-        margin-bottom: 10px;
-      }
-      .hero-section {
-        text-align: center;
-      }
-      .hero-actions,
-      .hero-links {
-        justify-content: center;
-      }
-    }
-    @media (max-width: 1100px) {
-      .home-sections-grid { grid-template-columns: 1fr; }
-      .soft-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 800px) {
-      .projects-grid { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .soft-grid { grid-template-columns: 1fr; }
-      .hero-name { letter-spacing: -2px; }
-      .container { padding: 0 20px; }
-    }
-    @media (max-width: 500px) {
-      .container { padding: 0 16px; }
-    }
-  </style>
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 2; }
+.serif { font-family: var(--serif); font-style: italic; }
+
+/* ============================================
+   TOP BAR — terminal prompt
+   ============================================ */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in oklab, var(--paper) 90%, transparent);
+  backdrop-filter: blur(10px) saturate(1.2);
+  border-bottom: 1px solid var(--rule);
+}
+.topbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px var(--gutter);
+  max-width: var(--maxw); margin: 0 auto;
+  font-size: 12px;
+}
+.topbar-brand {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--ink);
+  font-weight: 600;
+}
+.topbar-brand .mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: 0;
+  padding-bottom: 2px;
+}
+
+.topbar-nav { display: flex; gap: 4px; }
+.topbar-nav a {
+  position: relative;
+  color: var(--muted);
+  padding: 6px 10px;
+  transition: color .2s, background .2s;
+}
+.topbar-nav a:hover { color: var(--ink); background: var(--paper-deep); }
+.topbar-nav a.is-active { color: var(--accent); }
+.topbar-nav a.is-active::before { content: "● "; font-size: 9px; vertical-align: middle; }
+
+.topbar-cta {
+  font-size: 12px;
+  padding: 7px 14px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  transition: background .2s, color .2s;
+  font-weight: 500;
+}
+.topbar-cta:hover { background: var(--ink); color: var(--paper); }
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  padding: clamp(32px, 4.5vw, 64px) 0 clamp(32px, 4.5vw, 56px);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.hero-meta-top {
+  display: flex; justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: clamp(28px, 4vw, 48px);
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--rule);
+  flex-wrap: wrap; gap: 8px;
+}
+.hero-meta-top .l { color: var(--ok); }
+.hero-meta-top .dot {
+  display: inline-block;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--ok);
+  margin-right: 7px;
+  vertical-align: middle;
+  box-shadow: 0 0 0 3px rgba(45,138,71,.18);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 50% { transform: scale(1.2); } }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+  gap: clamp(36px, 6vw, 88px);
+  align-items: end;
+}
+
+.hero-name {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(48px, 9.5vw, 144px);
+  line-height: .95;
+  letter-spacing: -.04em;
+  margin: 0;
+  color: var(--ink);
+  font-feature-settings: "ss01" on, "ss02" on;
+}
+.hero-name .pre { color: var(--accent); font-weight: 500; }
+.hero-name .it { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -.02em; }
+.hero-tag {
+  font-family: var(--mono);
+  font-size: clamp(15px, 1.5vw, 18px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: clamp(20px, 2.5vw, 32px) 0 0;
+  max-width: 56ch;
+}
+.hero-tag .com { color: var(--muted); }
+.hero-tag .key { color: var(--accent); }
+.hero-tag .str { color: var(--ink); font-weight: 500; }
+
+.hero-side {
+  display: flex; flex-direction: column; gap: 14px;
+  align-self: end;
+}
+.hero-portrait {
+  position: relative;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.hero-portrait img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center center;
+  filter: grayscale(.4) contrast(1.06) sepia(.18);
+  mix-blend-mode: multiply;
+}
+.hero-portrait::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(20,17,12,.18) 100%);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.hero-portrait-tag {
+  position: absolute; top: 10px; left: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 4px 8px;
+  font-size: 10px;
+  border: 1px solid var(--rule);
+}
+.hero-portrait-caption {
+  position: absolute; bottom: 8px; left: 10px; right: 10px;
+  font-size: 10px;
+  color: var(--paper);
+  text-shadow: 0 1px 4px rgba(0,0,0,.7);
+  display: flex; justify-content: space-between;
+}
+.hero-side-meta {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.4;
+  border-top: 1px solid var(--rule);
+}
+.hero-side-meta .row-m {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 12px;
+  padding: 10px 2px;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+.hero-side-meta .row-m .k {
+  color: var(--subtle);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 10px;
+}
+.hero-side-meta .row-m .v {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.hero-actions {
+  margin-top: clamp(24px, 3vw, 40px);
+  display: flex; gap: 24px; align-items: center;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 12px 20px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+.btn .arr { transition: transform .25s ease; }
+.btn:hover .arr { transform: translate(4px, -4px); }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+.hero-links { display: flex; gap: 22px; font-size: 12px; color: var(--muted); }
+.hero-links a { position: relative; padding-bottom: 2px; transition: color .2s; font-weight: 500; }
+.hero-links a::after {
+  content: ""; position: absolute; left: 0; bottom: 0; height: 1px;
+  width: 100%; background: currentColor; transform-origin: right;
+  transform: scaleX(0); transition: transform .3s ease;
+}
+.hero-links a:hover { color: var(--accent); }
+.hero-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+/* ============================================
+   SECTIONS — file-path headers
+   ============================================ */
+.section { padding: clamp(36px, 4.5vw, 64px) 0; border-bottom: 1px solid var(--rule); position: relative; }
+
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+.section-path {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: .02em;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-path .num { color: var(--accent); font-weight: 600; margin-right: 4px; }
+.section-title {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(36px, 5.6vw, 76px);
+  line-height: .98;
+  letter-spacing: -.035em;
+  margin: 0;
+  color: var(--ink);
+}
+.section-title .it { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -.02em; }
+.section-title .com { color: var(--muted); font-weight: 400; }
+
+.section-sub {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 64ch;
+  margin: 6px 0 0;
+}
+
+/* ============================================
+   INTRO BLOCK
+   ============================================ */
+.intro {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+.intro-callout {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  margin: 0;
+}
+.intro-callout em { color: var(--accent); font-style: italic; }
+.intro-text p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+.intro-text p:last-child { margin-bottom: 0; }
+.intro-text strong { font-weight: 600; color: var(--ink); }
+
+/* ============================================
+   ROW LIST — projects, experience
+   ============================================ */
+.row-list {
+  display: flex; flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+.row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: clamp(16px, 2.5vw, 36px);
+  align-items: baseline;
+  padding: clamp(20px, 2.5vw, 28px) 12px;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+  transition: background .25s ease, padding-left .25s ease;
+  position: relative;
+}
+.row.no-link { cursor: default; }
+.row::after {
+  content: "→";
+  position: absolute;
+  right: 14px; top: 50%;
+  transform: translate(20px, -50%);
+  font-size: 24px;
+  color: var(--accent);
+  opacity: 0;
+  transition: transform .3s ease, opacity .3s ease;
+  pointer-events: none;
+}
+.row:not(.no-link):hover {
+  background: var(--paper-deep);
+  padding-left: 24px;
+}
+.row:not(.no-link):hover::after { transform: translate(0, -50%); opacity: 1; }
+.row:not(.no-link):hover .row-meta { opacity: 0; }
+
+.row-num {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.row-main { min-width: 0; }
+.row-where {
+  font-size: 11px;
+  color: var(--accent);
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+.row-title {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+.row-title .it { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+.row-title .com { color: var(--muted); font-weight: 400; }
+.row-desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 10px;
+  max-width: 62ch;
+}
+.row-tags {
+  display: flex; flex-wrap: wrap;
+  font-size: 11px;
+  color: var(--ink-soft);
+  gap: 4px 0;
+}
+.row-tags span { padding: 2px 0; }
+.row-tags span::after {
+  content: " · ";
+  color: var(--subtle);
+  margin: 0 10px;
+}
+.row-tags span:last-child::after { content: ""; }
+
+.row-meta {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+  transition: opacity .3s ease;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.row-meta strong { display: block; color: var(--ink); font-weight: 600; margin-bottom: 2px; }
+.row-meta .com { color: var(--subtle); font-weight: 400; }
+
+/* ============================================
+   SKILLS — code-style list
+   ============================================ */
+.skills-block {
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  padding: clamp(20px, 3vw, 36px) clamp(20px, 3vw, 36px);
+  font-size: 13px;
+  position: relative;
+}
+.skills-block::before {
+  content: "Stack technique";
+  position: absolute;
+  top: -10px; left: 24px;
+  background: var(--paper);
+  padding: 0 10px;
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: .04em;
+}
+.skill-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-bottom: 1px dashed var(--rule);
+  align-items: baseline;
+}
+.skill-group:last-child { border-bottom: none; }
+.skill-group-name {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  user-select: none;
+  padding: 14px 4px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.skill-group-name::before { content: "● "; color: var(--accent); font-size: 10px; }
+.skill-group-name .count {
+  font-family: var(--mono);
+  color: var(--subtle);
+  font-size: 11px;
+  font-weight: 400;
+}
+.skill-group-list {
+  display: flex; flex-wrap: wrap;
+  gap: 6px;
+  line-height: 1.5;
+  padding: 0 4px 16px;
+}
+.skill-group-list .sk {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: pointer;
+  user-select: none;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+.skill-group-list .sk:hover,
+.skill-group-list .sk:focus-visible { border-color: var(--ink); color: var(--ink); outline: none; }
+.skill-group-list .sk.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.skill-group-list .sk img {
+  width: 13px; height: 13px;
+  object-fit: contain;
+  opacity: .85;
+}
+.skill-group-list .sk.is-active img { filter: invert(1) brightness(1.2); opacity: 1; }
+
+.skill-info {
+  margin-top: 16px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  padding: 18px 22px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  position: relative;
+}
+.skill-info[hidden] { display: none; }
+.skill-info .sk-info-name {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--accent);
+  margin: 0 0 6px;
+  letter-spacing: -.01em;
+}
+.skill-info .sk-info-body {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink);
+  line-height: 1.45;
+  margin: 0;
+  max-width: 70ch;
+}
+.skill-info .sk-info-close {
+  background: transparent;
+  border: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: border-color .15s, color .15s;
+}
+.skill-info .sk-info-close:hover { border-color: var(--ink); color: var(--ink); }
+.skill-info-empty {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  padding: 14px;
+  border: 1px dashed var(--rule);
+  margin-top: 16px;
+}
+
+/* ============================================
+   FORM (formation)
+   ============================================ */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  padding: 22px 14px;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+  transition: background .25s, padding-left .25s;
+}
+.form-row:first-of-type { border-top: 1px solid var(--rule); }
+.form-row.link { cursor: pointer; }
+.form-row.link:hover { background: var(--paper-deep); padding-left: 24px; color: inherit; }
+.form-row h3 {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 22px);
+  margin: 0 0 4px;
+  letter-spacing: -.015em;
+  color: var(--ink);
+}
+.form-row h3 .it { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+.form-where {
+  font-size: 11px;
+  color: var(--muted);
+}
+.form-year {
+  font-size: 12px;
+  color: var(--ink);
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* ============================================
+   MARQUEE
+   ============================================ */
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  background: var(--paper-deep);
+  position: relative;
+}
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll 50s linear infinite;
+  gap: 56px;
+  font-size: clamp(22px, 3.4vw, 44px);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -.02em;
+}
+.marquee-track > span { display: inline-flex; align-items: center; gap: 56px; }
+.marquee-track .sep { color: var(--accent); font-family: var(--serif); font-style: italic; font-size: .9em; font-weight: 400; }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ============================================
+   CTA
+   ============================================ */
+.cta { padding: clamp(44px, 6vw, 80px) 0; }
+.cta-eyebrow {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.cta-eyebrow .num { color: var(--accent); font-weight: 600; margin-right: 4px; }
+.cta-headline {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(36px, 6vw, 88px);
+  line-height: .98;
+  letter-spacing: -.04em;
+  margin: 0 0 28px;
+  color: var(--ink);
+  max-width: 18ch;
+}
+.cta-headline .it { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -.02em; }
+.cta-email {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: 500;
+  color: var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 4px;
+  transition: color .2s, border-color .2s;
+}
+.cta-email:hover { color: var(--accent); border-color: var(--accent); }
+.cta-meta {
+  margin-top: 32px;
+  display: flex; gap: 28px; flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--muted);
+}
+.cta-meta a { font-weight: 500; transition: color .2s; }
+.cta-meta a:hover { color: var(--accent); }
+
+/* ============================================
+   FOOTER (fat)
+   ============================================ */
+.footer {
+  padding: 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.footer-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+  padding: 24px 0;
+}
+.fat-footer .footer-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  padding: clamp(40px, 5vw, 64px) 0 clamp(28px, 3vw, 36px);
+  border-bottom: 1px solid var(--rule);
+}
+.footer-col { display: flex; flex-direction: column; gap: 8px; }
+.footer-col a {
+  color: var(--muted);
+  transition: color .2s;
+  width: fit-content;
+  font-size: 13px;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-h {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.footer-name {
+  font-family: var(--mono);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.footer-name .it { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+.footer-tag {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 36ch;
+}
+.footer-avail {
+  display: inline-flex; align-items: center; gap: 7px;
+  color: var(--ok); font-weight: 500;
+}
+.footer-dot {
+  display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 0 3px rgba(45,138,71,.18);
+}
+.footer-bottom {
+  display: flex; justify-content: space-between;
+  padding: 16px 0;
+  flex-wrap: wrap; gap: 8px;
+  font-size: 11px;
+}
+@media (max-width: 720px) {
+  .fat-footer .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-col-main { grid-column: 1 / -1; }
+}
+
+/* ============================================
+   FADE
+   ============================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.fade-up.is-in { opacity: 1; transform: none; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 920px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-side { gap: 16px; max-width: 280px; }
+  .intro { grid-template-columns: 1fr; gap: 28px; }
+  .row { grid-template-columns: 50px 1fr; }
+  .row-meta { grid-column: 1 / -1; text-align: left; margin-top: 8px; }
+  .topbar-nav { display: none; }
+  .topbar-brand .path-detail { display: none; }
+}
+@media (max-width: 560px) {
+  .hero-side { max-width: 100%; }
+  .row-num { font-size: 10px; }
+  .hero-meta-top { font-size: 10px; }
+  .cta-meta { gap: 16px; }
+}
+</style>
 </head>
 <body>
 
-<header class="header" id="header">
-  <nav class="nav container">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.svg" alt="Logo Noé Cervera">
-      <span>Portfolios</span>
+<!-- ====== TOP BAR ====== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="index.html">
+      <span class="mark">N</span>
+      <span>Noé&nbsp;Cervera</span>
     </a>
-    <div class="menu">
-      <a href="index.html" class="active">Accueil</a>
+    <nav class="topbar-nav">
+      <a href="index.html" class="is-active">Home</a>
       <a href="alternance.html">Alternance</a>
       <a href="projets.html">Projets</a>
+      <a href="apropos.html">À propos</a>
       <a href="contact.html">Contact</a>
-      <a class="btn" href="apropos.html">À propos</a>
-    </div>
-  </nav>
+    </nav>
+    <a class="topbar-cta" href="assets/cv.pdf" target="_blank" rel="noopener">CV ↗</a>
+  </div>
 </header>
 
-<main>
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="wrap">
 
-  <!-- ── HERO centré ──────────────────────────────── -->
-  <section class="hero-section fade-up">
-    <div class="container hero-layout">
-      <img class="hero-photo" src="assets/photo-profil.png" alt="Photo Noé Cervera">
-      <h1 class="hero-name">Noé <span>Cervera</span></h1>
-      <p class="hero-role">
-        Développeur Full-Stack · Infrastructure & Sécurité IAM · IA
-      </p>
-      <div class="hero-actions">
-        <a class="btn" href="alternance.html">Voir l'alternance ATLAS →</a>
-        <a class="btn btn-ghost" href="contact.html">Me contacter</a>
-      </div>
-      <div class="hero-links">
-        <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">⟶ GitHub</a>
-        <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">⟶ LinkedIn</a>
-      </div>
-
+    <div class="hero-meta-top">
+      <span class="l"><span class="dot"></span>Disponible — Alternance &amp; Freelance</span>
+      <span>Paris, FR</span>
     </div>
-  </section>
 
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-name">
+          Noe<br>Cervera<span class="it">.</span>
+        </h1>
+        <p class="hero-tag">
+          <span class="key">Développeur</span> <span class="str">Full-Stack</span> — infrastructure microservices, sécurité IAM &amp; deep learning.
+        </p>
 
-  <!-- ── GRILLE 2×2 ───────────────────────────────── -->
-  <div class="container home-sections-grid fade-up">
-
-    <!-- EXPÉRIENCES -->
-    <section class="home-section">
-      <div class="sec-label">Parcours</div>
-      <h2 class="sec-title">Expériences</h2>
-
-      <div class="tl-card">
-        <div class="tl-card-head">
-          <h3>Développeur Full-Stack — Alternance</h3>
-          <span class="tl-card-date">2025 – 2026</span>
-        </div>
-        <div class="tl-card-where">AP-HP Henri Mondor · GenoBioMICS / ATLAS</div>
-        <p>Middleware hospitalier microservices : backend Go (BFF), OIDC/IAM, permissions ReBAC/ABAC, frontend React/TypeScript, DataHouse Iceberg et observabilité Redis.</p>
-        <div class="badges">
-          <span class="badge">Go</span><span class="badge">React/TS</span><span class="badge">Docker</span>
-          <span class="badge">Zitadel</span><span class="badge">SpiceDB</span>
-        </div>
-        <div style="margin-top:12px">
-          <a class="pcard-voir" href="alternance.html" style="color:var(--accent)">Voir →</a>
-        </div>
-      </div>
-
-      <div class="tl-card">
-        <div class="tl-card-head">
-          <h3>Développeur Full-Stack — Stage</h3>
-          <span class="tl-card-date">Juil. – Août 2025</span>
-        </div>
-        <div class="tl-card-where">AP-HP Henri Mondor · GenoBioMICS</div>
-        <p>Prototype microservices hospitalier : architecture IAM complète (OIDC, REBAC, ABAC), base graphe Dgraph et monitoring Prometheus/Grafana.</p>
-        <div class="badges">
-          <span class="badge">Go</span><span class="badge">Docker Compose</span>
-          <span class="badge">Zitadel</span><span class="badge">SpiceDB</span>
-          <span class="badge">OPA</span><span class="badge">Dgraph</span>
-        </div>
-      </div>
-
-      <div class="tl-card" style="opacity:.65">
-        <div class="tl-card-head">
-          <h3>Employé polyvalent</h3>
-          <span class="tl-card-date">2020 – 2025</span>
-        </div>
-        <div class="tl-card-where">Linoedesign-Paris</div>
-        <p style="margin:0">Main-d'œuvre, menuiserie, pose de stores, plomberie et électricité.</p>
-      </div>
-    </section>
-
-    <!-- PROJETS -->
-    <section class="home-section">
-      <div class="sec-label">Réalisations</div>
-      <h2 class="sec-title">Projets</h2>
-
-      <a class="pcard" href="projets.html#smartface">
-        <div class="pcard-top">
-          <div class="pcard-icon" style="background:rgba(124,58,237,.1)">🧠</div>
-          <h3>SmartFace Insight — IA Visage</h3>
-          <p>Deep Learning multitâche (MoE), EfficientNetB0 + TFLite + app Android Kotlin/Jetpack Compose.</p>
-        </div>
-        <div class="pcard-footer">
-          <div class="badges"><span class="badge">TensorFlow</span><span class="badge">Python</span><span class="badge">Kotlin</span></div>
-          <span class="pcard-voir" style="color:var(--p)">Voir →</span>
-        </div>
-      </a>
-
-      <a class="pcard" href="projets.html#thales">
-        <div class="pcard-top">
-          <div class="pcard-icon" style="background:rgba(14,165,233,.1)">📡</div>
-          <h3>Brevets 6G — THALES</h3>
-          <p>Pipeline NLP de collecte et classification de brevets 6G avec dashboard Streamlit.</p>
-        </div>
-        <div class="pcard-footer">
-          <div class="badges"><span class="badge">Python</span><span class="badge">NLP</span><span class="badge">Streamlit</span></div>
-          <span class="pcard-voir" style="color:var(--b)">Voir →</span>
-        </div>
-      </a>
-
-      <a class="pcard" href="projets.html#sae-f1">
-        <div class="pcard-top">
-          <div class="pcard-icon" style="background:rgba(22,163,74,.1)">🏎️</div>
-          <h3>Site F1 Dynamique — SAE</h3>
-          <p>Application web F1 avec authentification, résultats et import CSV (PHP 8 + MySQL).</p>
-        </div>
-        <div class="pcard-footer">
-          <div class="badges"><span class="badge">PHP 8</span><span class="badge">MySQL</span><span class="badge">HTML/CSS</span></div>
-          <span class="pcard-voir" style="color:var(--g)">Voir →</span>
-        </div>
-      </a>
-    </section>
-
-    <!-- COMPÉTENCES -->
-    <section class="home-section">
-      <div class="sec-label">Savoir-faire</div>
-      <h2 class="sec-title">Compétences</h2>
-
-      <div class="skill-domains">
-        <div class="sd open">
-          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot"></div><span class="sd-label">Langages</span><span class="sd-chevron">▼</span></div>
-          <div class="sd-body">
-            <div class="sd-explain">
-              <p><strong>Ce que c'est :</strong> les langages sont la base pour construire le frontend, le backend, les scripts et les requêtes.</p>
-              <p><strong>Pourquoi je les utilise :</strong> je choisis chaque langage selon le besoin du projet : Go pour la performance backend, TypeScript/JS pour l'interface, Python pour l'IA et l'ETL.</p>
-            </div>
-            <div class="skill-tags">
-              <span class="sk"><img src="assets/go.svg" alt="">Go</span>
-              <span class="sk"><img src="assets/python.svg" alt="">Python</span>
-              <span class="sk"><img src="assets/Java.svg" alt="">Java</span>
-              <span class="sk"><img src="assets/js.svg" alt="">JavaScript</span>
-              <span class="sk"><img src="assets/typescript.svg" alt="">TypeScript</span>
-              <span class="sk"><img src="assets/c.svg" alt="">C</span>
-              <span class="sk"><img src="assets/php.svg" alt="">PHP</span>
-              <span class="sk"><img src="assets/mysql.svg" alt="">SQL</span>
-            </div>
-          </div>
-        </div>
-        <div class="sd purple">
-          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot"></div><span class="sd-label">IA & Deep Learning</span><span class="sd-chevron">▼</span></div>
-          <div class="sd-body">
-            <div class="sd-explain">
-              <p><strong>Ce que c'est :</strong> un ensemble de modèles et pipelines pour prédire, classifier et extraire de la valeur à partir des données.</p>
-              <p><strong>Pourquoi je les utilise :</strong> pour analyser des données complexes (visage, textes, signaux biologiques) et intégrer des briques IA utiles dans des applications concrètes.</p>
-            </div>
-            <div class="skill-tags">
-              <span class="sk"><img src="assets/tensorflow.svg" alt="">TensorFlow / TFLite</span>
-              <span class="sk"><img src="assets/python.svg" alt="">Keras · EfficientNetB0</span>
-              <span class="sk"><img src="assets/kotlin.svg" alt="">Kotlin · Jetpack Compose</span>
-              <span class="sk"><img src="assets/python.svg" alt="">Mixture of Experts</span>
-              <span class="sk"><img src="assets/python.svg" alt="">NLP · Classification</span>
-            </div>
-          </div>
-        </div>
-        <div class="sd blue">
-          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot"></div><span class="sd-label">Backend & API</span><span class="sd-chevron">▼</span></div>
-          <div class="sd-body">
-            <div class="sd-explain">
-              <p><strong>Ce que c'est :</strong> la couche qui expose les services, applique les règles métier et centralise les accès aux données.</p>
-              <p><strong>Pourquoi je les utilise :</strong> pour sécuriser les échanges, éviter les appels directs côté frontend et garder une architecture propre et maintenable.</p>
-            </div>
-            <div class="skill-tags">
-              <span class="sk"><img src="assets/go.svg" alt="">Go · Pattern BFF</span>
-              <span class="sk"><img src="assets/nodejs.svg" alt="">Node.js</span>
-              <span class="sk"><img src="assets/php.svg" alt="">PHP</span>
-              <span class="sk">GraphQL · REST</span>
-              <span class="sk">OIDC · PKCE</span>
-            </div>
-          </div>
-        </div>
-        <div class="sd green">
-          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot"></div><span class="sd-label">Frontend</span><span class="sd-chevron">▼</span></div>
-          <div class="sd-body">
-            <div class="sd-explain">
-              <p><strong>Ce que c'est :</strong> la partie visible pour l'utilisateur, où l'on gère l'interface, l'expérience et les workflows métier.</p>
-              <p><strong>Pourquoi je les utilise :</strong> pour proposer des écrans clairs aux équipes (admin, labo, RH), avec des actions rapides et une navigation fiable.</p>
-            </div>
-            <div class="skill-tags">
-              <span class="sk"><img src="assets/react.svg" alt="">React 19</span>
-              <span class="sk"><img src="assets/typescript.svg" alt="">TypeScript</span>
-              <span class="sk"><img src="assets/html.svg" alt="">HTML5</span>
-              <span class="sk"><img src="assets/css.svg" alt="">CSS3</span>
-              <span class="sk"><img src="assets/python.svg" alt="">Streamlit</span>
-            </div>
-          </div>
-        </div>
-        <div class="sd orange">
-          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot"></div><span class="sd-label">Infrastructure & DevOps</span><span class="sd-chevron">▼</span></div>
-          <div class="sd-body">
-            <div class="sd-explain">
-              <p><strong>Ce que c'est :</strong> l'ensemble des outils qui permettent de déployer, superviser et faire évoluer la plateforme.</p>
-              <p><strong>Pourquoi je les utilise :</strong> pour avoir des environnements stables, reproductibles et observables, du poste local jusqu'à la production.</p>
-            </div>
-            <div class="skill-tags">
-              <span class="sk"><img src="assets/docker.svg" alt="">Docker / Compose</span>
-              <span class="sk"><img src="assets/nginx.svg" alt="">Nginx</span>
-              <span class="sk"><img src="assets/prometheus.svg" alt="">Prometheus</span>
-              <span class="sk"><img src="assets/grafana.svg" alt="">Grafana</span>
-              <span class="sk"><img src="assets/linux.svg" alt="">Linux</span>
-              <span class="sk"><img src="assets/git.svg" alt="">Git · Agile</span>
-            </div>
-          </div>
-        </div>
-        <div class="sd">
-          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot" style="background:var(--b)"></div><span class="sd-label">Sécurité & IAM</span><span class="sd-chevron">▼</span></div>
-          <div class="sd-body">
-            <div class="sd-explain">
-              <p><strong>Ce que c'est :</strong> la gestion des identités et des droits d'accès, avec contrôle fin des permissions.</p>
-              <p><strong>Pourquoi je les utilise :</strong> dans un contexte hospitalier, la sécurité est critique: il faut tracer qui accède à quoi et appliquer des règles strictes.</p>
-            </div>
-            <div class="skill-tags">
-              <span class="sk"><img src="assets/zitadel.svg" alt="">Zitadel (OIDC)</span>
-              <span class="sk"><img src="assets/spicedb.svg" alt="">SpiceDB (ReBAC)</span>
-              <span class="sk"><img src="assets/opa.svg" alt="">OPA (ABAC)</span>
-              <span class="sk">JWT · MFA · PKCE</span>
-            </div>
-          </div>
-        </div>
-        <div class="sd">
-          <div class="sd-header" onclick="toggleSD(this)"><div class="sd-dot" style="background:var(--g)"></div><span class="sd-label">Bases de données & Data</span><span class="sd-chevron">▼</span></div>
-          <div class="sd-body">
-            <div class="sd-explain">
-              <p><strong>Ce que c'est :</strong> les moteurs de stockage et de requête qui portent les données transactionnelles, graphe et analytiques.</p>
-              <p><strong>Pourquoi je les utilise :</strong> pour gérer à la fois les données opérationnelles (utilisateurs, formulaires, droits) et les données NGS pour l'analyse IA.</p>
-            </div>
-            <div class="skill-tags">
-              <span class="sk"><img src="assets/postgresql.svg" alt="">PostgreSQL</span>
-              <span class="sk"><img src="assets/mysql.svg" alt="">MySQL</span>
-              <span class="sk"><img src="assets/redis.svg" alt="">Redis</span>
-              <span class="sk"><img src="assets/dgraph.svg" alt="">Dgraph</span>
-              <span class="sk">Iceberg · Nessie · Trino</span>
-              <span class="sk">DuckDB · SeaweedFS</span>
-            </div>
+        <div class="hero-actions">
+          <a class="btn" href="alternance.html">
+            Voir l'alternance <span class="arr">↗</span>
+          </a>
+          <div class="hero-links">
+            <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:cervera.noe@gmail.com">Email</a>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- FORMATIONS -->
-    <section class="home-section">
-      <div class="sec-label">Parcours académique</div>
-      <h2 class="sec-title">Formations</h2>
-
-      <a class="tl-card tl-card-link" href="but3-informatique.html">
-        <div class="tl-card-head">
-          <h3>BUT Informatique 3e année — alternance</h3>
-          <span class="tl-card-date">2023 – 2026</span>
+      <aside class="hero-side">
+        <div class="hero-portrait">
+          <span class="hero-portrait-tag">Portrait — 2026</span>
+          <img src="assets/photo-profil.png" alt="Portrait de Noé Cervera">
+          <div class="hero-portrait-caption">
+            <span>Noé Cervera</span>
+            <span>2026</span>
+          </div>
         </div>
-        <div class="tl-card-where">Université Sorbonne Paris Nord</div>
-        <p style="margin:0">Formation professionnalisante et pluridisciplinaire en informatique.</p>
-        <div style="margin-top:10px;font-size:13px;font-weight:700;color:var(--accent)">Voir la page dédiée →</div>
-      </a>
-
-      <div class="tl-card">
-        <div class="tl-card-head">
-          <h3>Licence 2 Informatique</h3>
-          <span class="tl-card-date">2019 – 2022</span>
+        <div class="hero-side-meta">
+          <div class="row-m"><span class="k">Rôle</span><span class="v">Développeur Full-Stack</span></div>
+          <div class="row-m"><span class="k">Cursus</span><span class="v">BUT3 Informatique — alternance</span></div>
+          <div class="row-m"><span class="k">Stack</span><span class="v">Go · React · IA</span></div>
+          <div class="row-m"><span class="k">Lieu</span><span class="v">Paris, France</span></div>
         </div>
-        <div class="tl-card-where">Université Sorbonne Paris Nord</div>
-        <p style="margin:0">Culture scientifique et habitude de travail intense.</p>
-      </div>
-
-      <div class="tl-card">
-        <div class="tl-card-head">
-          <h3>Baccalauréat Scientifique — SI</h3>
-          <span class="tl-card-date">2017 – 2018</span>
-        </div>
-        <div class="tl-card-where">Lycée Jacques Feyder</div>
-        <p style="margin:0">Option Sciences de l'Ingénieur.</p>
-      </div>
-
-      <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border)">
-        <div class="sec-label" style="margin-bottom:12px">🌍 Langues & Divers</div>
-        <div class="badges">
-          <span class="badge">🇬🇧 Anglais B1 · Irlande 1 mois</span>
-          <span class="badge">🇪🇸 Espagnol B2</span>
-          <span class="badge">🏀 Basket N2</span>
-          <span class="badge">🥋 Karaté ceinture noire</span>
-          <span class="badge">🚗 Permis B</span>
-        </div>
-      </div>
-    </section>
+      </aside>
+    </div>
 
   </div>
+</section>
 
-  <section class="container soft-skill-section fade-up">
-    <div class="sec-heading soft-heading">
-      <div class="sec-label">Soft skills</div>
-      <h2 class="sec-title">Compétences humaines</h2>
-      <p class="sec-sub">Compétences comportementales mobilisées en projet, en alternance et dans mes activités annexes.</p>
+<!-- ====== 01 — INTRO ====== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-path"><span class="num">01</span> — Préambule</div>
+      <h2 class="section-title">À propos<span class="it">.</span></h2>
     </div>
-    <div class="soft-grid">
-      <article class="soft-card">
-        <h3>Communication claire</h3>
-        <p>Je sais expliquer des sujets techniques à des profils non techniques (lycéens, équipes métier, interlocuteurs RH).</p>
-      </article>
-      <article class="soft-card">
-        <h3>Pédagogie</h3>
-        <p>Je vulgarise les notions complexes pour rendre les choix d'orientation ou les décisions techniques plus accessibles.</p>
-      </article>
-      <article class="soft-card">
-        <h3>Travail en équipe</h3>
-        <p>Je collabore facilement avec des profils variés: développeurs, bioinformaticiens, responsables fonctionnels et utilisateurs.</p>
-      </article>
-      <article class="soft-card">
-        <h3>Leadership terrain</h3>
-        <p>Le coaching sportif m'a appris à encadrer un groupe, poser un cadre et faire progresser chacun sur la durée.</p>
-      </article>
-      <article class="soft-card">
-        <h3>Rigueur</h3>
-        <p>J'accorde de l'importance à la qualité, à la traçabilité et au respect des bonnes pratiques, surtout en contexte sensible.</p>
-      </article>
-      <article class="soft-card">
-        <h3>Adaptabilité</h3>
-        <p>Je m'adapte rapidement à de nouveaux environnements, outils et contraintes projet, sans perdre l'objectif métier.</p>
-      </article>
-      <article class="soft-card">
-        <h3>Organisation</h3>
-        <p>Je gère mes priorités entre alternance, études et engagements externes avec une logique de planification réaliste.</p>
-      </article>
-      <article class="soft-card">
-        <h3>Esprit de résolution</h3>
-        <p>Face à un blocage, j'analyse, je teste, puis je propose une solution concrète plutôt que de rester sur le problème.</p>
-      </article>
+    <div class="intro">
+      <p class="intro-callout">Je construis des systèmes <em>solides, sécurisés</em> et utiles — du backend Go à l'IA embarquée.</p>
+      <div class="intro-text">
+        <p>Actuellement en <strong>alternance à l'AP-HP Henri Mondor</strong> (projet ATLAS / GenoBioMICS), je travaille sur un middleware hospitalier microservices&nbsp;: backend <strong>Go</strong> (BFF), authentification <strong>OIDC</strong>, permissions <strong>ReBAC/ABAC</strong>, frontend <strong>React/TypeScript</strong> et observabilité.</p>
+        <p>Avant l'informatique, cinq années sur le terrain (menuiserie, plomberie, électricité) m'ont appris la rigueur, le rythme et la valeur d'un travail bien fait. Je transpose ça aujourd'hui dans le code.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-</main>
+<!-- ====== 02 — PROJETS ====== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-path"><span class="num">02</span> — Sélection</div>
+      <h2 class="section-title">Projets <span class="it">choisis.</span></h2>
+      <p class="section-sub">3 projets représentatifs — IA mobile, NLP industriel, web full-stack.</p>
+    </div>
 
-<footer class="footer container">
-  <span>© 2026 Noé Cervera</span>
-  <div style="display:flex;gap:20px;align-items:center">
-    <a href="mailto:cervera.noe@gmail.com">cervera.noe@gmail.com</a>
-    <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="row-list">
+      <a class="row" href="projets.html#smartface">
+        <div class="row-num">01</div>
+        <div class="row-main">
+          <h3 class="row-title">SmartFace <span class="it">Insight</span></h3>
+          <p class="row-desc">Deep Learning multitâche (Mixture of Experts) sur EfficientNetB0, déployé en TFLite dans une application Android Kotlin / Jetpack Compose.</p>
+          <div class="row-tags">
+            <span>tensorflow</span><span>python</span><span>kotlin</span><span>efficientnet</span>
+          </div>
+        </div>
+        <div class="row-meta">
+          <strong>2024</strong>
+          IA · Mobile
+        </div>
+      </a>
+
+      <a class="row" href="projets.html#thales">
+        <div class="row-num">02</div>
+        <div class="row-main">
+          <h3 class="row-title">Brevets <span class="it">6G</span> — Thales</h3>
+          <p class="row-desc">Pipeline NLP de collecte et classification de brevets sur la 6G, avec un dashboard d'exploration construit en Streamlit.</p>
+          <div class="row-tags">
+            <span>python</span><span>nlp</span><span>streamlit</span><span>scraping</span>
+          </div>
+        </div>
+        <div class="row-meta">
+          <strong>2024</strong>
+          Data · R&amp;D
+        </div>
+      </a>
+
+      <a class="row" href="projets.html#sae-f1">
+        <div class="row-num">03</div>
+        <div class="row-main">
+          <h3 class="row-title">Site F1 <span class="it">dynamique</span></h3>
+          <p class="row-desc">Application web Formula 1 avec authentification, résultats, classements et import CSV. PHP 8 + MySQL, full-stack from scratch.</p>
+          <div class="row-tags">
+            <span>php 8</span><span>mysql</span><span>html/css</span>
+          </div>
+        </div>
+        <div class="row-meta">
+          <strong>2023</strong>
+          SAE · Web
+        </div>
+      </a>
+
+      <a class="row" href="projets.html" style="padding: 22px 14px;">
+        <div class="row-num">→</div>
+        <div class="row-main">
+          <h3 class="row-title" style="color:var(--muted); font-size: 18px; margin: 0;">Voir tous les projets</h3>
+        </div>
+        <div class="row-meta"></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MARQUEE ====== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Alternance AP-HP <em class="sep">/</em> Plateforme ATLAS <em class="sep">/</em> Middleware Go <em class="sep">/</em> SmartFace Insight <em class="sep">/</em> Brevet Thales 6G <em class="sep">/</em> 3<sup>e</sup>/45 — BUT3 <em class="sep">/</em></span>
+    <span>Alternance AP-HP <em class="sep">/</em> Plateforme ATLAS <em class="sep">/</em> Middleware Go <em class="sep">/</em> SmartFace Insight <em class="sep">/</em> Brevet Thales 6G <em class="sep">/</em> 3<sup>e</sup>/45 — BUT3 <em class="sep">/</em></span>
+  </div>
+</div>
+
+<!-- ====== 03 — EXPÉRIENCE ====== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-path"><span class="num">03</span> — Parcours pro</div>
+      <h2 class="section-title">Expériences<span class="it">.</span></h2>
+    </div>
+
+    <div class="row-list">
+      <div class="row no-link">
+        <div class="row-num">01</div>
+        <div class="row-main">
+          <p class="row-where">AP-HP Henri Mondor — GenoBioMICS / ATLAS</p>
+          <h3 class="row-title">Développeur Full-Stack <span class="it">— Alternance</span></h3>
+          <p class="row-desc">Middleware hospitalier microservices&nbsp;: backend Go (Backend-For-Frontend), OIDC &amp; IAM avec Zitadel, permissions ReBAC/ABAC via SpiceDB &amp; OPA, frontend React/TypeScript, DataHouse Iceberg et observabilité Redis.</p>
+          <div class="row-tags">
+            <span>go</span><span>react/ts</span><span>docker</span><span>zitadel</span><span>spicedb</span><span>opa</span>
+          </div>
+        </div>
+        <div class="row-meta">
+          <strong>2025 — 2026</strong>
+          En cours
+        </div>
+      </div>
+
+      <div class="row no-link">
+        <div class="row-num">02</div>
+        <div class="row-main">
+          <p class="row-where">AP-HP Henri Mondor — GenoBioMICS</p>
+          <h3 class="row-title">Développeur Full-Stack <span class="it">— Stage</span></h3>
+          <p class="row-desc">Prototype microservices hospitalier&nbsp;: architecture IAM complète (OIDC, ReBAC, ABAC), base graphe Dgraph et monitoring Prometheus / Grafana.</p>
+          <div class="row-tags">
+            <span>go</span><span>docker compose</span><span>zitadel</span><span>spicedb</span><span>opa</span><span>dgraph</span>
+          </div>
+        </div>
+        <div class="row-meta">
+          <strong>Juil. — Août 2025</strong>
+          Stage
+        </div>
+      </div>
+
+      <div class="row no-link" style="opacity:.6">
+        <div class="row-num">03</div>
+        <div class="row-main">
+          <p class="row-where">Linoedesign — Paris</p>
+          <h3 class="row-title">Employé <span class="it">polyvalent</span></h3>
+          <p class="row-desc">Main-d'œuvre, menuiserie, pose de stores, plomberie et électricité. Cinq années à apprendre la rigueur du terrain.</p>
+        </div>
+        <div class="row-meta">
+          <strong>2020 — 2025</strong>
+          Terrain
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 04 — COMPÉTENCES ====== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-path"><span class="num">04</span> — Savoir-faire</div>
+      <h2 class="section-title">Stack <span class="it">technique.</span></h2>
+    </div>
+
+    <div class="skills-block">
+      <div class="skill-group">
+        <div class="skill-group-name">Langages <span class="count">9</span></div>
+        <div class="skill-group-list">
+          <span class="sk" data-info="Langage compilé créé par Google. Performant et concurrent, idéal pour les services backend critiques. Je l'utilise pour le BFF de l'alternance ATLAS."><img src="assets/go.svg" alt="">Go</span>
+          <span class="sk" data-info="Langage polyvalent et lisible. Standard de fait pour l'IA, le scripting, les pipelines ETL et la data science. Mon couteau suisse."><img src="assets/python.svg" alt="">Python</span>
+          <span class="sk" data-info="JavaScript typé. Apporte la sécurité du typage statique au développement frontend React et Node."><img src="assets/typescript.svg" alt="">TypeScript</span>
+          <span class="sk" data-info="Langage natif du web. Manipule le DOM côté client et tourne aussi côté serveur via Node.js."><img src="assets/js.svg" alt="">JavaScript</span>
+          <span class="sk" data-info="Langage objet portable, base historique de l'écosystème JVM. Utilisé en cours et pour la JVM."><img src="assets/Java.svg" alt="">Java</span>
+          <span class="sk" data-info="Langage moderne sur la JVM, officiel pour Android. Combiné à Jetpack Compose pour SmartFace Insight."><img src="assets/kotlin.svg" alt="">Kotlin</span>
+          <span class="sk" data-info="Langage bas-niveau. Indispensable pour comprendre la mémoire, les pointeurs et le fonctionnement des systèmes."><img src="assets/c.svg" alt="">C</span>
+          <span class="sk" data-info="Langage serveur historique du web. Utilisé sur ma SAÉ F1 (PHP 8 + MySQL)."><img src="assets/php.svg" alt="">PHP</span>
+          <span class="sk" data-info="Langage de requête pour bases relationnelles : PostgreSQL, MySQL. Indispensable pour manipuler des données structurées."><img src="assets/mysql.svg" alt="">SQL</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Backend &amp; API <span class="count">6</span></div>
+        <div class="skill-group-list">
+          <span class="sk" data-info="Pattern Backend-For-Frontend en Go. Le frontend ne contacte jamais directement les services tiers — le BFF centralise la logique, les sessions et les permissions."><img src="assets/go.svg" alt="">Go · BFF</span>
+          <span class="sk" data-info="Runtime JavaScript côté serveur, basé sur V8. Utilisé pour des APIs et outils légers."><img src="assets/nodejs.svg" alt="">Node.js</span>
+          <span class="sk" data-info="Langage serveur classique du web. Utilisé pour les projets PHP/MySQL académiques."><img src="assets/php.svg" alt="">PHP</span>
+          <span class="sk" data-info="Langage de requête flexible pour APIs. Un seul endpoint, schéma typé, le client demande exactement ce dont il a besoin. Utilisé avec Dgraph.">GraphQL</span>
+          <span class="sk" data-info="Architecture HTTP standard basée sur les verbes (GET, POST, PUT, DELETE) et les ressources. Le modèle par défaut pour 80 % des APIs.">REST</span>
+          <span class="sk" data-info="Protocoles d'authentification au-dessus d'OAuth2. PKCE sécurise les flows sans secret côté client (mobile, SPA).">OIDC · PKCE</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Frontend <span class="count">5</span></div>
+        <div class="skill-group-list">
+          <span class="sk" data-info="Bibliothèque JavaScript pour construire des interfaces par composants déclaratifs. Standard du frontend moderne. Utilisé sur ATLAS."><img src="assets/react.svg" alt="">React 19</span>
+          <span class="sk" data-info="JavaScript typé — essentiel pour fiabiliser un frontend React de grande taille."><img src="assets/typescript.svg" alt="">TypeScript</span>
+          <span class="sk" data-info="Langage de balisage qui structure sémantiquement les pages web. La base de tout."><img src="assets/html.svg" alt="">HTML5</span>
+          <span class="sk" data-info="Mise en forme, animations et responsive design. Grid, Flexbox, custom properties, container queries."><img src="assets/css.svg" alt="">CSS3</span>
+          <span class="sk" data-info="Framework Python qui transforme un script en dashboard interactif en quelques lignes. Utilisé pour le projet Thales 6G."><img src="assets/python.svg" alt="">Streamlit</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">IA &amp; Deep Learning <span class="count">6</span></div>
+        <div class="skill-group-list">
+          <span class="sk" data-info="Framework de deep learning de Google. TFLite permet de déployer des modèles compressés sur mobile et embarqué. Utilisé pour SmartFace."><img src="assets/tensorflow.svg" alt="">TensorFlow / TFLite</span>
+          <span class="sk" data-info="API haut-niveau pour TensorFlow. Définition de couches, modèles et entraînement de manière lisible.">Keras</span>
+          <span class="sk" data-info="Architecture CNN optimisée par Google. Excellent rapport précision/poids — parfait pour le mobile. Backbone de SmartFace Insight.">EfficientNetB0</span>
+          <span class="sk" data-info="Toolkit UI moderne pour Android, déclaratif comme React. Utilisé pour l'app SmartFace."><img src="assets/kotlin.svg" alt="">Jetpack Compose</span>
+          <span class="sk" data-info="Architecture où plusieurs experts spécialisés sont combinés par un routeur. Permet de gérer plusieurs tâches simultanément. Cœur de SmartFace.">Mixture of Experts</span>
+          <span class="sk" data-info="Natural Language Processing — traitement automatique du langage. Classification, résumé, extraction d'entités. Utilisé sur les brevets Thales.">NLP · Classification</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Infrastructure &amp; DevOps <span class="count">6</span></div>
+        <div class="skill-group-list">
+          <span class="sk" data-info="Conteneurisation. Isole chaque service dans un environnement reproductible. Compose permet d'orchestrer plusieurs conteneurs."><img src="assets/docker.svg" alt="">Docker / Compose</span>
+          <span class="sk" data-info="Proxy inverse et serveur web haute-performance. Route le trafic, gère TLS et fait du load balancing devant les microservices."><img src="assets/nginx.svg" alt="">Nginx</span>
+          <span class="sk" data-info="Système open-source de collecte et requête de métriques. Time-series natives, exporters et alerting."><img src="assets/prometheus.svg" alt="">Prometheus</span>
+          <span class="sk" data-info="Dashboards de visualisation pour métriques et logs. S'interface nativement avec Prometheus, Loki, etc."><img src="assets/grafana.svg" alt="">Grafana</span>
+          <span class="sk" data-info="OS de référence pour les serveurs. Manipulation shell, systemd, réseau, permissions, processus."><img src="assets/linux.svg" alt="">Linux</span>
+          <span class="sk" data-info="Système de versioning distribué. Branches, merges, revues de code. Méthode Agile au quotidien."><img src="assets/git.svg" alt="">Git · Agile</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Sécurité &amp; IAM <span class="count">4</span></div>
+        <div class="skill-group-list">
+          <span class="sk" data-info="Serveur d'identité open-source. OIDC, OAuth2, MFA, organisations, JWT. Le cœur de l'authentification d'ATLAS."><img src="assets/zitadel.svg" alt="">Zitadel · OIDC</span>
+          <span class="sk" data-info="BDD de permissions inspirée de Google Zanzibar. Modèle ReBAC — les droits sont dérivables d'un graphe de relations entre utilisateurs et ressources."><img src="assets/spicedb.svg" alt="">SpiceDB · ReBAC</span>
+          <span class="sk" data-info="Open Policy Agent. Règles d'autorisation en Rego. Modèle ABAC — les décisions dépendent du contexte (heure, IP, attributs)."><img src="assets/opa.svg" alt="">OPA · ABAC</span>
+          <span class="sk" data-info="JWT : jetons signés transportant une identité. MFA : authentification multi-facteurs. PKCE : protection des flows OAuth sur clients publics.">JWT · MFA · PKCE</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Données <span class="count">6</span></div>
+        <div class="skill-group-list">
+          <span class="sk" data-info="BDD relationnelle robuste et performante. JSONB, extensions, types avancés. Mon SGBD de référence."><img src="assets/postgresql.svg" alt="">PostgreSQL</span>
+          <span class="sk" data-info="BDD relationnelle classique, très répandue dans l'écosystème LAMP. Utilisée sur ma SAÉ F1."><img src="assets/mysql.svg" alt="">MySQL</span>
+          <span class="sk" data-info="Store en mémoire ultra-rapide. Cache, time-series, pub/sub, sessions. Utilisé pour l'observabilité d'ATLAS."><img src="assets/redis.svg" alt="">Redis</span>
+          <span class="sk" data-info="BDD graphe distribuée avec GraphQL natif et DQL. Modélise des entités hospitalières complexes sur ATLAS."><img src="assets/dgraph.svg" alt="">Dgraph</span>
+          <span class="sk" data-info="Iceberg : format de table analytique versionné. Nessie : catalogue Git-like pour Iceberg. Trino : moteur SQL distribué. C'est la DataHouse d'ATLAS.">Iceberg · Nessie · Trino</span>
+          <span class="sk" data-info="DuckDB : BDD analytique embarquée ultra-rapide en local. SeaweedFS : stockage objet S3-compatible distribué.">DuckDB · SeaweedFS</span>
+        </div>
+      </div>
+
+      <div class="skill-info" id="skill-info" hidden>
+        <div>
+          <h4 class="sk-info-name" id="skill-info-name"></h4>
+          <p class="sk-info-body" id="skill-info-body"></p>
+        </div>
+        <button type="button" class="sk-info-close" onclick="closeSkillInfo()">Fermer</button>
+      </div>
+      <p class="skill-info-empty" id="skill-info-empty">Clique sur une techno pour voir l'explication →</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 05 — FORMATION ====== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-path"><span class="num">05</span> — Études</div>
+      <h2 class="section-title">Formation<span class="it">.</span></h2>
+    </div>
+
+    <a class="form-row link" href="but3-informatique.html">
+      <div>
+        <h3>BUT Informatique 3<sup>e</sup> année <span class="it">— alternance</span></h3>
+        <p class="form-where">Université Sorbonne Paris Nord · <strong style="color:var(--accent)">3<sup>e</sup>/45 — major de promo</strong></p>
+      </div>
+      <div class="form-year">2023 — 2026</div>
+    </a>
+    <div class="form-row">
+      <div>
+        <h3>Licence 2 Informatique</h3>
+        <p class="form-where">Université Sorbonne Paris Nord</p>
+      </div>
+      <div class="form-year">2019 — 2022</div>
+    </div>
+    <div class="form-row">
+      <div>
+        <h3>Baccalauréat Scientifique <span class="it">— option SI</span></h3>
+        <p class="form-where">Lycée Jacques Feyder</p>
+      </div>
+      <div class="form-year">2017 — 2018</div>
+    </div>
+
+    <div class="skills-block" style="margin-top: 56px;">
+      <div class="skill-group">
+        <div class="skill-group-name">Langues parlées <span class="count">3</span></div>
+        <div class="skill-group-list">
+          <span class="sk" data-info="Langue maternelle. Communication écrite et orale fluide en contexte technique comme général.">Français · natif</span>
+          <span class="sk" data-info="Niveau B2 (intermediaire-avancé). Bonne maîtrise écrite et orale en conversation et en lecture.">Espagnol · B2</span>
+          <span class="sk" data-info="Niveau B1 (intermédiaire). Un mois en Irlande pour renforcer la pratique. Lecture de doc technique sans problème.">Anglais · B1</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Hors écran <span class="count">3</span></div>
+        <div class="skill-group-list">
+          <span class="sk" data-info="Basket niveau N2 — sport de compétition. Apprend la coordination collective et la gestion de la pression.">Basket · N2</span>
+          <span class="sk" data-info="Ceinture noire de karaté. Des années de discipline qui se transposent dans la rigueur du travail.">Karaté · ceinture noire</span>
+          <span class="sk" data-info="Permis B — autonomie de déplacement, utile pour les missions en région ou les déplacements pro.">Permis B</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-eyebrow"><span class="num">06</span> — Prise de contact</div>
+    <h2 class="cta-headline">
+      Un projet,<br>une équipe,<br><span class="it">parlons-en.</span>
+    </h2>
+    <a class="cta-email" href="mailto:cervera.noe@gmail.com">cervera.noe@gmail.com</a>
+    <div class="cta-meta">
+      <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">github ↗</a>
+      <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">linkedin ↗</a>
+      <a href="assets/cv.pdf" target="_blank" rel="noopener">cv.pdf ↗</a>
+      <span>Réponse sous 48 h</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer fat-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-main">
+        <div class="footer-name">Noé <span class="it">Cervera.</span></div>
+        <p class="footer-tag">Développeur Full-Stack — infrastructure, IAM &amp; IA.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Pages</div>
+        <a href="index.html">Home</a>
+        <a href="alternance.html">Alternance</a>
+        <a href="projets.html">Projets</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Liens</div>
+        <a href="mailto:cervera.noe@gmail.com">Email</a>
+        <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="assets/cv.pdf" target="_blank" rel="noopener">cv.pdf ↗</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Coordonnées</div>
+        <span>Paris, France</span>
+        <span class="footer-avail"><span class="footer-dot"></span>Disponible</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 — Noé Cervera</span>
+      <span>Conçu &amp; codé à la main</span>
+    </div>
   </div>
 </footer>
 
 <script>
-const hdr = document.getElementById('header');
-window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 10));
+  // Subtle scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: .06, rootMargin: '0px 0px -40px' });
+  document.querySelectorAll('.section, .hero, .marquee, .cta').forEach(el => {
+    el.classList.add('fade-up');
+    io.observe(el);
+  });
 
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-}, { threshold: 0.06 });
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-
-function toggleSD(header) {
-  header.closest('.sd').classList.toggle('open');
-}
+  // Skill click → info panel
+  const infoBox = document.getElementById('skill-info');
+  const infoEmpty = document.getElementById('skill-info-empty');
+  const infoName = document.getElementById('skill-info-name');
+  const infoBody = document.getElementById('skill-info-body');
+  function activateSk(el) {
+    const wasActive = el.classList.contains('is-active');
+    document.querySelectorAll('.skills-block .sk.is-active').forEach(a => a.classList.remove('is-active'));
+    if (wasActive) {
+      if (infoBox) infoBox.hidden = true;
+      if (infoEmpty) infoEmpty.style.display = '';
+      return;
+    }
+    el.classList.add('is-active');
+    const info = el.getAttribute('data-info') || '';
+    const name = el.textContent.trim();
+    if (infoBox && infoName && infoBody) {
+      infoName.textContent = name;
+      infoBody.textContent = info;
+      infoBox.hidden = false;
+      if (infoEmpty) infoEmpty.style.display = 'none';
+      infoBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+  document.querySelectorAll('.skills-block .sk').forEach(el => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+    el.addEventListener('click', () => activateSk(el));
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateSk(el); }
+    });
+  });
+  // expose close
+  window.closeSkillInfo = function() {
+    document.querySelectorAll('.skills-block .sk.is-active').forEach(a => a.classList.remove('is-active'));
+    if (infoBox) infoBox.hidden = true;
+    if (infoEmpty) infoEmpty.style.display = '';
+  };
 </script>
+
 </body>
 </html>

@@ -1,230 +1,307 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alternance ATLAS — GenoBioMICS AP-HP | Noé Cervera</title>
-  <meta name="description" content="Alternance de Noé Cervera à l'AP-HP Henri Mondor : plateforme ATLAS/GenoBioMICS, middleware hospitalier microservices avec Go, React, IAM, DataHouse Iceberg et observabilité.">
-  <meta name="author" content="Noé Cervera">
-  <meta name="robots" content="index, follow">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://noe-cervera.github.io/alternance.html">
-  <meta property="og:title" content="Alternance ATLAS — GenoBioMICS AP-HP | Noé Cervera">
-  <meta property="og:description" content="Middleware hospitalier microservices : Go, React, OIDC, IAM, Dgraph, DataHouse Iceberg, Redis observabilité.">
-  <link rel="canonical" href="https://noe-cervera.github.io/alternance.html">
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alternance ATLAS — AP-HP · Noé Cervera</title>
+<meta name="description" content="Alternance Noé Cervera à l'AP-HP Henri Mondor — plateforme hospitalière ATLAS / GenoBioMICS. Middleware Go, IAM (Zitadel, SpiceDB, OPA), React/TypeScript, DataHouse Iceberg, observabilité.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portfolio.css">
 </head>
 <body>
 
-<header class="header" id="header">
-  <nav class="nav container">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.svg" alt="Logo Noé Cervera">
-      <span>Portfolios</span>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="index.html">
+      <span class="mark">N</span>
+      <span>Noé&nbsp;Cervera</span>
     </a>
-    <div class="menu">
-      <a href="index.html">Accueil</a>
-      <a href="alternance.html" class="active">Alternance</a>
+    <nav class="topbar-nav">
+      <a href="index.html">Home</a>
+      <a href="alternance.html" class="is-active">Alternance</a>
       <a href="projets.html">Projets</a>
+      <a href="apropos.html">À propos</a>
       <a href="contact.html">Contact</a>
-      <a class="btn" href="apropos.html">À propos</a>
-    </div>
-  </nav>
+    </nav>
+    <a class="topbar-cta" href="assets/cv.pdf" target="_blank" rel="noopener">CV ↗</a>
+  </div>
 </header>
 
-<div class="page-header">
-  <div class="container fade-up">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-      <span class="badge" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);color:var(--accent)">Alternance · 2025 – 2026</span>
-      <span class="badge">AP-HP Henri Mondor</span>
+<!-- ====== PAGE HEADER ====== -->
+<section class="page-header">
+  <div class="wrap">
+    <div class="page-eyebrow">
+      <span><span class="num">01</span> — Alternance</span>
+      <span class="tag accent">2025 — 2026</span>
+      <span class="tag">AP-HP Henri Mondor</span>
+      <span class="tag">GenoBioMICS</span>
     </div>
-    <h1>Plateforme ATLAS — GenoBioMICS</h1>
-    <p>Mon alternance porte sur la plateforme ATLAS, une solution technologique hospitalière dédiée au séquençage ADN, à l'organisation des analyses bioinformatiques et à l'exploitation des données pour l'IA. Mon rôle est de construire le middleware central qui relie les applications, les identités utilisateurs, les autorisations, les données de laboratoire et les outils d'analyse, afin de fournir une plateforme fiable, sécurisée et exploitable par les équipes médicales, techniques et de recherche.</p>
+    <h1 class="page-title">Plateforme <span class="it">ATLAS.</span></h1>
+    <p class="page-lead">Middleware hospitalier pour le séquençage ADN, les workflows bioinformatiques et l'<em>exploitation des données pour l'IA</em>.</p>
   </div>
-</div>
+</section>
 
-<main class="container">
+<main>
 
-  <!-- Architecture overview -->
+  <!-- ====== 01 — CONTEXTE ====== -->
   <section class="section fade-up">
-    <h2 class="s-title">Architecture globale</h2>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">01</span> — Contexte</div>
+        <h2 class="section-title">Mission<span class="it">.</span></h2>
+      </div>
 
-    <!-- Visual stack diagram -->
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:24px;box-shadow:var(--s2)">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
-        <div style="background:#f0f4ff;border:1px solid rgba(79,70,229,.2);border-radius:12px;padding:14px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Frontend</div>
-          <div style="font-size:13px;font-weight:600;color:var(--text)">React 19 · TypeScript · Vite</div>
-        </div>
-        <div style="background:#f0fff4;border:1px solid rgba(22,163,74,.2);border-radius:12px;padding:14px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Backend BFF</div>
-          <div style="font-size:13px;font-weight:600;color:var(--text)">Go 1.23 · net/http · REST</div>
-        </div>
-        <div style="background:#fff7ed;border:1px solid rgba(234,88,12,.2);border-radius:12px;padding:14px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--o);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Proxy / TLS</div>
-          <div style="font-size:13px;font-weight:600;color:var(--text)">Nginx Alpine</div>
-        </div>
-        <div style="background:#fdf4ff;border:1px solid rgba(124,58,237,.2);border-radius:12px;padding:14px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--p);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Identité</div>
-          <div style="font-size:13px;font-weight:600;color:var(--text)">Zitadel · OIDC/OAuth2</div>
-        </div>
-        <div style="background:#fdf4ff;border:1px solid rgba(124,58,237,.2);border-radius:12px;padding:14px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--p);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Permissions</div>
-          <div style="font-size:13px;font-weight:600;color:var(--text)">SpiceDB (ReBAC) + OPA (ABAC)</div>
-        </div>
-        <div style="background:#f0f9ff;border:1px solid rgba(14,165,233,.2);border-radius:12px;padding:14px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--b);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Données graphe</div>
-          <div style="font-size:13px;font-weight:600;color:var(--text)">Dgraph · GraphQL/DQL</div>
-        </div>
-        <div style="background:#f0f9ff;border:1px solid rgba(14,165,233,.2);border-radius:12px;padding:14px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--b);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">DataHouse</div>
-          <div style="font-size:13px;font-weight:600;color:var(--text)">Iceberg · Nessie · Trino · DuckDB</div>
-        </div>
-        <div style="background:#f0fff4;border:1px solid rgba(22,163,74,.2);border-radius:12px;padding:14px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Observabilité</div>
-          <div style="font-size:13px;font-weight:600;color:var(--text)">Prometheus · Redis TS · Grafana</div>
+      <div class="intro">
+        <p class="intro-callout">Construire un middleware <em>fiable, sécurisé et exploitable</em> par les équipes médicales, techniques et de recherche.</p>
+        <div class="intro-text">
+          <p>Mon alternance porte sur la plateforme <strong>ATLAS</strong>, une solution technologique hospitalière dédiée au séquençage ADN, à l'organisation des analyses bioinformatiques et à l'exploitation des données pour l'IA.</p>
+          <p>Mon rôle est de construire le <strong>middleware central</strong> qui relie les applications, les identités utilisateurs, les autorisations, les données de laboratoire et les outils d'analyse — pour fournir une plateforme fiable, sécurisée et exploitable au quotidien.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="badges">
-      <span class="badge">Docker Compose multi-fichiers</span>
-      <span class="badge">Go</span><span class="badge">React/TypeScript</span>
-      <span class="badge">Zitadel</span><span class="badge">SpiceDB</span><span class="badge">OPA</span>
-      <span class="badge">Dgraph</span><span class="badge">Nginx</span><span class="badge">Prometheus</span>
-      <span class="badge">Grafana</span><span class="badge">Redis</span><span class="badge">PostgreSQL</span>
-      <span class="badge">Apache Iceberg</span><span class="badge">Nessie</span><span class="badge">Trino</span>
-      <span class="badge">SeaweedFS</span><span class="badge">OpenSearch</span>
+  <!-- ====== 02 — ARCHITECTURE ====== -->
+  <section class="section fade-up">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">02</span> — Architecture globale</div>
+        <h2 class="section-title">Stack <span class="it">technique.</span></h2>
+        <p class="section-sub">Tous les composants déployés en Docker Compose multi-fichiers, isolés par sous-réseaux et orchestrés via Nginx.</p>
+      </div>
+
+      <div class="arch-grid" style="margin-bottom: 28px;">
+        <div class="arch-cell"><div class="role">Frontend</div><div class="stack">React 19 · TypeScript · Vite</div></div>
+        <div class="arch-cell"><div class="role">Backend BFF</div><div class="stack">Go 1.23 · net/http · REST</div></div>
+        <div class="arch-cell"><div class="role">Proxy / TLS</div><div class="stack">Nginx Alpine</div></div>
+        <div class="arch-cell"><div class="role">Identité</div><div class="stack">Zitadel · OIDC / OAuth2</div></div>
+        <div class="arch-cell"><div class="role">Permissions</div><div class="stack">SpiceDB (ReBAC) + OPA (ABAC)</div></div>
+        <div class="arch-cell"><div class="role">Données graphe</div><div class="stack">Dgraph · GraphQL / DQL</div></div>
+        <div class="arch-cell"><div class="role">DataHouse</div><div class="stack">Iceberg · Nessie · Trino · DuckDB</div></div>
+        <div class="arch-cell"><div class="role">Observabilité</div><div class="stack">Prometheus · Redis TS · Grafana</div></div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Docker Compose</span>
+        <span class="tag">Go</span>
+        <span class="tag">React/TS</span>
+        <span class="tag">Zitadel</span>
+        <span class="tag">SpiceDB</span>
+        <span class="tag">OPA</span>
+        <span class="tag">Dgraph</span>
+        <span class="tag">Nginx</span>
+        <span class="tag">Prometheus</span>
+        <span class="tag">Grafana</span>
+        <span class="tag">Redis</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Apache Iceberg</span>
+        <span class="tag">Nessie</span>
+        <span class="tag">Trino</span>
+        <span class="tag">SeaweedFS</span>
+        <span class="tag">OpenSearch</span>
+      </div>
     </div>
   </section>
 
-  <!-- Missions -->
+  <!-- ====== 03 — MISSIONS ====== -->
   <section class="section fade-up">
-    <h2 class="s-title">Missions & Réalisations</h2>
-    <div class="grid-2" style="gap:20px">
-
-      <div class="card" style="border-top:3px solid var(--accent)">
-        <h3 style="margin-bottom:10px">🔐 IAM & Sécurité</h3>
-        <ul style="font-size:14px;color:var(--muted);margin:0">
-          <li>Authentification OIDC avec <strong>Zitadel</strong> (PKCE, MFA, JWT, organisations)</li>
-          <li>Sessions côté serveur HTTPOnly — aucun token dans le navigateur</li>
-          <li>Autorisations <strong>ReBAC</strong> via SpiceDB (tuples de relations)</li>
-          <li>Autorisations <strong>ABAC</strong> via OPA (règles Rego contextuelles)</li>
-          <li>6 rôles métier : admin, rh, gestionnaire, technicien, bioinformaticien, prescripteur</li>
-        </ul>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">03</span> — Missions &amp; réalisations</div>
+        <h2 class="section-title">Ce que je <span class="it">construis.</span></h2>
       </div>
 
-      <div class="card" style="border-top:3px solid var(--g)">
-        <h3 style="margin-bottom:10px">⚙️ Backend Go (BFF)</h3>
-        <ul style="font-size:14px;color:var(--muted);margin:0">
-          <li>Pattern BFF : le frontend ne contacte jamais directement les services tiers</li>
-          <li>API REST complète — endpoints protégés et publics</li>
-          <li>Pipeline pré-inscription : formulaire → validation admin → activation compte</li>
-          <li>Intégrations : Dgraph, SpiceDB, OPA, PostgreSQL, SeaweedFS, OpenSearch, Redis</li>
-        </ul>
-      </div>
+      <div class="tile-grid cols-2">
+        <article class="tile">
+          <div class="tile-num">M.01 — Sécurité</div>
+          <h3>IAM &amp; <span class="it">permissions</span></h3>
+          <ul>
+            <li>Authentification OIDC avec <strong>Zitadel</strong> — PKCE, MFA, JWT, organisations</li>
+            <li>Sessions serveur HTTPOnly — aucun token côté navigateur</li>
+            <li>Autorisations <strong>ReBAC</strong> via SpiceDB (tuples de relations)</li>
+            <li>Autorisations <strong>ABAC</strong> via OPA (règles Rego contextuelles)</li>
+            <li>6 rôles métier : admin, RH, gestionnaire, technicien, bio-informaticien, prescripteur</li>
+          </ul>
+        </article>
 
-      <div class="card" style="border-top:3px solid var(--b)">
-        <h3 style="margin-bottom:10px">🎨 Frontend React/TypeScript</h3>
-        <ul style="font-size:14px;color:var(--muted);margin:0">
-          <li>SPA React 19 avec authentification par cookie de session HTTPOnly</li>
-          <li>Modules : portail, administration, pré-inscription RH, pipeline kanban</li>
-          <li>Panel admin : observabilité live, gestion utilisateurs, matrice permissions</li>
-          <li>Hub analyses : demandes d'analyse NGS, catalogue, devis, pipeline kanban</li>
-        </ul>
-      </div>
+        <article class="tile">
+          <div class="tile-num">M.02 — Backend</div>
+          <h3>Go · <span class="it">pattern BFF</span></h3>
+          <ul>
+            <li>Pattern <strong>BFF</strong> — le frontend ne contacte jamais directement les services tiers</li>
+            <li>API REST complète — endpoints protégés et publics</li>
+            <li>Pipeline pré-inscription : formulaire → validation admin → activation compte</li>
+            <li>Intégrations : Dgraph, SpiceDB, OPA, PostgreSQL, SeaweedFS, OpenSearch, Redis</li>
+          </ul>
+        </article>
 
-      <div class="card" style="border-top:3px solid var(--p)">
-        <h3 style="margin-bottom:10px">🗃️ DataLake & DataHouse</h3>
-        <ul style="font-size:14px;color:var(--muted);margin:0">
-          <li>Stockage objet S3 via <strong>SeaweedFS</strong> (FASTQ bruts, pièces jointes, exports)</li>
-          <li>Pipeline ETL Bronze → Silver → Gold avec <strong>DuckDB + Python</strong></li>
-          <li>Tables analytiques versionnées <strong>Apache Iceberg</strong> via catalogue <strong>Nessie</strong></li>
-          <li>Moteur SQL analytique <strong>Trino</strong> pour requêtes sur couche Gold</li>
-          <li>Intégration pipelines HPC NGS : séquenceur → SeaweedFS → ETL → Iceberg</li>
-        </ul>
-      </div>
+        <article class="tile">
+          <div class="tile-num">M.03 — Frontend</div>
+          <h3>React 19 · <span class="it">TypeScript</span></h3>
+          <ul>
+            <li>SPA React avec authentification par cookie de session HTTPOnly</li>
+            <li>Modules : portail, administration, pré-inscription RH, pipeline kanban</li>
+            <li>Panel admin : observabilité live, gestion utilisateurs, matrice permissions</li>
+            <li>Hub analyses : demandes NGS, catalogue, devis, pipeline kanban</li>
+          </ul>
+        </article>
 
-      <div class="card" style="border-top:3px solid var(--o)">
-        <h3 style="margin-bottom:10px">🔭 Observabilité intégrée</h3>
-        <ul style="font-size:14px;color:var(--muted);margin:0">
-          <li>Collecte métriques Prometheus + persistance <strong>Redis time-series</strong> 7 jours</li>
-          <li>Historique alertes CPU/MEM/NET et uptime health (Redis)</li>
-          <li>Sessions utilisateurs actives en temps réel (heartbeat Redis)</li>
-          <li>Panel admin dédié avec stats par route, latence et erreurs</li>
-        </ul>
-      </div>
+        <article class="tile">
+          <div class="tile-num">M.04 — Données</div>
+          <h3>DataLake &amp; <span class="it">DataHouse</span></h3>
+          <ul>
+            <li>Stockage objet S3 via <strong>SeaweedFS</strong> — FASTQ bruts, pièces jointes, exports</li>
+            <li>Pipeline ETL Bronze → Silver → Gold avec <strong>DuckDB + Python</strong></li>
+            <li>Tables analytiques versionnées <strong>Apache Iceberg</strong> via catalogue <strong>Nessie</strong></li>
+            <li>Moteur SQL analytique <strong>Trino</strong> pour la couche Gold</li>
+            <li>Intégration pipelines HPC NGS : séquenceur → SeaweedFS → ETL → Iceberg</li>
+          </ul>
+        </article>
 
-      <div class="card" style="border-top:3px solid var(--b)">
-        <h3 style="margin-bottom:10px">🗄️ Données graphe (Dgraph)</h3>
-        <ul style="font-size:14px;color:var(--muted);margin:0">
-          <li>Modélisation des entités hospitalières : Personne, Poste, Unité, Contrat, Diplôme…</li>
-          <li>CMDB dédié : inventaire infra (services, clusters, pipelines IA, politiques)</li>
-          <li>Schéma GraphQL + DQL, seeds, outils Ratel UI / Voyager / Altair</li>
-          <li>Indexation full-text et audit via OpenSearch</li>
-        </ul>
-      </div>
+        <article class="tile">
+          <div class="tile-num">M.05 — Observabilité</div>
+          <h3>Métriques &amp; <span class="it">alertes</span></h3>
+          <ul>
+            <li>Collecte métriques Prometheus + persistance <strong>Redis time-series</strong> 7 j</li>
+            <li>Historique alertes CPU / MEM / NET et uptime health</li>
+            <li>Sessions utilisateurs actives en temps réel (heartbeat Redis)</li>
+            <li>Panel admin dédié — stats par route, latence et erreurs</li>
+          </ul>
+        </article>
 
+        <article class="tile">
+          <div class="tile-num">M.06 — Graphe</div>
+          <h3>Dgraph · <span class="it">CMDB</span></h3>
+          <ul>
+            <li>Modélisation des entités hospitalières — Personne, Poste, Unité, Contrat, Diplôme…</li>
+            <li>CMDB dédié : inventaire infra (services, clusters, pipelines IA, politiques)</li>
+            <li>Schéma GraphQL + DQL, seeds, outils Ratel UI / Voyager / Altair</li>
+            <li>Indexation full-text et audit via OpenSearch</li>
+          </ul>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- Compétences BUT -->
+  <!-- ====== 04 — COMPÉTENCES BUT ====== -->
   <section class="section fade-up">
-    <h2 class="s-title">Compétences BUT — Mise en regard</h2>
-    <table class="table">
-      <tr><th>Réaliser</th><td>API Go BFF, schéma GraphQL, frontend React/TS, fichiers Compose, Nginx, exporters Prometheus.</td></tr>
-      <tr><th>Optimiser</th><td>Séparation réseau Docker, choix d'outils performants, DataHouse Bronze/Silver/Gold, Redis time-series.</td></tr>
-      <tr><th>Administrer</th><td>Conteneurs, réseaux, secrets, MFA, métriques, panel admin observabilité, Portainer.</td></tr>
-      <tr><th>Gérer</th><td>Docs techniques complètes, scripts de démarrage et bootstrap, README, organisation dépôt.</td></tr>
-      <tr><th>Conduire</th><td>Veille technologique intensive (Iceberg, Nessie, Trino, patterns BFF), arbitrages techniques documentés.</td></tr>
-      <tr><th>Collaborer</th><td>Échanges réguliers avec bio-informaticiens, techniciens séquençage et encadrante AP-HP.</td></tr>
-    </table>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">04</span> — Compétences BUT</div>
+        <h2 class="section-title">Mise en <span class="it">regard.</span></h2>
+        <p class="section-sub">Comment cette alternance valide les 6 compétences du référentiel BUT Informatique.</p>
+      </div>
+      <table class="kv">
+        <tbody>
+          <tr><th>Réaliser</th><td>API Go BFF, schéma GraphQL, frontend React/TS, fichiers Compose, Nginx, exporters Prometheus.</td></tr>
+          <tr><th>Optimiser</th><td>Séparation réseau Docker, choix d'outils performants, DataHouse Bronze/Silver/Gold, Redis time-series.</td></tr>
+          <tr><th>Administrer</th><td>Conteneurs, réseaux, secrets, MFA, métriques, panel admin observabilité, Portainer.</td></tr>
+          <tr><th>Gérer</th><td>Docs techniques complètes, scripts de démarrage et bootstrap, README, organisation dépôt.</td></tr>
+          <tr><th>Conduire</th><td>Veille intensive (Iceberg, Nessie, Trino, patterns BFF), arbitrages techniques documentés.</td></tr>
+          <tr><th>Collaborer</th><td>Échanges réguliers avec bio-informaticiens, techniciens séquençage et encadrante AP-HP.</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <!-- Auto-évaluation -->
+  <!-- ====== 05 — AUTO-ÉVAL ====== -->
   <section class="section fade-up">
-    <h2 class="s-title">Auto-évaluation</h2>
-    <table class="table">
-      <tr><th>Points forts</th><td>Architecture claire et modulaire, sécurité bout en bout (OIDC+PBAC), observabilité dès la conception, DataHouse évolutif.</td></tr>
-      <tr><th>Vigilance</th><td>Durcissement sécurité production, CI/CD, tests end-to-end, performance à grande échelle.</td></tr>
-      <tr><th>Acquis clés</th><td>Interopérabilité IAM/Policy/Graphe, patterns microservices hospitaliers, DataHouse analytique, observabilité Redis.</td></tr>
-      <tr><th>Suite</th><td>Continuation possible en Master pour aller plus loin sur la plateforme ATLAS.</td></tr>
-      <tr><th>Si c'était à refaire</th><td>Mieux équilibrer travail projet et rédaction du rapport de stage pour éviter les heures supplémentaires.</td></tr>
-    </table>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">05</span> — Bilan</div>
+        <h2 class="section-title">Auto-évaluation<span class="it">.</span></h2>
+      </div>
+      <table class="kv">
+        <tbody>
+          <tr><th>Points forts</th><td>Architecture claire et modulaire, sécurité bout-en-bout (OIDC + PBAC), observabilité dès la conception, DataHouse évolutif.</td></tr>
+          <tr><th>Vigilance</th><td>Durcissement sécurité production, CI/CD, tests end-to-end, performance à grande échelle.</td></tr>
+          <tr><th>Acquis clés</th><td>Interopérabilité IAM/Policy/Graphe, patterns microservices hospitaliers, DataHouse analytique, observabilité Redis.</td></tr>
+          <tr><th>Suite</th><td>Continuation possible en Master pour aller plus loin sur la plateforme ATLAS.</td></tr>
+          <tr><th>Si c'était à refaire</th><td>Mieux équilibrer travail projet et rédaction du rapport de stage pour éviter les heures supplémentaires.</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <hr>
-
-  <section class="section-sm fade-up">
-    <h2 class="s-title">Livrables</h2>
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <a class="btn btn-ghost btn-sm" href="docs/presentation_NC.pdf" download>📄 Présentation PDF</a>
-      <a class="btn btn-ghost btn-sm" href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub →</a>
+  <!-- ====== 06 — LIVRABLES ====== -->
+  <section class="section fade-up">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">06</span> — Livrables</div>
+        <h2 class="section-title">Documents<span class="it">.</span></h2>
+      </div>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a class="btn" href="docs/presentation_NC.pdf" download>Présentation PDF <span class="arr">↗</span></a>
+        <a class="btn btn-ghost" href="https://github.com/noe-cervera" target="_blank" rel="noopener">Voir sur GitHub <span class="arr">↗</span></a>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer class="footer container">
-  <span>© 2026 Noé Cervera</span>
-  <div style="display:flex;gap:16px;align-items:center">
-    <a href="mailto:cervera.noe@gmail.com">cervera.noe@gmail.com</a>
-    <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn</a>
+<!-- ====== CTA ====== -->
+<section class="cta fade-up">
+  <div class="wrap">
+    <div class="cta-eyebrow"><span class="num">02</span> — Échangeons</div>
+    <h2 class="cta-headline">Discutons du <span class="it">projet.</span></h2>
+    <a class="cta-email" href="mailto:cervera.noe@gmail.com">cervera.noe@gmail.com</a>
+    <div class="cta-meta">
+      <a href="projets.html">Autres projets ↗</a>
+      <a href="apropos.html">À propos ↗</a>
+      <a href="assets/cv.pdf" target="_blank" rel="noopener">cv.pdf ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer fat-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-main">
+        <div class="footer-name">Noé <span class="it">Cervera.</span></div>
+        <p class="footer-tag">Développeur Full-Stack — infrastructure, IAM &amp; IA.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Pages</div>
+        <a href="index.html">Home</a>
+        <a href="alternance.html">Alternance</a>
+        <a href="projets.html">Projets</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Liens</div>
+        <a href="mailto:cervera.noe@gmail.com">Email</a>
+        <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="assets/cv.pdf" target="_blank" rel="noopener">cv.pdf ↗</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Coordonnées</div>
+        <span>Paris, France</span>
+        <span class="footer-avail"><span class="footer-dot"></span>Disponible</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 — Noé Cervera</span>
+      <span>Conçu &amp; codé à la main</span>
+    </div>
   </div>
 </footer>
 
+<script src="assets/portfolio.js"></script>
+
 <script>
-const hdr = document.getElementById('header');
-window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 10));
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-}, { threshold: 0.08 });
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: .06, rootMargin: '0px 0px -40px' });
+  document.querySelectorAll('.section, .cta').forEach(el => io.observe(el));
 </script>
+
 </body>
 </html>

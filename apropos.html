@@ -1,126 +1,156 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>À propos de moi | Portfolios</title>
-  <meta name="description" content="Présentation du projet professionnel de Noé Cervera et de ses activités annexes : Service VOIE et coaching au CSME d'Épinay-sur-Seine.">
-  <meta name="author" content="Noé Cervera">
-  <meta name="robots" content="index, follow">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://noe-cervera.github.io/apropos.html">
-  <meta property="og:title" content="À propos de moi | Portfolios">
-  <meta property="og:description" content="Projet professionnel et activités annexes de Noé Cervera.">
-  <link rel="canonical" href="https://noe-cervera.github.io/apropos.html">
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
-  <style>
-    .about-page .container { max-width: 1260px; }
-    .about-page .page-header { padding: 72px 0 58px; margin-bottom: 74px; }
-    .about-page .page-header h1 {
-      font-size: clamp(40px, 6vw, 72px);
-      letter-spacing: -1.6px;
-      margin-bottom: 16px;
-    }
-    .about-page .page-header p {
-      font-size: clamp(20px, 2.1vw, 26px);
-      line-height: 1.65;
-      max-width: 980px;
-    }
-    .about-page .section { margin: 106px 0; }
-    .about-page .s-title {
-      font-size: clamp(32px, 4.5vw, 52px);
-      margin-bottom: 40px;
-      gap: 18px;
-    }
-    .about-page .card { padding: 36px; border-radius: 18px; }
-    .about-page .card h3 {
-      font-size: clamp(24px, 2.8vw, 34px);
-      margin-bottom: 14px;
-      line-height: 1.25;
-    }
-    .about-page .card p {
-      font-size: clamp(19px, 1.45vw, 23px);
-      line-height: 1.95;
-    }
-    @media (max-width: 960px) {
-      .about-page .page-header { padding: 54px 0 42px; margin-bottom: 52px; }
-      .about-page .section { margin: 70px 0; }
-      .about-page .card { padding: 28px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>À propos — Noé Cervera</title>
+<meta name="description" content="Projet professionnel et activités annexes de Noé Cervera : Master en infrastructure / sécurité, Service VOIE et coaching CSME.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portfolio.css">
 </head>
-<body class="about-page">
+<body>
 
-<header class="header" id="header">
-  <nav class="nav container">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.svg" alt="Logo Portfolios">
-      <span>Portfolios</span>
+<!-- ====== TOP BAR ====== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="index.html">
+      <span class="mark">N</span>
+      <span>Noé&nbsp;Cervera</span>
     </a>
-    <div class="menu">
-      <a href="index.html">Accueil</a>
+    <nav class="topbar-nav">
+      <a href="index.html">Home</a>
       <a href="alternance.html">Alternance</a>
       <a href="projets.html">Projets</a>
+      <a href="apropos.html" class="is-active">À propos</a>
       <a href="contact.html">Contact</a>
-      <a class="btn" href="apropos.html">À propos</a>
-    </div>
-  </nav>
+    </nav>
+    <a class="topbar-cta" href="assets/cv.pdf" target="_blank" rel="noopener">CV ↗</a>
+  </div>
 </header>
 
-<div class="page-header">
-  <div class="container fade-up">
-    <h1>À propos de moi</h1>
-    <p>Mon projet professionnel et mes engagements en dehors du cadre strictement académique.</p>
+<!-- ====== PAGE HEADER ====== -->
+<section class="page-header">
+  <div class="wrap">
+    <div class="page-eyebrow">
+      <span><span class="num">01</span> — À propos</span>
+      <span class="tag">Projet professionnel</span>
+      <span class="tag">Activités annexes</span>
+    </div>
+    <h1 class="page-title">À propos<span class="it">.</span></h1>
+    <p class="page-lead">Mon projet professionnel et mes engagements <em>en dehors du cadre académique</em>.</p>
   </div>
-</div>
+</section>
 
-<main class="container">
+<main>
 
+  <!-- ====== 01 — PROJET PRO ====== -->
   <section class="section fade-up">
-    <h2 class="s-title">Mon Projet Pro</h2>
-    <div class="card">
-      <p style="margin:0 0 12px;color:var(--muted)">Je cherche à poursuivre mes études en <strong>Master Informatique</strong>, avec une orientation claire vers l'<strong>infrastructure</strong>, la <strong>sécurité</strong> et l'architecture de plateformes techniques. Mon objectif est de consolider mes bases en systèmes distribués, réseaux, cybersécurité et ingénierie logicielle pour intervenir sur des environnements exigeants.</p>
-      <p style="margin:0 0 12px;color:var(--muted)">À moyen terme, je souhaite évoluer vers des rôles qui combinent conception et réalisation: structurer des architectures robustes, fiabiliser les déploiements, sécuriser les accès et accompagner la mise en production de services critiques. Je m'intéresse particulièrement aux contextes où la qualité logicielle, la traçabilité et la protection des données sont prioritaires.</p>
-      <p style="margin:0;color:var(--muted)">Mon ambition professionnelle est de contribuer à des projets utiles, avec un impact concret sur les utilisateurs. Je veux continuer à progresser sur des sujets à fort enjeu: fiabilité des systèmes, sécurité IAM, exploitation des données et industrialisation des applications, en gardant une approche pragmatique, orientée terrain et résultats.</p>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">01</span> — Trajectoire</div>
+        <h2 class="section-title">Projet <span class="it">professionnel.</span></h2>
+      </div>
+
+      <div class="intro">
+        <p class="intro-callout">Je veux contribuer à des systèmes <em>fiables, sécurisés</em> et à fort impact — avec une approche pragmatique, terrain et résultats.</p>
+        <div class="intro-text">
+          <p>Je cherche à poursuivre mes études en <strong>Master Informatique</strong>, avec une orientation claire vers l'<strong>infrastructure</strong>, la <strong>sécurité</strong> et l'architecture de plateformes techniques. Mon objectif est de consolider mes bases en systèmes distribués, réseaux, cybersécurité et ingénierie logicielle pour intervenir sur des environnements exigeants.</p>
+          <p>À moyen terme, je souhaite évoluer vers des rôles qui combinent <strong>conception</strong> et <strong>réalisation</strong> : structurer des architectures robustes, fiabiliser les déploiements, sécuriser les accès et accompagner la mise en production de services critiques.</p>
+          <p>Je m'intéresse particulièrement aux contextes où la qualité logicielle, la traçabilité et la protection des données sont prioritaires.</p>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- ====== 02 — ACTIVITÉS ANNEXES ====== -->
   <section class="section fade-up">
-    <h2 class="s-title">Activités Annexes</h2>
-    <div class="grid-2">
-      <div class="card" style="border-top:3px solid var(--accent)">
-        <h3>Service VOIE</h3>
-        <p>En parallèle, j'interviens au service VOIE pour accompagner des lycéens dans leur orientation après le bac. J'échange avec eux en salon et par mail pour expliquer les différentes possibilités d'études en informatique (BUT, licence, écoles, alternance) et les aider à construire un choix réaliste.</p>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-path"><span class="num">02</span> — Engagements</div>
+        <h2 class="section-title">Activités <span class="it">annexes.</span></h2>
+        <p class="section-sub">Hors du cadre des études — des contextes qui me forment autrement.</p>
       </div>
-      <div class="card" style="border-top:3px solid var(--g)">
-        <h3>Association sportive CSME — Épinay-sur-Seine</h3>
-        <p>Je suis impliqué dans l'association sportive CSME d'Épinay-sur-Seine, où je coache une équipe de jeunes. Cette activité renforce mes compétences de pédagogie, de communication et de gestion de groupe.</p>
+
+      <div class="tile-grid cols-2">
+        <article class="tile">
+          <div class="tile-num">A.01 — Orientation</div>
+          <h3>Service <span class="it">VOIE</span></h3>
+          <p>J'interviens au service VOIE pour accompagner des lycéens dans leur orientation après le bac. J'échange avec eux en salon et par mail pour expliquer les différentes possibilités d'études en informatique (BUT, licence, écoles, alternance) et les aider à construire un choix réaliste.</p>
+        </article>
+        <article class="tile">
+          <div class="tile-num">A.02 — Coaching sportif</div>
+          <h3>Association sportive <span class="it">CSME</span></h3>
+          <p>À Épinay-sur-Seine, je coache une équipe de jeunes. Cette activité renforce mes compétences de pédagogie, de communication et de gestion de groupe — encadrer, poser un cadre et faire progresser chacun sur la durée.</p>
+        </article>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer class="footer container">
-  <span>© 2026 Noé Cervera</span>
-  <div style="display:flex;gap:16px;align-items:center">
-    <a href="mailto:cervera.noe@gmail.com">cervera.noe@gmail.com</a>
-    <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn</a>
+<!-- ====== CTA ====== -->
+<section class="cta fade-up">
+  <div class="wrap">
+    <div class="cta-eyebrow"><span class="num">03</span> — En savoir plus</div>
+    <h2 class="cta-headline">Discutons de la <span class="it">suite.</span></h2>
+    <a class="cta-email" href="mailto:cervera.noe@gmail.com">cervera.noe@gmail.com</a>
+    <div class="cta-meta">
+      <a href="alternance.html">Voir l'alternance ↗</a>
+      <a href="projets.html">Voir les projets ↗</a>
+      <a href="assets/cv.pdf" target="_blank" rel="noopener">cv.pdf ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer fat-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-main">
+        <div class="footer-name">Noé <span class="it">Cervera.</span></div>
+        <p class="footer-tag">Développeur Full-Stack — infrastructure, IAM &amp; IA.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Pages</div>
+        <a href="index.html">Home</a>
+        <a href="alternance.html">Alternance</a>
+        <a href="projets.html">Projets</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Liens</div>
+        <a href="mailto:cervera.noe@gmail.com">Email</a>
+        <a href="https://github.com/noe-cervera" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://linkedin.com/in/no%C3%A9-cervera-2b4149251" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="assets/cv.pdf" target="_blank" rel="noopener">cv.pdf ↗</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-h">Coordonnées</div>
+        <span>Paris, France</span>
+        <span class="footer-avail"><span class="footer-dot"></span>Disponible</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 — Noé Cervera</span>
+      <span>Conçu &amp; codé à la main</span>
+    </div>
   </div>
 </footer>
 
+<script src="assets/portfolio.js"></script>
+
 <script>
-const hdr = document.getElementById('header');
-window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 10));
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-}, { threshold: 0.08 });
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: .06, rootMargin: '0px 0px -40px' });
+  document.querySelectorAll('.section, .cta').forEach(el => io.observe(el));
 </script>
+
 </body>
 </html>
