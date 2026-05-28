@@ -234,7 +234,7 @@
                 <span>IA · Mobile</span>
               </div>
               <h2 class="proj-title">SmartFace <span class="it">Insight.</span></h2>
-              <p class="proj-lead">Deep learning multitâche par Mixture of Experts pour la prédiction d'attributs faciaux, déployé en temps réel sur Android via TensorFlow Lite.</p>
+              <p class="proj-lead">Modèle multi-tâche à architecture Mixture of Experts sur backbone EfficientNetB0 — régression d'âge, classification genre/ethnie simultanées sur UTKFace (23 708 images), converti en TFLite et déployé en inférence temps réel sur Android avec détection faciale MediaPipe.</p>
             </div>
             <span class="proj-toggle" aria-hidden="true"></span>
           </button>
@@ -242,51 +242,87 @@
 
             <div class="tile-grid cols-2" style="margin-bottom: 28px;">
               <article class="tile">
-                <div class="tile-num">A — Modèle IA</div>
-                <h3>Architecture <span class="it">MoE</span></h3>
+                <div class="tile-num">A — Architecture ML</div>
+                <h3>Mixture of <span class="it">Experts</span> multitâche</h3>
                 <ul>
-                  <li>Architecture <strong>Mixture of Experts</strong> multitâche</li>
-                  <li>Backbone <strong>EfficientNetB0</strong> en transfer learning</li>
-                  <li>Dataset <strong>UTKFace</strong> — âge, genre, ethnie</li>
-                  <li>Preprocessing, normalisation, data augmentation</li>
-                  <li>Entraînement TensorFlow puis optimisation TFLite</li>
+                  <li><strong>Backbone partagé</strong> EfficientNetB0 (ImageNet) + GlobalAvgPool + BN + Dropout</li>
+                  <li><strong>3 têtes MoE indépendantes</strong> — âge (régression), genre (sigmoid), ethnie (softmax 5 classes)</li>
+                  <li>Chaque tête : <strong>4 experts MLP</strong> + gating network softmax qui route dynamiquement l'image</li>
+                  <li><strong>Focal Loss</strong> sur l'ethnie pour corriger le déséquilibre de classes</li>
+                  <li>Entraînement 3 phases : warmup backbone gelé → fine-tune partiel (BN gelé) → fine-tune complet</li>
+                  <li>Mixed precision <strong>float16</strong> — réduit la mémoire GPU et accélère le train</li>
+                  <li>Comparaison de 4 backbones (EfficientNetB0 retenu sur rapport précision/taille)</li>
                 </ul>
               </article>
               <article class="tile">
-                <div class="tile-num">B — Application Android</div>
+                <div class="tile-num">B — Déploiement Android</div>
                 <h3>Inférence <span class="it">temps réel</span></h3>
                 <ul>
-                  <li>Application native <strong>Kotlin</strong> + <strong>Jetpack Compose</strong></li>
-                  <li>Inférence en temps réel via <strong>TensorFlow Lite</strong></li>
-                  <li>Caméra live + prédiction instantanée des attributs</li>
-                  <li>Interface moderne avec affichage des probabilités</li>
+                  <li><strong>MediaPipe Face Detection</strong> — localisation &amp; crop du visage (~15–30 ms)</li>
+                  <li>Modèle converti en <strong>TFLite quantisé</strong>, embarqué dans l'APK</li>
+                  <li><strong>CameraX</strong> — flux caméra continu, prédiction frame par frame</li>
+                  <li>App <strong>Kotlin</strong> · Android SDK 34 · min Android 7.0 (API 24)</li>
+                  <li><strong>Firebase Auth</strong> — Email + Google Sign-In</li>
+                  <li><strong>Firestore</strong> — historique des prédictions par utilisateur avec index composite</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="tile-grid cols-2" style="margin-bottom: 28px;">
+              <article class="tile">
+                <div class="tile-num">C — Évaluation</div>
+                <h3>Métriques <span class="it">par tâche</span></h3>
+                <ul>
+                  <li><strong>Régression âge</strong> — MAE (erreur en années), MSE, R²</li>
+                  <li><strong>Classification genre</strong> — Accuracy, AUC, Average Precision</li>
+                  <li><strong>Classification ethnie</strong> — Accuracy, AUC, AP, ARI, NMI</li>
+                  <li>Visualisation <strong>Grad-CAM</strong> — zones activées par le modèle</li>
+                  <li>Dataset UTKFace : 23 708 images (âge 0–116, 2 genres, 5 ethnies)</li>
+                </ul>
+              </article>
+              <article class="tile">
+                <div class="tile-num">D — 3 stratégies comparées</div>
+                <h3>Approche <span class="it">comparative</span></h3>
+                <ul>
+                  <li><strong>Strat. 1</strong> — 3 modèles spécialisés entraînés indépendamment</li>
+                  <li><strong>Strat. 2</strong> — Modèle MoE multitâche (architecture retenue)</li>
+                  <li><strong>Strat. 3</strong> — Ablation study sur 4 backbones CNN</li>
+                  <li>Objectif : valider l'apport du partage de représentation entre tâches</li>
                 </ul>
               </article>
             </div>
 
             <div class="tags" style="margin-bottom: 28px;">
               <span class="tag">Python</span>
-              <span class="tag">TensorFlow</span>
+              <span class="tag">TensorFlow / Keras 2.20</span>
               <span class="tag">TensorFlow Lite</span>
-              <span class="tag">Keras</span>
               <span class="tag">EfficientNetB0</span>
               <span class="tag">Mixture of Experts</span>
               <span class="tag">Transfer Learning</span>
+              <span class="tag">Focal Loss</span>
+              <span class="tag">Grad-CAM</span>
               <span class="tag">UTKFace</span>
               <span class="tag">Kotlin</span>
-              <span class="tag">Jetpack Compose</span>
               <span class="tag">Android</span>
+              <span class="tag">MediaPipe</span>
+              <span class="tag">CameraX</span>
+              <span class="tag">Firebase</span>
             </div>
 
             <table class="kv">
               <tbody>
-                <tr><th>Objectif</th><td>Prédiction multitâche d'attributs faciaux (âge, genre, ethnie) en temps réel sur mobile.</td></tr>
-                <tr><th>Architecture</th><td><strong>MoE multitâche</strong> — chaque expert se spécialise sur une tâche de prédiction.</td></tr>
-                <tr><th>Pipeline</th><td>Preprocessing → Augmentation → Entraînement TF → Conversion TFLite → App Android.</td></tr>
-                <tr><th>Points forts</th><td>Architecture MoE innovante, déploiement mobile complet, pipeline end-to-end.</td></tr>
-                <tr><th>À améliorer</th><td>Précision sur l'ethnie (biais dataset), tests sur plus de devices, CI/CD mobile.</td></tr>
+                <tr><th>Mon rôle</th><td>Entraînement des modèles, comparaison des architectures, évaluation des métriques, conversion TFLite.</td></tr>
+                <tr><th>Équipe</th><td>4 personnes — Ako Christian (ML/Android), Calrd Similien (Android/intégration), Dhanoush Kessavane (front/design), Noé Cervera (entraînement/évaluation).</td></tr>
+                <tr><th>Encadrement</th><td>Bilal Faye — LIPN, CNRS UMR 7030, Université Sorbonne Paris Nord.</td></tr>
+                <tr><th>Pipeline complet</th><td>UTKFace → Preprocessing &amp; augmentation → Entraînement TF (3 phases, float16) → Évaluation multi-métriques → Grad-CAM → Conversion TFLite → App Android.</td></tr>
+                <tr><th>Soutenance</th><td>3 avril 2026 · Salle S108 · Université Sorbonne Paris Nord.</td></tr>
               </tbody>
             </table>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:24px;">
+              <a class="btn btn-ghost" href="https://github.com/optmlako2004/face-analysis-deep-learning" target="_blank" rel="noopener">GitHub ↗</a>
+              <a class="btn btn-ghost" href="https://github.com/optmlako2004/face-analysis-deep-learning/releases/download/v1.0/FacePredictor.apk" target="_blank" rel="noopener">Télécharger l'APK ↗</a>
+            </div>
 
           </div></div></div>
         </article>
