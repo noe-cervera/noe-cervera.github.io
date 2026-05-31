@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projets — Noé Cervera</title>
-<meta name="description" content="Projets académiques de Noé Cervera : SmartFace Insight (deep learning visage, TensorFlow, Android), analyse brevets 6G THALES, site F1 PHP/MySQL.">
+<meta name="description" content="Projets de Noé Cervera : SmartFace Insight (deep learning, TensorFlow, Android), DVSgo (caméras à événements, PyVISA, Dear PyGui), brevets 6G THALES, site F1 PHP/MySQL.">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -536,18 +536,18 @@
           </div></div></div>
         </article>
 
-        <!-- ====== 05 — PROJET PERSO 2 (À COMPLÉTER) ====== -->
-        <article class="proj-item" id="perso-2" data-cat="personnel">
+        <!-- ====== 05 — DVSgo (Personnel / Pro) ====== -->
+        <article class="proj-item" id="dvsgo" data-cat="personnel">
           <button class="proj-summary" type="button" aria-expanded="false">
             <div class="proj-num">05</div>
             <div class="proj-main">
               <div class="proj-meta">
-                <span class="proj-cat personnel">Personnel</span>
-                <span class="accent">À compléter · année</span>
-                <span>Catégorie</span>
+                <span class="proj-cat personnel">Pro · Privé</span>
+                <span class="accent">Mission R&amp;D · 2025–2026</span>
+                <span>Python · Hardware · Temps réel</span>
               </div>
-              <h2 class="proj-title">Titre du <span class="it">projet perso #2.</span></h2>
-              <p class="proj-lead">Idem — envoie-moi titre, description courte, technos et un lien et je remplis cette section.</p>
+              <h2 class="proj-title">DVS<span class="it">go.</span></h2>
+              <p class="proj-lead">Application de bureau Python complète pour piloter des caméras à événements (Prophesee EVK4 &amp; Gen3.1) et un générateur de fonctions Yokogawa via GPIB — acquisition multi-épisodes, pipelines d'analyse BA et S-curve, GUI temps réel multi-thread.</p>
             </div>
             <span class="proj-toggle" aria-hidden="true"></span>
           </button>
@@ -555,30 +555,76 @@
 
             <div class="tile-grid cols-2" style="margin-bottom: 28px;">
               <article class="tile">
-                <div class="tile-num">A — Objectif</div>
-                <h3>À <span class="it">compléter</span></h3>
-                <p>Pareil que le projet perso #1 — décris l'intention et le contexte.</p>
+                <div class="tile-num">A — Acquisition &amp; pilotage matériel</div>
+                <h3>Caméras à <span class="it">événements</span></h3>
+                <ul>
+                  <li><strong>Caméras Prophesee EVK4 / IMX636</strong> (1280×720) et <strong>EVK1 Gen3.1</strong> (640×480) — deux SDK isolés (Metavision 5.x et 3.1.2) coexistant dans le même processus</li>
+                  <li>Configuration <strong>ROI hardware</strong> et <strong>biases capteur</strong> par épisode, vérification hardware après application</li>
+                  <li>Pilotage <strong>GBF Yokogawa FG200/FG220 via GPIB</strong> (PyVISA / NI GPIB-USB-HS) — formes d'onde, mode DC, synchronisation LED</li>
+                  <li>Sessions multi-épisodes avec <strong>retry automatique</strong> (6 tentatives), chauffe capteur, stabilisation des biases</li>
+                  <li>Enregistrement .raw, conversion .npy, vérification espace disque, métadonnées JSON</li>
+                </ul>
               </article>
               <article class="tile">
-                <div class="tile-num">B — Approche</div>
-                <h3>À <span class="it">compléter</span></h3>
-                <p>Décris l'architecture, les choix et le résultat final.</p>
+                <div class="tile-num">B — Pipelines d'analyse</div>
+                <h3>BA &amp; <span class="it">S-curve</span></h3>
+                <ul>
+                  <li><strong>Background Activity (BA)</strong> — taux d'événements ON/OFF par pixel·seconde, heatmaps, détection hot pixels, exports CSV</li>
+                  <li><strong>Courbe en S (S-curve)</strong> — caractérisation de la sensibilité du capteur par niveau de luminosité, fits statistiques, plots comparatifs</li>
+                  <li>Modes <strong>auto BA</strong> et <strong>auto S-curve</strong> — plans multi-sessions entièrement automatisés (densités, contrastes, biases par étape)</li>
+                  <li>NumPy + Matplotlib pour le traitement et la visualisation scientifique</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="tile-grid cols-2" style="margin-bottom: 28px;">
+              <article class="tile">
+                <div class="tile-num">C — Architecture GUI</div>
+                <h3>Dear PyGui <span class="it">multi-thread</span></h3>
+                <ul>
+                  <li><strong>Dear PyGui (DPG)</strong> — GUI native Python, rendu GPU, thème sombre/clair, 10+ fenêtres flottantes</li>
+                  <li>Architecture <strong>thread-safe</strong> stricte : queue UI dédiée, tous les appels DPG drainés dans le thread principal</li>
+                  <li>Monitoring temps réel des événements caméra pendant l'acquisition (graphes live, progression)</li>
+                  <li>Dashboard post-session : navigation épisodes, statistiques, PNG inline, exports</li>
+                </ul>
+              </article>
+              <article class="tile">
+                <div class="tile-num">D — Qualité &amp; robustesse</div>
+                <h3>Production <span class="it">industrielle</span></h3>
+                <ul>
+                  <li>138 tests unitaires (pytest) couvrant maths, exports CSV, parsing, détection matérielle</li>
+                  <li>Isolation des deux SDK Prophesee (Windows + Linux) par manipulation sys.path et DLL</li>
+                  <li>Gestion complète des ressources matérielles — verrous GPIB, contextes caméra, fermetures garanties</li>
+                  <li>Logging rotatif, séparation workers/UI par queues, rollback propre sur erreur</li>
+                </ul>
               </article>
             </div>
 
             <div class="tags" style="margin-bottom: 28px;">
-              <span class="tag">Techno 1</span>
-              <span class="tag">Techno 2</span>
-              <span class="tag">Techno 3</span>
+              <span class="tag">Python</span>
+              <span class="tag">Dear PyGui</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Matplotlib</span>
+              <span class="tag">PyVISA · GPIB</span>
+              <span class="tag">Metavision SDK</span>
+              <span class="tag">Caméras à événements</span>
+              <span class="tag">Multithreading</span>
+              <span class="tag">pytest</span>
+              <span class="tag">Linux</span>
             </div>
 
             <table class="kv">
               <tbody>
-                <tr><th>Objectif</th><td>À compléter</td></tr>
-                <tr><th>Stack</th><td>À compléter</td></tr>
-                <tr><th>Lien</th><td><a class="inline-link" href="#">github.com/noe-cervera/…</a></td></tr>
+                <tr><th>Contexte</th><td>Mission R&amp;D pour un client industriel privé. Développement du logiciel de contrôle complet — de l'acquisition matérielle à l'analyse scientifique.</td></tr>
+                <tr><th>Architecture</th><td>GUI Dear PyGui (thread principal) + workers Python (threads daemon) + queues thread-safe + drivers hardware isolés.</td></tr>
+                <tr><th>Matériel piloté</th><td>Caméras à événements Prophesee EVK4 / EVK1 Gen3.1 · Générateur de fonctions Yokogawa FG200/FG220 · Driver LED Thorlabs LEDD1B.</td></tr>
+                <tr><th>Mon rôle</th><td>Développement complet de l'application — architecture, GUI, pipelines d'analyse, driver GPIB, tests, documentation.</td></tr>
               </tbody>
             </table>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:24px;">
+              <a class="btn btn-ghost" href="https://github.com/noe-cervera/pipeline_event_base" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
 
           </div></div></div>
         </article>
