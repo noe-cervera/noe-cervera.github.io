@@ -901,7 +901,7 @@ a { color: inherit; text-decoration: none; }
         <div class="hero-side-meta">
           <div class="row-m"><span class="k">Rôle</span><span class="v">Développeur Full-Stack</span></div>
           <div class="row-m"><span class="k">Cursus</span><span class="v">BUT3 Informatique — alternance</span></div>
-          <div class="row-m"><span class="k">Stack</span><span class="v">Go · React · IA</span></div>
+          <div class="row-m"><span class="k">Stack</span><span class="v">Go · React · K8s · IA</span></div>
           <div class="row-m"><span class="k">Lieu</span><span class="v">Paris, France</span></div>
         </div>
       </aside>
@@ -918,10 +918,10 @@ a { color: inherit; text-decoration: none; }
       <h2 class="section-title">À propos<span class="it">.</span></h2>
     </div>
     <div class="intro">
-      <p class="intro-callout">Je construis des systèmes <em>solides, sécurisés</em> et utiles — du backend Go à l'IA embarquée.</p>
+      <p class="intro-callout">Je construis des systèmes <em>solides, sécurisés</em> — du backend Go au cluster Kubernetes de production.</p>
       <div class="intro-text">
-        <p>Actuellement en <strong>alternance à l'AP-HP Henri Mondor</strong> (projet ATLAS / GenoBioMICS), je travaille sur un middleware hospitalier microservices&nbsp;: backend <strong>Go</strong> (BFF), authentification <strong>OIDC</strong>, permissions <strong>ReBAC/ABAC</strong>, frontend <strong>React/TypeScript</strong> et observabilité.</p>
-        <p>Avant l'informatique, cinq années sur le terrain (menuiserie, plomberie, électricité) m'ont appris la rigueur, le rythme et la valeur d'un travail bien fait. Je transpose ça aujourd'hui dans le code.</p>
+        <p>Actuellement en <strong>alternance à l'AP-HP Henri Mondor</strong> (projet ATLAS / GenoBioMICS), je conçois une plateforme hospitalière cloud-native pour la génomique clinique&nbsp;: backend <strong>Go</strong> (BFF), authentification <strong>OIDC</strong> (Zitadel), permissions <strong>ReBAC/PBAC</strong> (SpiceDB + OPA), frontend <strong>React/TypeScript</strong>, déploiement <strong>Kubernetes</strong> sur OVH via <strong>ArgoCD GitOps</strong>, gestion des secrets <strong>Vault</strong> (OpenBao), DataHouse analytique <strong>Iceberg + Trino</strong> pour les pipelines de séquençage ADN.</p>
+        <p>Avant l'informatique, cinq années sur le terrain (menuiserie, plomberie, électricité) m'ont appris la rigueur, le rythme et la valeur d'un travail bien fait. Je transpose ça dans le code — et dans les systèmes qui tiennent en prod.</p>
       </div>
     </div>
   </div>
@@ -933,10 +933,25 @@ a { color: inherit; text-decoration: none; }
     <div class="section-head">
       <div class="section-path"><span class="num">02</span> — Sélection</div>
       <h2 class="section-title">Projets <span class="it">choisis.</span></h2>
-      <p class="section-sub">3 projets représentatifs — IA mobile, NLP industriel, web full-stack.</p>
+      <p class="section-sub">4 projets représentatifs — plateforme hospitalière K8s, IA mobile, NLP industriel, web full-stack.</p>
     </div>
 
     <div class="row-list">
+      <a class="row" href="projets.html#atlas">
+        <div class="row-num">00</div>
+        <div class="row-main">
+          <h3 class="row-title">ATLAS <span class="it">— GenoBioMICS</span></h3>
+          <p class="row-desc">Plateforme génomique clinique cloud-native — backend Go, React/TS, Kubernetes OVH, ArgoCD GitOps, IAM Zero Trust (Zitadel + SpiceDB + OPA + Vault), DataHouse Iceberg/Trino.</p>
+          <div class="row-tags">
+            <span>go</span><span>react/ts</span><span>kubernetes</span><span>argocd</span><span>zitadel</span><span>spicedb</span><span>vault</span><span>iceberg</span>
+          </div>
+        </div>
+        <div class="row-meta">
+          <strong>2025–2026</strong>
+          AP-HP · Prod
+        </div>
+      </a>
+
       <a class="row" href="projets.html#smartface">
         <div class="row-num">01</div>
         <div class="row-main">
@@ -1030,9 +1045,9 @@ a { color: inherit; text-decoration: none; }
         <div class="row-main">
           <p class="row-where">AP-HP Henri Mondor — GenoBioMICS / ATLAS</p>
           <h3 class="row-title">Développeur Full-Stack <span class="it">— Alternance</span></h3>
-          <p class="row-desc">Middleware hospitalier microservices&nbsp;: backend Go (Backend-For-Frontend), OIDC &amp; IAM avec Zitadel, permissions ReBAC/ABAC via SpiceDB &amp; OPA, frontend React/TypeScript, DataHouse Iceberg et observabilité Redis.</p>
+          <p class="row-desc">Plateforme génomique clinique cloud-native — backend Go (BFF), OIDC/Zitadel, ReBAC/PBAC (SpiceDB + OPA), React/TypeScript, Kubernetes sur OVH, GitOps ArgoCD, secrets Vault, DataHouse Iceberg/Trino, observabilité Prometheus/Grafana, sécurité Zero Trust (NetworkPolicies, fail2ban, firewalld).</p>
           <div class="row-tags">
-            <span>go</span><span>react/ts</span><span>docker</span><span>zitadel</span><span>spicedb</span><span>opa</span>
+            <span>go</span><span>react/ts</span><span>kubernetes</span><span>argocd</span><span>zitadel</span><span>spicedb</span><span>opa</span><span>vault</span><span>helm</span><span>prometheus</span>
           </div>
         </div>
         <div class="row-meta">
@@ -1085,95 +1100,113 @@ a { color: inherit; text-decoration: none; }
       <div class="skill-group">
         <div class="skill-group-name">Langages <span class="count">9</span></div>
         <div class="skill-group-list">
-          <span class="sk" data-info="Langage compilé créé par Google. Performant et concurrent, idéal pour les services backend critiques. Je l'utilise pour le BFF de l'alternance ATLAS."><img src="assets/go.svg" alt="">Go</span>
-          <span class="sk" data-info="Langage polyvalent et lisible. Standard de fait pour l'IA, le scripting, les pipelines ETL et la data science. Mon couteau suisse."><img src="assets/python.svg" alt="">Python</span>
-          <span class="sk" data-info="JavaScript typé. Apporte la sécurité du typage statique au développement frontend React et Node."><img src="assets/typescript.svg" alt="">TypeScript</span>
-          <span class="sk" data-info="Langage natif du web. Manipule le DOM côté client et tourne aussi côté serveur via Node.js."><img src="assets/js.svg" alt="">JavaScript</span>
-          <span class="sk" data-info="Langage objet portable, base historique de l'écosystème JVM. Utilisé en cours et pour la JVM."><img src="assets/Java.svg" alt="">Java</span>
-          <span class="sk" data-info="Langage moderne sur la JVM, officiel pour Android. Combiné à Jetpack Compose pour SmartFace Insight."><img src="assets/kotlin.svg" alt="">Kotlin</span>
-          <span class="sk" data-info="Langage bas-niveau. Indispensable pour comprendre la mémoire, les pointeurs et le fonctionnement des systèmes."><img src="assets/c.svg" alt="">C</span>
-          <span class="sk" data-info="Langage serveur historique du web. Utilisé sur ma SAÉ F1 (PHP 8 + MySQL)."><img src="assets/php.svg" alt="">PHP</span>
-          <span class="sk" data-info="Langage de requête pour bases relationnelles : PostgreSQL, MySQL. Indispensable pour manipuler des données structurées."><img src="assets/mysql.svg" alt="">SQL</span>
+          <span class="sk" data-info="Langage compilé, concurrent et typé statiquement créé par Google. Performances proches du C avec la lisibilité de Python. Goroutines et channels pour la concurrence sans race conditions. Je l'utilise pour le BFF d'ATLAS (net/http standard, graceful shutdown, middleware auth) et pour Linoedesign (API chi, sessions, migrations SQL)."><img src="assets/go.svg" alt="">Go</span>
+          <span class="sk" data-info="Langage polyvalent interprété. Standard de l'IA, du scripting, des pipelines ETL et de la data science. Sur ATLAS : ETL DataHouse (DuckDB Bronze→Silver→Gold), service PDF Vanesa (FastAPI + LLM), orchestrateur APScheduler pour les pipelines NGS HPC. Sur DVSgo : 138 tests pytest, pilotage matériel GPIB, analyse scientifique NumPy."><img src="assets/python.svg" alt="">Python</span>
+          <span class="sk" data-info="Surcouche de JavaScript qui ajoute le typage statique. Détecte les erreurs à la compilation, documente les interfaces et améliore le refactoring sur les grandes bases de code. Utilisé sur l'intégralité du frontend ATLAS (React 19 + Vite 7) et Linoedesign (Next.js 14)."><img src="assets/typescript.svg" alt="">TypeScript</span>
+          <span class="sk" data-info="Langage natif du web. Manipule le DOM côté client et tourne côté serveur via Node.js. Base de tout l'écosystème frontend moderne."><img src="assets/js.svg" alt="">JavaScript</span>
+          <span class="sk" data-info="Langage objet portable sur la JVM. Complet, verbeux, très utilisé dans l'industrie. Pratiqué en cours, base pour comprendre la JVM, les design patterns et la POO classique."><img src="assets/Java.svg" alt="">Java</span>
+          <span class="sk" data-info="Langage moderne, concis et null-safe sur la JVM — langage officiel Android. Coroutines pour l'async, data classes, extensions. Utilisé pour l'app Android SmartFace Insight (Jetpack Compose, CameraX, TFLite, Firebase)."><img src="assets/kotlin.svg" alt="">Kotlin</span>
+          <span class="sk" data-info="Langage bas niveau, gestion manuelle de la mémoire et des pointeurs. Indispensable pour comprendre comment les abstractions (OS, runtime, JVM) fonctionnent réellement. Pratiqué en cours systèmes et algorithmes."><img src="assets/c.svg" alt="">C</span>
+          <span class="sk" data-info="Langage serveur du web interprété. Générateur de HTML dynamique, très présent dans les CMS et le web historique. Utilisé sur la SAÉ F1 (PHP 8 + MySQL — authentification, CRUD, gestion des sessions)."><img src="assets/php.svg" alt="">PHP</span>
+          <span class="sk" data-info="Langage de requête pour bases relationnelles. Joins, agrégations, fenêtres, CTEs récursifs. Pratiqué sur PostgreSQL (ATLAS, Linoedesign), MySQL (SAÉ F1) et DuckDB (requêtes analytiques sur tables Iceberg)."><img src="assets/mysql.svg" alt="">SQL</span>
         </div>
       </div>
 
       <div class="skill-group">
         <div class="skill-group-name">Backend &amp; API <span class="count">6</span></div>
         <div class="skill-group-list">
-          <span class="sk" data-info="Pattern Backend-For-Frontend en Go. Le frontend ne contacte jamais directement les services tiers — le BFF centralise la logique, les sessions et les permissions."><img src="assets/go.svg" alt="">Go · BFF</span>
-          <span class="sk" data-info="Runtime JavaScript côté serveur, basé sur V8. Utilisé pour des APIs et outils légers."><img src="assets/nodejs.svg" alt="">Node.js</span>
-          <span class="sk" data-info="Langage serveur classique du web. Utilisé pour les projets PHP/MySQL académiques."><img src="assets/php.svg" alt="">PHP</span>
-          <span class="sk" data-info="Langage de requête flexible pour APIs. Un seul endpoint, schéma typé, le client demande exactement ce dont il a besoin. Utilisé avec Dgraph.">GraphQL</span>
-          <span class="sk" data-info="Architecture HTTP standard basée sur les verbes (GET, POST, PUT, DELETE) et les ressources. Le modèle par défaut pour 80 % des APIs.">REST</span>
-          <span class="sk" data-info="Protocoles d'authentification au-dessus d'OAuth2. PKCE sécurise les flows sans secret côté client (mobile, SPA).">OIDC · PKCE</span>
+          <span class="sk" data-info="Pattern Backend-For-Frontend en Go. Le frontend ne contacte jamais directement les services tiers — le BFF est le seul point d'entrée : il valide le JWT Zitadel, vérifie les permissions SpiceDB/OPA, gère les sessions HTTPOnly et orchestre les appels vers Dgraph, Redis, SeaweedFS. Élimine la logique auth du frontend."><img src="assets/go.svg" alt="">Go · BFF</span>
+          <span class="sk" data-info="Runtime JavaScript côté serveur basé sur le moteur V8 de Chrome. Event loop non-bloquant, idéal pour les APIs I/O-bound. Écosystème npm très riche."><img src="assets/nodejs.svg" alt="">Node.js</span>
+          <span class="sk" data-info="Langage serveur interprété du web. Pratiqué sur la SAÉ F1 — PHP 8, sessions, formulaires, import CSV."><img src="assets/php.svg" alt="">PHP</span>
+          <span class="sk" data-info="Langage de requête pour APIs et bases graphes. Un seul endpoint, schéma typé SDL, le client demande exactement les champs dont il a besoin — pas de sur-fetching. Utilisé nativement avec Dgraph (GraphQL + DQL) sur ATLAS pour modéliser et requêter les entités hospitalières.">GraphQL · DQL</span>
+          <span class="sk" data-info="Architecture HTTP basée sur les verbes (GET/POST/PUT/DELETE/PATCH) et les ressources. Stateless, cacheable, facile à documenter. Toutes les APIs ATLAS et Linoedesign suivent ce modèle — auth, CRUD, observabilité, fichiers.">REST</span>
+          <span class="sk" data-info="gRPC est un protocole RPC binaire performant basé sur HTTP/2 et Protocol Buffers. Latence faible, streaming bidirectionnel. Utilisé sur ATLAS pour les appels backend → SpiceDB (permissions) et backend → Zitadel (management API). Complémentaire au REST pour les appels inter-services.">gRPC</span>
         </div>
       </div>
 
       <div class="skill-group">
         <div class="skill-group-name">Frontend <span class="count">6</span></div>
         <div class="skill-group-list">
-          <span class="sk" data-info="Bibliothèque JavaScript pour construire des interfaces par composants déclaratifs. Standard du frontend moderne. Utilisé sur ATLAS."><img src="assets/react.svg" alt="">React 19</span>
-          <span class="sk" data-info="JavaScript typé — essentiel pour fiabiliser un frontend React de grande taille."><img src="assets/typescript.svg" alt="">TypeScript</span>
-          <span class="sk" data-info="Langage de balisage qui structure sémantiquement les pages web. La base de tout."><img src="assets/html.svg" alt="">HTML5</span>
-          <span class="sk" data-info="Mise en forme, animations et responsive design. Grid, Flexbox, custom properties, container queries."><img src="assets/css.svg" alt="">CSS3</span>
-          <span class="sk" data-info="Framework Python qui transforme un script en dashboard interactif en quelques lignes. Utilisé pour le projet Thales 6G."><img src="assets/python.svg" alt="">Streamlit</span>
-          <span class="sk" data-info="Framework GUI natif Python avec rendu GPU (OpenGL). Idéal pour les applications de bureau scientifiques et industrielles multi-fenêtres. Utilisé pour DVSgo."><img src="assets/python.svg" alt="">Dear PyGui</span>
+          <span class="sk" data-info="Bibliothèque UI déclarative par composants — le standard du frontend moderne. Hooks, Context, portails, concurrent mode. Sur ATLAS : SPA complète avec React Router v7, TanStack Query pour le cache serveur, 30+ pages (portail, admin, PDF, observabilité) — typage strict TypeScript."><img src="assets/react.svg" alt="">React 19</span>
+          <span class="sk" data-info="Surcouche typée de JavaScript. Interfaces, génériques, narrowing, satisfies. Rend le refactoring sûr sur les grandes bases de code. Intégralité du frontend ATLAS et Linoedesign en TS strict."><img src="assets/typescript.svg" alt="">TypeScript</span>
+          <span class="sk" data-info="Langage de balisage sémantique. Accessibilité (ARIA, rôles), SEO (balises méta), formulaires avancés. La fondation de toute page web."><img src="assets/html.svg" alt="">HTML5</span>
+          <span class="sk" data-info="Mise en forme, animations et layout responsive. Grid, Flexbox, custom properties CSS (variables), media queries. Portfolio codé entièrement à la main en CSS — zéro framework."><img src="assets/css.svg" alt="">CSS3</span>
+          <span class="sk" data-info="Framework Python qui crée un dashboard interactif en quelques lignes — widgets, graphes, tableaux, filtres. Utilisé pour le projet Thales 6G : dashboard d'exploration de brevets 6G par mots-clés, dates et scores NLP."><img src="assets/python.svg" alt="">Streamlit</span>
+          <span class="sk" data-info="Framework GUI natif Python avec rendu GPU (OpenGL). Architecture multi-thread-safe (queue UI dédiée), 10+ fenêtres flottantes, thèmes dynamiques. Utilisé pour DVSgo — interface de pilotage d'instruments livré en production pour une entreprise R&D."><img src="assets/python.svg" alt="">Dear PyGui</span>
         </div>
       </div>
 
       <div class="skill-group">
         <div class="skill-group-name">IA &amp; Deep Learning <span class="count">6</span></div>
         <div class="skill-group-list">
-          <span class="sk" data-info="Framework de deep learning de Google. TFLite permet de déployer des modèles compressés sur mobile et embarqué. Utilisé pour SmartFace."><img src="assets/tensorflow.svg" alt="">TensorFlow / TFLite</span>
-          <span class="sk" data-info="API haut-niveau pour TensorFlow. Définition de couches, modèles et entraînement de manière lisible.">Keras</span>
-          <span class="sk" data-info="Architecture CNN optimisée par Google. Excellent rapport précision/poids — parfait pour le mobile. Backbone de SmartFace Insight.">EfficientNetB0</span>
-          <span class="sk" data-info="Toolkit UI moderne pour Android, déclaratif comme React. Utilisé pour l'app SmartFace."><img src="assets/kotlin.svg" alt="">Jetpack Compose</span>
-          <span class="sk" data-info="Architecture où plusieurs experts spécialisés sont combinés par un routeur. Permet de gérer plusieurs tâches simultanément. Cœur de SmartFace.">Mixture of Experts</span>
-          <span class="sk" data-info="Natural Language Processing — traitement automatique du langage. Classification, résumé, extraction d'entités. Utilisé sur les brevets Thales.">NLP · Classification</span>
+          <span class="sk" data-info="Framework de deep learning de Google. Graphe de calcul optimisé, différentiation automatique, support GPU/TPU. TFLite : format compressé (quantisation int8) pour déploiement mobile et embarqué sans serveur. Utilisé sur SmartFace Insight — modèle multitâche converti en TFLite, embarqué dans l'APK Android, inférence à ~30 FPS."><img src="assets/tensorflow.svg" alt="">TensorFlow / TFLite</span>
+          <span class="sk" data-info="API haut-niveau pour TensorFlow. Abstraction couches, modèles fonctionnels, callbacks, métriques. Entraînement en 3 phases (warmup → fine-tune partiel → fine-tune complet) avec mixed precision float16 pour SmartFace.">Keras</span>
+          <span class="sk" data-info="Architecture CNN compound-scaled créée par Google. Meilleur rapport précision/poids de sa génération — backbone idéal pour le mobile. Sur SmartFace : partagé entre 3 têtes MoE (âge, genre, ethnie) pour réduire les paramètres de 3× vs 3 modèles séparés.">EfficientNetB0</span>
+          <span class="sk" data-info="Toolkit UI déclaratif pour Android basé sur des fonctions @Composable. Similaire à React — no XML, état observable, recomposition fine. Utilisé pour l'app SmartFace Insight (caméra temps réel, overlay prédictions, historique Firestore)."><img src="assets/kotlin.svg" alt="">Jetpack Compose</span>
+          <span class="sk" data-info="Architecture d'ensemble supervisé : N experts spécialisés (MLPs) combinés par un gating network softmax qui route chaque exemple vers les experts pertinents. Avantage : chaque tête se spécialise sans interférence. Sur SmartFace : 4 experts MoE par tête (âge/genre/ethnie) sur backbone EfficientNetB0 partagé.">Mixture of Experts</span>
+          <span class="sk" data-info="Traitement automatique du langage naturel — tokenisation, TF-IDF, embeddings, classification supervisée. Sur le projet Thales : pipeline de collecte, nettoyage et classification de brevets 6G par domaine technologique, avec dashboard Streamlit d'exploration.">NLP · Classification</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-name">Infrastructure &amp; DevOps <span class="count">6</span></div>
+        <div class="skill-group-name">Infrastructure &amp; DevOps <span class="count">12</span></div>
         <div class="skill-group-list">
-          <span class="sk" data-info="Conteneurisation. Isole chaque service dans un environnement reproductible. Compose permet d'orchestrer plusieurs conteneurs."><img src="assets/docker.svg" alt="">Docker / Compose</span>
-          <span class="sk" data-info="Proxy inverse et serveur web haute-performance. Route le trafic, gère TLS et fait du load balancing devant les microservices."><img src="assets/nginx.svg" alt="">Nginx</span>
-          <span class="sk" data-info="Système open-source de collecte et requête de métriques. Time-series natives, exporters et alerting."><img src="assets/prometheus.svg" alt="">Prometheus</span>
-          <span class="sk" data-info="Dashboards de visualisation pour métriques et logs. S'interface nativement avec Prometheus, Loki, etc."><img src="assets/grafana.svg" alt="">Grafana</span>
-          <span class="sk" data-info="OS de référence pour les serveurs. Manipulation shell, systemd, réseau, permissions, processus."><img src="assets/linux.svg" alt="">Linux</span>
-          <span class="sk" data-info="Système de versioning distribué. Branches, merges, revues de code. Méthode Agile au quotidien."><img src="assets/git.svg" alt="">Git · Agile</span>
+          <span class="sk" data-info="Orchestrateur de conteneurs. Gère le déploiement, la mise à l'échelle, la résilience et le réseau de centaines de pods. En prod sur OVH pour ATLAS — single-node Rocky Linux 10, namespaces isolés, NetworkPolicies Zero Trust, PVC local-path."><img src="assets/kubernetes.svg" alt="">Kubernetes</span>
+          <span class="sk" data-info="Gestionnaire de packages Kubernetes. Les charts Helm décrivent des déploiements complexes (GitLab, kube-prometheus-stack, cert-manager) sous forme de templates paramétrables. Utilisé pour déployer GitLab CE, ArgoCD, ingress-nginx et le stack d'observabilité sur ATLAS.">Helm</span>
+          <span class="sk" data-info="Outil de templating Kubernetes. Kustomize superpose des patches sur des manifests de base sans fork — overlays par environnement (dev/prod), génération de ConfigMaps. Utilisé pour gérer tous les manifests ATLAS deployés par ArgoCD.">Kustomize</span>
+          <span class="sk" data-info="Opérateur GitOps pour Kubernetes. Surveille un repo Git (GitLab) et synchronise automatiquement l'état du cluster à chaque commit. Déploie l'intégralité de la stack ATLAS (hermes, gitops, source-of-truth, observability, itsm) via des Applications ArgoCD."><img src="assets/argocd.svg" alt="">ArgoCD · GitOps</span>
+          <span class="sk" data-info="Plateforme DevSecOps self-hosted (CE v18.11). Héberge le code source, les images Docker (registry intégrée), et constitue la source de vérité pour ArgoCD. Déployé via Helm sur le cluster OVH, avec mirror automatique vers GitHub.">GitLab CI</span>
+          <span class="sk" data-info="Gestionnaire de secrets et PKI. Stocke les credentials, injecte les secrets dans les pods via Vault Agent (sidecar initContainer), authentifie les ServiceAccounts Kubernetes. Sur ATLAS : OpenBao (fork open-source de HashiCorp Vault) déployé en namespace vault.">Vault · OpenBao</span>
+          <span class="sk" data-info="Controller TLS automatique pour Kubernetes. Provisionne et renouvelle les certificats Let's Encrypt via ACME HTTP-01. Gère tous les domaines *.atlasaphp.duckdns.org sur ATLAS.">cert-manager</span>
+          <span class="sk" data-info="Conteneurisation. Isole chaque service dans un environnement reproductible. Compose orchestre plusieurs conteneurs pour le dev local — 8 réseaux Docker isolés sur ATLAS (app, infra, graph, policy, data, monitoring)."><img src="assets/docker.svg" alt="">Docker / Compose</span>
+          <span class="sk" data-info="Proxy inverse et serveur web haute-performance. Controller Ingress Kubernetes — route le trafic HTTPS, gère les SNI (virtual hosting par nom de domaine), termine le TLS. Sur ATLAS : ingress unique qui route vers frontend, backend, Zitadel, GitLab, ArgoCD, Grafana."><img src="assets/nginx.svg" alt="">Nginx · Ingress</span>
+          <span class="sk" data-info="Système open-source de collecte et requête de métriques. Scrape les exporters (node, kube-state-metrics, cadvisor), stocke en time-series et évalue des règles d'alerte. Sur ATLAS : deux instances (hermes + observability/kube-prometheus-stack), dashboards Grafana, alertes CPU/MEM."><img src="assets/prometheus.svg" alt="">Prometheus · Loki</span>
+          <span class="sk" data-info="Dashboards de visualisation pour métriques et logs. Intégration Prometheus native, alerting, templating. Sur ATLAS : authentification SSO via Zitadel OIDC, dashboards custom pour CPU/RAM/réseau par namespace, intégration Grafana dans le portail via iframe."><img src="assets/grafana.svg" alt="">Grafana</span>
+          <span class="sk" data-info="OS de référence pour les serveurs. Administration Rocky Linux 10 (RHEL-like) sur OVH — systemd, firewalld, fail2ban, sysctl hardening, SSH sécurisé (clé ED25519, AllowUsers, MaxAuthTries). Manipulation shell avancée, pipelines, scripting Bash."><img src="assets/linux.svg" alt="">Linux · Admin Sys</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-name">Sécurité &amp; IAM <span class="count">4</span></div>
+        <div class="skill-group-name">Sécurité &amp; IAM <span class="count">7</span></div>
         <div class="skill-group-list">
-          <span class="sk" data-info="Serveur d'identité open-source. OIDC, OAuth2, MFA, organisations, JWT. Le cœur de l'authentification d'ATLAS."><img src="assets/zitadel.svg" alt="">Zitadel · OIDC</span>
-          <span class="sk" data-info="BDD de permissions inspirée de Google Zanzibar. Modèle ReBAC — les droits sont dérivables d'un graphe de relations entre utilisateurs et ressources."><img src="assets/spicedb.svg" alt="">SpiceDB · ReBAC</span>
-          <span class="sk" data-info="Open Policy Agent. Règles d'autorisation en Rego. Modèle ABAC — les décisions dépendent du contexte (heure, IP, attributs)."><img src="assets/opa.svg" alt="">OPA · ABAC</span>
-          <span class="sk" data-info="JWT : jetons signés transportant une identité. MFA : authentification multi-facteurs. PKCE : protection des flows OAuth sur clients publics.">JWT · MFA · PKCE</span>
+          <span class="sk" data-info="Serveur d'identité open-source (CNCF). Implémente OIDC et OAuth2 complets : login, MFA, organisations, groupes, grants, gestion des sessions. Sur ATLAS : point d'entrée unique pour tous les utilisateurs, SSO étendu à GitLab, ArgoCD et Grafana. Les tokens JWT signés par Zitadel sont validés par le backend Go à chaque requête."><img src="assets/zitadel.svg" alt="">Zitadel · OIDC</span>
+          <span class="sk" data-info="Base de données de permissions inspirée de Google Zanzibar. Modèle ReBAC (Relation-Based Access Control) — les droits se dérivent d'un graphe de relations : appartenance à un groupe, propriété d'une ressource, héritage d'un rôle. Sur ATLAS : chaque endpoint backend vérifie les permissions via gRPC avant de servir la réponse."><img src="assets/spicedb.svg" alt="">SpiceDB · ReBAC</span>
+          <span class="sk" data-info="Open Policy Agent. Évaluation de politiques d'autorisation en Rego. Modèle PBAC (Policy-Based Access Control) — les décisions intègrent le contexte complet : rôle, statut de la ressource, heure, IP. Complémentaire à SpiceDB : OPA répond aux questions de politique, SpiceDB aux questions de relation."><img src="assets/opa.svg" alt="">OPA · PBAC</span>
+          <span class="sk" data-info="Gestionnaire de secrets et PKI. Vault (OpenBao sur ATLAS) stocke les credentials des bases de données, les tokens de service et les clés de chiffrement. L'injection se fait via Vault Agent en sidecar : les secrets ne transitent jamais par les manifests Kubernetes ni par les variables d'environnement visibles.">Vault · Secrets</span>
+          <span class="sk" data-info="SPIRE est le composant runtime de SPIFFE, standard CNCF pour l'identité des workloads. Sur ATLAS, SPIRE délivre des SVIDs (identités cryptographiques x.509) aux pods — chaque service prouve son identité sans secret statique. Utilisé pour la fédération mTLS entre Nautobot et les services hermes.">SPIRE · SPIFFE</span>
+          <span class="sk" data-info="Hardening système Linux : firewalld (zone DROP, seuls SSH/80/443 ouverts), fail2ban (ban 48h après 3 tentatives SSH échouées), sysctl anti-spoofing/SYN-flood, SSH durci (AllowUsers, PermitRootLogin no, MaxAuthTries 3, clé ED25519 uniquement). NetworkPolicies Kubernetes Zero Trust sur tous les namespaces.">Hardening · Firewall</span>
+          <span class="sk" data-info="JWT : jetons signés (RS256) transportant identité et claims. PKCE : protection des flows OAuth2 sur clients publics (SPA, mobile) — code_verifier/code_challenge empêche l'interception du code d'autorisation. MFA : TOTP second facteur via Zitadel.">JWT · MFA · PKCE</span>
         </div>
       </div>
 
       <div class="skill-group">
         <div class="skill-group-name">Données <span class="count">8</span></div>
         <div class="skill-group-list">
-          <span class="sk" data-info="BDD relationnelle robuste et performante. JSONB, extensions, types avancés. Mon SGBD de référence."><img src="assets/postgresql.svg" alt="">PostgreSQL</span>
-          <span class="sk" data-info="BDD relationnelle classique, très répandue dans l'écosystème LAMP. Utilisée sur ma SAÉ F1."><img src="assets/mysql.svg" alt="">MySQL</span>
-          <span class="sk" data-info="Store en mémoire ultra-rapide. Cache, time-series, pub/sub, sessions. Utilisé pour l'observabilité d'ATLAS."><img src="assets/redis.svg" alt="">Redis</span>
-          <span class="sk" data-info="BDD graphe distribuée avec GraphQL natif et DQL. Modélise des entités hospitalières complexes sur ATLAS."><img src="assets/dgraph.svg" alt="">Dgraph</span>
-          <span class="sk" data-info="Iceberg : format de table analytique versionné. Nessie : catalogue Git-like pour Iceberg. Trino : moteur SQL distribué. C'est la DataHouse d'ATLAS.">Iceberg · Nessie · Trino</span>
-          <span class="sk" data-info="DuckDB : BDD analytique embarquée ultra-rapide en local. SeaweedFS : stockage objet S3-compatible distribué.">DuckDB · SeaweedFS</span>
-          <span class="sk" data-info="Calcul scientifique Python. Arrays N-dimensionnels, opérations vectorisées, traitement de signaux événementiels. Utilisé pour les pipelines BA et S-curve de DVSgo."><img src="assets/python.svg" alt="">NumPy</span>
-          <span class="sk" data-info="Bibliothèque de visualisation scientifique Python. Graphes publication-quality, heatmaps, courbes comparatives. Utilisé pour les analyses DVSgo."><img src="assets/python.svg" alt="">Matplotlib</span>
+          <span class="sk" data-info="BDD relationnelle robuste, extensible et performante. JSONB, tableaux, types avancés, extensions (pgcrypto, uuid-ossp). 3 instances sur ATLAS (backend, Zitadel, SpiceDB) avec PVC local-path Kubernetes. SGBD de référence pour Linoedesign (sessions, produits, commandes, migrations)."><img src="assets/postgresql.svg" alt="">PostgreSQL</span>
+          <span class="sk" data-info="BDD relationnelle open-source. Très répandue dans l'écosystème LAMP. Pratiquée sur la SAÉ F1 (résultats, classements, utilisateurs) et comme moteur sous-jacent de MariaDB (iTOP ITSM sur ATLAS)."><img src="assets/mysql.svg" alt="">MySQL</span>
+          <span class="sk" data-info="Store clé-valeur en mémoire. Cache distribué, sessions, pub/sub, time-series (Redis TimeSeries), queues. Sur ATLAS : présence utilisateurs (heartbeat TTL 5min), métriques 7j CPU/MEM/réseau, historique alertes, queues Celery pour Nautobot. Ultra-rapide — opérations en sub-milliseconde."><img src="assets/redis.svg" alt="">Redis</span>
+          <span class="sk" data-info="BDD graphe distribuée avec double interface : GraphQL natif + DQL (Dgraph Query Language). Modélise des relations complexes difficiles à exprimer en relationnel. Sur ATLAS : entités hospitalières (Personne, Emploi, Unité, Diplôme, Run NGS, Document) avec jointures traversant le graphe en une requête."><img src="assets/dgraph.svg" alt="">Dgraph</span>
+          <span class="sk" data-info="Stack analytique DataHouse d'ATLAS. Apache Iceberg : format de table ACID versionné, time-travel queries, partition evolution. Nessie : catalogue Git-like pour Iceberg (branches, commits, merges sur les données). Trino : moteur SQL distribué pour requêtes sur tables Gold. Les données NGS suivent le pipeline Bronze (FASTQ bruts) → Silver (variants annotés) → Gold (prêt IA).">Iceberg · Nessie · Trino</span>
+          <span class="sk" data-info="DuckDB : moteur analytique embarqué (pas de serveur) capable de lire Parquet/CSV/JSON directement. Utilisé pour l'ETL DataHouse ATLAS (transformations Bronze→Gold). SeaweedFS : système de fichiers distribué S3-compatible — remplace MinIO, optimisé pour les petits fichiers et les volumes massifs.">DuckDB · SeaweedFS</span>
+          <span class="sk" data-info="Bibliothèque de calcul scientifique Python. Arrays N-dimensionnels, opérations vectorisées (SIMD), broadcasting. Zéro boucle Python — opérations en C optimisé. Utilisé pour le traitement des signaux événementiels (heatmaps BA, courbes S) dans DVSgo et les pipelines de données de SmartFace."><img src="assets/python.svg" alt="">NumPy</span>
+          <span class="sk" data-info="Bibliothèque de visualisation scientifique Python. Graphes pub-quality, heatmaps par pixel, courbes comparatives multi-sessions, histogrammes. Utilisé pour les sorties d'analyse BA et S-curve de DVSgo — exports PNG et affichage inline dans Dear PyGui."><img src="assets/python.svg" alt="">Matplotlib</span>
         </div>
       </div>
 
       <div class="skill-group">
         <div class="skill-group-name">Instrumentation &amp; temps réel <span class="count">2</span></div>
         <div class="skill-group-list">
-          <span class="sk" data-info="PyVISA pilote les instruments de mesure via GPIB (IEEE-488). SCPI est le protocole de commandes standardisé. Utilisé pour contrôler le générateur de fonctions Yokogawa FG200 dans DVSgo."><img src="assets/python.svg" alt="">PyVISA · GPIB · SCPI</span>
-          <span class="sk" data-info="SDK Prophesee pour caméras à événements (Dynamic Vision Sensor). Les capteurs DVS émettent un événement par pixel dès qu'une variation de luminosité est détectée — latence microseconde, zéro flou de mouvement. Intégration des SDK Metavision 5.x (EVK4) et 3.1.2 (Gen3.1) dans DVSgo."><img src="assets/python.svg" alt="">Metavision SDK · DVS</span>
+          <span class="sk" data-info="PyVISA : bibliothèque Python qui abstrait la communication avec les instruments de mesure (GPIB, USB, Ethernet). GPIB (IEEE-488) : bus parallèle spécialisé instruments, protocole parle/écoute. SCPI : langage de commandes standardisé (« FREQ 1e3 Hz », « OUTP ON »). Sur DVSgo : pilotage complet du GBF Yokogawa FG200/FG220 — formes d'onde, mode DC, synchronisation LED Thorlabs."><img src="assets/python.svg" alt="">PyVISA · GPIB · SCPI</span>
+          <span class="sk" data-info="Caméras à événements (Dynamic Vision Sensors) Prophesee. Contrairement aux caméras classiques, chaque pixel émet un événement (x, y, t, polarité) uniquement quand sa luminosité change — latence microseconde, HDR 120dB, zéro flou de mouvement, 95% moins de données inutiles. SDK Metavision 5.x (EVK4/IMX636 1280×720) et 3.1.2 (Gen3.1 640×480) coexistants dans DVSgo, pipelines BA et S-curve complets."><img src="assets/python.svg" alt="">Metavision SDK · DVS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Versioning &amp; Méthodes <span class="count">3</span></div>
+        <div class="skill-group-list">
+          <span class="sk" data-info="Système de versioning distribué. Branches, rebases, merges, tags sémantiques. Workflow GitFlow (feature/fix/release), revues de code via MRs GitLab. Sur ATLAS : multi-remote (GitLab source de vérité + mirror GitHub), déploiements déclenchés par commit (ArgoCD watch)."><img src="assets/git.svg" alt="">Git · GitFlow</span>
+          <span class="sk" data-info="GitLab self-hosted (CE v18.11) comme forge de code principale. Issues, MRs, branches protégées, registry Docker intégrée. Pipeline CI/CD à construire (gitlab-ci.yml). Source de vérité pour ArgoCD — chaque commit main déclenche un sync du cluster.">GitLab · CI/CD</span>
+          <span class="sk" data-info="Méthode de travail itérative et collaborative. Sprints, backlog priorisé, rétrospectives. Pratiquée en alternance et en BUT — découpage de tâches complexes en incréments livrables, communication continue avec le métier.">Agile · Scrum</span>
         </div>
       </div>
 

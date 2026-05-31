@@ -61,7 +61,8 @@
     margin-right: 8px;
   }
   .proj-cat.academique { color: var(--accent); border-color: rgba(197,57,26,.3); background: rgba(197,57,26,.06); }
-  .proj-cat.personnel { color: var(--ink); background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .proj-cat.personnel { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .proj-cat.professionnel { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
   /* hide filtered out */
   .proj-item.is-hidden { display: none; }
@@ -216,12 +217,147 @@
 
       <!-- Filter tabs -->
       <div class="proj-filter" role="tablist">
-        <button type="button" data-filter="all" class="is-on">Tous <span class="count" id="count-all">5</span></button>
+        <button type="button" data-filter="all" class="is-on">Tous <span class="count" id="count-all">6</span></button>
+        <button type="button" data-filter="professionnel">Pro &amp; Alternance <span class="count" id="count-professionnel">3</span></button>
         <button type="button" data-filter="academique">Académiques <span class="count" id="count-academique">3</span></button>
-        <button type="button" data-filter="personnel">Personnels <span class="count" id="count-personnel">2</span></button>
       </div>
 
       <div class="proj-acc">
+
+        <!-- ====== 00 — ATLAS (Alternance AP-HP) ====== -->
+        <article class="proj-item" id="atlas" data-cat="professionnel">
+          <button class="proj-summary" type="button" aria-expanded="false">
+            <div class="proj-num">00</div>
+            <div class="proj-main">
+              <div class="proj-meta">
+                <span class="proj-cat personnel">Alternance AP-HP</span>
+                <span class="accent">Projet pro · 2025–2026</span>
+                <span>Cloud-Native · Génomique · IAM · K8s</span>
+              </div>
+              <h2 class="proj-title">ATLAS <span class="it">— GenoBioMICS.</span></h2>
+              <p class="proj-lead">Plateforme hospitalière cloud-native pour la génomique clinique à l'AP-HP Henri Mondor — middleware microservices Go/React déployé sur Kubernetes, IAM Zero Trust (Zitadel + SpiceDB + OPA), DataHouse analytique Iceberg/Trino pour les pipelines ADN, et infrastructure GitOps ArgoCD sur OVH.</p>
+            </div>
+            <span class="proj-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="proj-body"><div class="proj-body-inner"><div class="proj-detail">
+
+            <div style="padding: 18px 24px; border: 1px solid var(--rule); background: var(--paper); margin-bottom: 28px;">
+              <p style="margin: 0; font-family: var(--serif); font-style: italic; font-size: 17px; line-height: 1.55; color: var(--ink-soft);">
+                <span class="accent" style="font-weight: 600;">Contexte —</span> ATLAS (Assistance Temps-réel aux Laboratoires et Activités de Séquençage) est la plateforme de la division de biologie médicale de l'AP-HP Henri Mondor, projet <strong>GenoBioMICS</strong> (accrédité COFRAC 15189 et 17025). Elle gère le cycle NGS complet : dépôt des prélèvements → pipeline séquençage → rapport clinique, avec traçabilité réglementaire exhaustive. Je suis le seul développeur de la stack applicative.
+              </p>
+            </div>
+
+            <div class="tile-grid cols-2" style="margin-bottom: 28px;">
+              <article class="tile">
+                <div class="tile-num">A — Backend Go (BFF)</div>
+                <h3>Architecture <span class="it">microservices</span></h3>
+                <ul>
+                  <li><strong>Pattern BFF</strong> (Backend-For-Frontend) en Go — point d'entrée unique : auth OIDC, sessions HTTPOnly, permissions, orchestration</li>
+                  <li><strong>OIDC + PKCE</strong> avec Zitadel — échange code→tokens, validation JWT à chaque requête, refresh transparent</li>
+                  <li><strong>ReBAC via SpiceDB</strong> (gRPC) — droits dérivés du graphe de relations (groupes, propriétés, rôles)</li>
+                  <li><strong>PBAC via OPA</strong> — politiques Rego contextuelles (statut ressource, rôle, heure)</li>
+                  <li>Observabilité Redis — présence (heartbeat TTL 5min), métriques 7j, alertes seuils CPU/MEM/NET</li>
+                  <li>Pipeline pré-inscription : formulaire multi-étapes → upload SeaweedFS → validation admin → création compte Zitadel → activation</li>
+                </ul>
+              </article>
+              <article class="tile">
+                <div class="tile-num">B — Frontend React/TypeScript</div>
+                <h3>SPA <span class="it">30+ pages</span></h3>
+                <ul>
+                  <li><strong>React 19 + Vite 7 + TypeScript</strong> — SPA avec React Router v7, TanStack Query v5 (cache serveur)</li>
+                  <li>Portail utilisateur : habilitations, stock réactifs, demandes d'analyse, lots de séquençage, prescripteurs, parc machines</li>
+                  <li>Dashboard admin temps réel : observabilité (CPU/MEM/réseau), sessions actives, gestion utilisateurs, matrice permissions</li>
+                  <li>Visualisation graphe applicatif via <strong>@xyflow/react</strong> — carte des 30+ services et leurs dépendances</li>
+                  <li>Module PDF Vanesa : extraction LLM de documents cliniques, stockage PostgreSQL + SeaweedFS</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="tile-grid cols-2" style="margin-bottom: 28px;">
+              <article class="tile">
+                <div class="tile-num">C — Infrastructure Kubernetes</div>
+                <h3>Production <span class="it">OVH</span></h3>
+                <ul>
+                  <li><strong>Kubernetes v1.31</strong> sur Rocky Linux 10 OVH — single-node control-plane, ~70 pods en prod</li>
+                  <li><strong>ArgoCD GitOps</strong> — 14 applications, sync automatique depuis GitLab à chaque commit main</li>
+                  <li><strong>Helm</strong> (GitLab CE, kube-prometheus-stack, cert-manager, ingress-nginx, Nautobot) + <strong>Kustomize</strong> (hermes, gitops)</li>
+                  <li><strong>cert-manager + Let's Encrypt</strong> — TLS auto sur *.atlasaphp.duckdns.org</li>
+                  <li><strong>Vault / OpenBao</strong> — injection secrets via agent sidecar, authentification ServiceAccount K8s</li>
+                  <li><strong>NetworkPolicies Zero Trust</strong> — default-deny sur tous les namespaces, ouvertures explicites par service</li>
+                </ul>
+              </article>
+              <article class="tile">
+                <div class="tile-num">D — DataHouse &amp; Services</div>
+                <h3>Données <span class="it">génomiques</span></h3>
+                <ul>
+                  <li><strong>Dgraph v25</strong> — graphe métier hospitalier (Personne, Emploi, Unité, Run NGS, Documents)</li>
+                  <li><strong>Iceberg + Nessie + Trino</strong> — DataHouse à 3 couches : Bronze (FASTQ bruts) → Silver (variants annotés) → Gold (prêt IA)</li>
+                  <li><strong>DuckDB</strong> — ETL Bronze→Gold (Python), transformations locales ultra-rapides</li>
+                  <li><strong>SeaweedFS</strong> — stockage S3-compatible (pièces jointes, artifacts NGS, tables Iceberg)</li>
+                  <li><strong>Nautobot</strong> — CMDB réseau/infra (source of truth des équipements et services)</li>
+                  <li><strong>Zitadel SSO</strong> étendu — GitLab, ArgoCD, Grafana, Nautobot authentifiés via OIDC centralisé</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="tile-grid cols-2" style="margin-bottom: 28px;">
+              <article class="tile">
+                <div class="tile-num">E — Sécurité &amp; Hardening</div>
+                <h3>Zero <span class="it">Trust</span></h3>
+                <ul>
+                  <li><strong>firewalld</strong> zone DROP — seuls SSH/80/443 ouverts vers l'extérieur</li>
+                  <li><strong>fail2ban</strong> SSH — ban 48h après 3 tentatives, intégré avec firewalld rich-rules</li>
+                  <li>SSH durci : AllowUsers rocky, PermitRootLogin no, MaxAuthTries 3, clé ED25519 uniquement</li>
+                  <li><strong>SPIRE</strong> — identités cryptographiques x.509 (SVIDs) pour les workloads K8s (mTLS inter-services)</li>
+                  <li>Protections kernel sysctl — anti-spoofing, SYN-flood, ICMP broadcast, redirections désactivées</li>
+                </ul>
+              </article>
+              <article class="tile">
+                <div class="tile-num">F — Observabilité</div>
+                <h3>Stack <span class="it">monitoring</span></h3>
+                <ul>
+                  <li><strong>kube-prometheus-stack</strong> — Prometheus + Grafana + Alertmanager, scrape complet K8s</li>
+                  <li><strong>Loki + Promtail</strong> — agrégation et recherche des logs de tous les pods</li>
+                  <li><strong>Grafana SSO</strong> — authentification Zitadel OIDC, dashboards CPU/MEM/réseau par namespace</li>
+                  <li><strong>Nautobot</strong> — ITSM et inventory (tickets, IP, VLAN, équipements)</li>
+                  <li><strong>kube-state-metrics</strong> — état des objets K8s (Deployments, PVCs, Pods) exposé à Prometheus</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="tags" style="margin-bottom: 28px;">
+              <span class="tag">Go 1.23</span>
+              <span class="tag">React 19 + TypeScript</span>
+              <span class="tag">Kubernetes v1.31</span>
+              <span class="tag">ArgoCD · GitOps</span>
+              <span class="tag">Helm · Kustomize</span>
+              <span class="tag">Zitadel · OIDC</span>
+              <span class="tag">SpiceDB · ReBAC</span>
+              <span class="tag">OPA · PBAC</span>
+              <span class="tag">Vault · OpenBao</span>
+              <span class="tag">Dgraph v25</span>
+              <span class="tag">Iceberg · Nessie · Trino</span>
+              <span class="tag">SeaweedFS</span>
+              <span class="tag">Prometheus · Grafana · Loki</span>
+              <span class="tag">GitLab CE</span>
+              <span class="tag">cert-manager · Let's Encrypt</span>
+              <span class="tag">SPIRE · SPIFFE</span>
+              <span class="tag">fail2ban · firewalld</span>
+              <span class="tag">Redis · PostgreSQL</span>
+            </div>
+
+            <table class="kv">
+              <tbody>
+                <tr><th>Contexte</th><td>Alternance AP-HP Henri Mondor 2025–2026 — seul développeur de la stack applicative. Projet en production sur OVH.</td></tr>
+                <tr><th>Objectif</th><td>Remplacer un script monolithique Python/Django par une plateforme microservices cloud-native pour la génomique clinique (séquençage ADN, NGS, COFRAC 15189/17025).</td></tr>
+                <tr><th>Architecture</th><td>React SPA → Go BFF → {Dgraph, SpiceDB, OPA, Zitadel, SeaweedFS, Redis, PostgreSQL} · Kubernetes OVH · ArgoCD GitOps · GitLab source de vérité.</td></tr>
+                <tr><th>Infra</th><td>Single-node K8s Rocky Linux 10 OVH · ~70 pods · 14 namespaces · 25+ PVCs · firewalld + fail2ban + NetworkPolicies Zero Trust.</td></tr>
+                <tr><th>Roadmap</th><td>IA clinique sur tables Gold DataHouse · surveillance épidémique variants · Argo Workflows pour pipelines NGS HPC · GitLab CI images Docker.</td></tr>
+              </tbody>
+            </table>
+
+          </div></div></div>
+        </article>
 
         <!-- ====== 01 — SMARTFACE (Académique) ====== -->
         <article class="proj-item" id="smartface" data-cat="academique">
@@ -441,7 +577,7 @@
         </article>
 
         <!-- ====== 04 — PROJET PERSO 1 (À COMPLÉTER) ====== -->
-        <article class="proj-item" id="linoedesign" data-cat="personnel">
+        <article class="proj-item" id="linoedesign" data-cat="professionnel">
           <button class="proj-summary" type="button" aria-expanded="false">
             <div class="proj-num">04</div>
             <div class="proj-main">
@@ -537,7 +673,7 @@
         </article>
 
         <!-- ====== 05 — DVSgo (Pro · Entreprise privée) ====== -->
-        <article class="proj-item" id="dvsgo" data-cat="personnel">
+        <article class="proj-item" id="dvsgo" data-cat="professionnel">
           <button class="proj-summary" type="button" aria-expanded="false">
             <div class="proj-num">05</div>
             <div class="proj-main">
@@ -716,7 +852,7 @@
   const items = document.querySelectorAll('.proj-item');
 
   // Compute & write counts
-  const counts = { all: items.length, academique: 0, personnel: 0 };
+  const counts = { all: items.length, academique: 0, personnel: 0, professionnel: 0 };
   items.forEach(it => {
     const c = it.dataset.cat;
     if (counts[c] !== undefined) counts[c]++;
@@ -724,9 +860,11 @@
   const $ca = document.getElementById('count-all');
   const $cac = document.getElementById('count-academique');
   const $cpe = document.getElementById('count-personnel');
+  const $cpro = document.getElementById('count-professionnel');
   if ($ca) $ca.textContent = counts.all;
   if ($cac) $cac.textContent = counts.academique;
   if ($cpe) $cpe.textContent = counts.personnel;
+  if ($cpro) $cpro.textContent = counts.professionnel;
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
