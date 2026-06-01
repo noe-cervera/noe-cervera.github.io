@@ -587,7 +587,7 @@
                 <span>Web · E-commerce · Full-Stack</span>
               </div>
               <h2 class="proj-title">Linoe<span class="it">design.</span></h2>
-              <p class="proj-lead">Site e-commerce complet pour un atelier de menuiserie parisien sur-mesure — configurateur 3D procédural, panier persistant, tunnel de commande, devis avec upload de fichiers, espace admin et architecture Go + Next.js + PostgreSQL conteneurisée.</p>
+              <p class="proj-lead">Site e-commerce complet pour un atelier de menuiserie parisien sur-mesure — configurateur 3D procédural, paiement Stripe, emails transactionnels, tunnel de commande, devis avec upload, pages RGPD, espace admin et architecture Go + Next.js + PostgreSQL conteneurisée.</p>
             </div>
             <span class="proj-toggle" aria-hidden="true"></span>
           </button>
@@ -625,22 +625,22 @@
                 <h3>Docker Compose + <span class="it">Nginx</span></h3>
                 <ul>
                   <li>Stack complète conteneurisée : <strong>Next.js · Go · PostgreSQL 15 · Redis 7 · Nginx 1.25</strong></li>
-                  <li><strong>Nginx</strong> — reverse proxy, rate limiting (10 req/min sur auth, 120/min global)</li>
+                  <li><strong>Nginx</strong> — reverse proxy, gzip, rate limiting (10 req/min auth, 120/min global)</li>
                   <li>Headers sécurité : <strong>CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy</strong></li>
-                  <li><strong>Redis</strong> — cache sessions, performances</li>
-                  <li>pgAdmin lié à 127.0.0.1 uniquement</li>
+                  <li><strong>Healthchecks</strong> Docker sur frontend, api et nginx</li>
+                  <li>Build production Next.js (npm ci &amp;&amp; next build &amp;&amp; next start)</li>
                 </ul>
               </article>
               <article class="tile">
                 <div class="tile-num">D — Fonctionnalités métier</div>
                 <h3>E-commerce <span class="it">complet</span></h3>
                 <ul>
-                  <li>Tunnel checkout : adresse livraison + mode (domicile / retrait atelier)</li>
+                  <li>Paiement <strong>Stripe Payment Intents</strong> — CardElement, vérification côté backend avant création commande</li>
+                  <li>Emails transactionnels via <strong>Resend</strong> (confirmation commande &amp; devis)</li>
                   <li>Suivi commandes : Confirmée → En fabrication → Expédiée → Livrée</li>
-                  <li>Factures imprimables HT/TTC, TVA 20 %, détail articles</li>
                   <li>Devis sur-mesure (mobilier, cuisine, escalier, dressing) + upload 5 fichiers max</li>
+                  <li>Pages légales RGPD : mentions légales, CGV, politique de confidentialité</li>
                   <li>Interface <strong>admin</strong> : CRUD produits, stats CA, gestion commandes/devis/utilisateurs</li>
-                  <li>Authentification complète : inscription, connexion, profil, adresses livraison/facturation</li>
                 </ul>
               </article>
             </div>
@@ -654,20 +654,27 @@
               <span class="tag">Nginx</span>
               <span class="tag">Docker Compose</span>
               <span class="tag">Three.js</span>
+              <span class="tag">Stripe</span>
+              <span class="tag">Resend</span>
               <span class="tag">chi</span>
               <span class="tag">bcrypt</span>
+              <span class="tag">slog</span>
               <span class="tag">REST API</span>
             </div>
 
             <table class="kv">
               <tbody>
-                <tr><th>Contexte</th><td>Projet personnel développé pour un atelier de menuiserie parisien sur-mesure (Linoedesign).</td></tr>
+                <tr><th>Contexte</th><td>Projet développé pour un atelier de menuiserie parisien sur-mesure (Linoedesign). Audit de production réalisé et corrections appliquées.</td></tr>
                 <tr><th>Architecture</th><td>Frontend Next.js 14 → API Routes (proxy) → Backend Go/chi → PostgreSQL + Redis · Nginx en entrée · Docker Compose.</td></tr>
-                <tr><th>Sécurité</th><td>Sessions PostgreSQL révocables, bcrypt, rate limiting Nginx, CSP, SameSite=Strict, body limit, pas d'erreurs internes exposées au client.</td></tr>
+                <tr><th>Sécurité</th><td>Sessions PostgreSQL révocables, bcrypt, Stripe PaymentIntents vérifiés côté backend, rate limiting Nginx, CSP, SameSite=Strict, body limit 512 KB, logs JSON slog.</td></tr>
                 <tr><th>3D configurateur</th><td>Géométrie Three.js entièrement procédurale — table générée à la volée selon longueur, finition et piétement. Zéro fichier modèle externe.</td></tr>
-                <tr><th>À venir</th><td>Paiement Stripe, emails transactionnels, déploiement VPS + HTTPS + Let's Encrypt.</td></tr>
+                <tr><th>À venir</th><td>Déploiement VPS + HTTPS Let's Encrypt, photos produits réelles, analytics.</td></tr>
               </tbody>
             </table>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:24px;">
+              <a class="btn btn-ghost" href="https://github.com/noe-cervera/linoedesign" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
 
           </div></div></div>
         </article>
